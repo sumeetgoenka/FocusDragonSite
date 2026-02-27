@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -29,6 +30,9 @@ export default function Home() {
             <a href="#comparison" className="hover:text-white transition-colors">
               Compare
             </a>
+            <Link href="/about" className="hover:text-white transition-colors">
+              About
+            </Link>
             <a
               href="#download"
               className="bg-[var(--accent)] text-white px-4 py-2 rounded-lg font-medium hover:bg-[var(--accent-light)] transition-colors"
