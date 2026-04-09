@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="yes"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+    <channel>
+        <title>FocusDragon Updates</title>
+        <link>https://focusdragon.vercel.app/appcast.xml</link>
+        <description>Most recent FocusDragon releases</description>
+        <language>en</language>
+        <!--
+            Each <item> below is one release. Newest at the top.
+            Scripts/release.sh injects new entries automatically — do not hand-edit
+            unless you know what you're doing.
+        -->
+        <item>
+            <title>Version 1.0</title>
+            <description><![CDATA[<p>Initial release of FocusDragon — a free, open distraction blocker for macOS.</p>]]></description>
+            <pubDate>Thu, 09 Apr 2026 12:00:00 +0000</pubDate>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://focusdragon.vercel.app/releases/FocusDragon-1.0.dmg"
+                sparkle:edSignature="5jrwIHJLT2v+ApRZdhHg7XjcbPWmgK8qav6La9Y688AXrR4ydBGcBVXaPgB+PFB6inItxk6bpq+Vc1A4qv98CQ=="
+                length="4851614"
+                type="application/octet-stream" />
+        </item>
+    </channel>
+</rss>
