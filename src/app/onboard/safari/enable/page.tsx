@@ -43,10 +43,8 @@ export default function EnableExtensionPage() {
           </Instruction>
           <Instruction number={2}>
             On the left sidebar, find{" "}
-            <span className="font-semibold">
-              FocusDragonSafariExtension Extension
-            </span>
-            . It will have an empty checkbox next to it.
+            <span className="font-semibold">FocusDragon</span>. It will have
+            an empty checkbox next to it.
           </Instruction>
           <Instruction number={3}>
             <span className="font-semibold">Click the checkbox.</span> Safari
