@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { StepIndicator } from "../_components";
 
 export const metadata: Metadata = {
-  title: "You're set up! | FocusDragon",
+  title: "🎉 You did it! | FocusDragon",
   description:
     "The FocusDragon Safari extension is fully configured and ready to block.",
 };
@@ -12,60 +12,101 @@ export default function DonePage() {
     <div className="max-w-3xl mx-auto">
       <StepIndicator current={4} />
 
+      {/* Hero — big celebration */}
       <div className="text-center mb-10">
-        <div className="inline-flex items-center gap-2 bg-[var(--accent)]/10 border border-[var(--accent)]/40 rounded-full px-4 py-2 mb-6 text-sm">
-          <span className="text-[var(--accent)]">✓ All three permissions granted</span>
+        <div
+          className="text-8xl mb-6 select-none"
+          style={{ animation: "bounce-once 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)" }}
+        >
+          🎉
         </div>
-        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
-          You&apos;re{" "}
-          <span className="gradient-text dragon-glow-text">good to go</span>
+        <div className="inline-flex items-center gap-2 bg-[var(--accent)]/15 border border-[var(--accent)]/40 rounded-full px-4 py-2 mb-6 text-sm font-medium">
+          <span className="text-[var(--accent)]">
+            ✓ All three Safari permissions configured
+          </span>
+        </div>
+        <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight mb-6">
+          You{" "}
+          <span className="gradient-text dragon-glow-text">did it</span>!
         </h1>
-        <p className="text-xl text-[var(--muted)] max-w-xl mx-auto">
-          Your Safari extension is correctly configured. Return to the
-          FocusDragon app — you can now create blocks for any website.
+        <p className="text-xl text-[var(--muted)] max-w-xl mx-auto leading-relaxed">
+          The FocusDragon Safari extension is fully set up. Distractions
+          don&apos;t stand a chance.
         </p>
       </div>
 
+      {/* The three checkmarks card */}
       <div className="feature-card dragon-glow rounded-3xl bg-[var(--card-bg)] p-8 md:p-12 mb-8">
-        <div className="grid md:grid-cols-3 gap-6 text-center">
+        <div className="grid md:grid-cols-3 gap-6">
           <Stat icon="✅" label="Extension enabled" />
           <Stat icon="🌐" label="Allowed on every website" />
           <Stat icon="🕵️" label="Active in Private Browsing" />
         </div>
       </div>
 
-      <div className="rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] p-6 mb-8">
-        <div className="flex items-start gap-3">
-          <div className="text-2xl">🐉</div>
-          <div>
-            <h3 className="font-semibold mb-1">What happens next</h3>
-            <p className="text-sm text-[var(--muted)] leading-relaxed">
+      {/* What now */}
+      <div className="rounded-2xl border border-[var(--accent)]/30 bg-[var(--card-bg)] p-8 mb-8">
+        <div className="flex items-start gap-4">
+          <div className="text-4xl">🐉</div>
+          <div className="flex-1">
+            <h3 className="font-bold text-xl mb-2">What happens next</h3>
+            <p className="text-[var(--muted)] leading-relaxed mb-4">
               Switch back to FocusDragon and create your first block. Add the
-              websites you want blocked, hit Start, and FocusDragon will
+              websites you want blocked, hit Start, and the extension will
               redirect any visit to those sites — in regular windows, in
-              private windows, on every device that syncs Safari to your Mac.
-              You can safely close this tab and the previous setup tabs.
+              private windows, even from iCloud Tabs synced from your iPhone
+              or iPad.
+            </p>
+            <p className="text-[var(--muted)] leading-relaxed">
+              You can safely close all the FocusDragon onboarding tabs.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="text-center text-sm text-[var(--muted)]">
-        Switch back to FocusDragon (
-        <span className="font-mono text-xs bg-[var(--background)] px-2 py-0.5 rounded">
-          ⌘ Tab
-        </span>
-        ) to continue.
+      {/* Big return to app callout */}
+      <div className="text-center">
+        <div className="inline-block">
+          <div
+            className="rounded-2xl bg-[var(--accent)]/10 border-2 border-[var(--accent)]/40 p-6 mb-4"
+            style={{ animation: "pulse-glow 2s ease-in-out infinite" }}
+          >
+            <div className="text-2xl font-bold mb-2">
+              👈 Return to FocusDragon
+            </div>
+            <div className="text-sm text-[var(--muted)]">
+              Press{" "}
+              <span className="font-mono text-xs bg-[var(--background)] px-2 py-0.5 rounded">
+                ⌘ Tab
+              </span>{" "}
+              or click the FocusDragon icon in the Dock
+            </div>
+          </div>
+        </div>
       </div>
+
+      <style>{`
+        @keyframes bounce-once {
+          0%   { transform: scale(0) rotate(-30deg); opacity: 0; }
+          60%  { transform: scale(1.2) rotate(10deg); opacity: 1; }
+          100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        @keyframes pulse-glow {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(255, 100, 50, 0.3); }
+          50%      { box-shadow: 0 0 30px 5px rgba(255, 100, 50, 0.15); }
+        }
+      `}</style>
     </div>
   );
 }
 
 function Stat({ icon, label }: { icon: string; label: string }) {
   return (
-    <div className="flex flex-col items-center gap-2">
-      <div className="text-3xl">{icon}</div>
-      <div className="text-sm text-[var(--muted)]">{label}</div>
+    <div className="flex flex-col items-center gap-3 p-4">
+      <div className="text-5xl">{icon}</div>
+      <div className="text-sm text-[var(--muted)] text-center font-medium">
+        {label}
+      </div>
     </div>
   );
 }
