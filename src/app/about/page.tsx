@@ -24,7 +24,7 @@ export default function About() {
             />
             <span className="font-bold text-lg">FocusDragon</span>
             <span className="text-xs text-[var(--muted)] bg-[var(--card-bg)] border border-[var(--card-border)] rounded-full px-2 py-0.5">
-              v0.0.2
+              v1.0.0
             </span>
           </Link>
           <div className="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">
@@ -251,7 +251,7 @@ export default function About() {
               className="rounded-md"
             />
             <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v0.0.2</span>
+            <span className="text-xs text-[var(--muted)]">v1.0.0</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <a
