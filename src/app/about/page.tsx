@@ -276,7 +276,7 @@ export default function About() {
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <a
-              href="https://github.com/sumeetgoenka/FocusDragon"
+              href="https://github.com/anaygoenka/FocusDragon"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"

@@ -167,7 +167,7 @@ export default function UninstallGuide() {
               </a>{" "}
               or{" "}
               <a
-                href="https://github.com/sumeetgoenka/FocusDragon/issues"
+                href="https://github.com/anaygoenka/FocusDragon/issues"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[var(--accent)] hover:underline"

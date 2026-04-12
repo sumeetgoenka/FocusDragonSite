@@ -110,7 +110,7 @@ export default function Home() {
               Download for Mac
             </a>
             <a
-              href="https://github.com/sumeetgoenka/FocusDragon"
+              href="https://github.com/anaygoenka/FocusDragon"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-white/10 hover:border-white/25 text-white font-medium text-lg px-8 py-4 rounded-xl transition-all flex items-center gap-3"
@@ -577,7 +577,7 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <a
-              href="https://github.com/sumeetgoenka/FocusDragon"
+              href="https://github.com/anaygoenka/FocusDragon"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"
