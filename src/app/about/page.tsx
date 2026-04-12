@@ -86,13 +86,13 @@ export default function About() {
                 <h2 className="text-3xl font-bold mb-1">Anay Goenka</h2>
                 <div className="flex flex-wrap gap-3 mb-5">
                   <span className="layer-badge inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium text-[var(--accent)]">
-                    <span>📍</span> Dubai, UAE
+                    Dubai, UAE
                   </span>
                   <span className="layer-badge inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium text-[var(--accent)]">
-                    <span>🏫</span> GWIS Dubai
+                    GWIS Dubai
                   </span>
                   <span className="layer-badge inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium text-[var(--accent)]">
-                    <span>🐉</span> Creator of FocusDragon
+                    Creator of FocusDragon
                   </span>
                 </div>
                 <p className="text-[var(--muted)] leading-relaxed">
@@ -119,7 +119,11 @@ export default function About() {
             {/* Chapter 1 */}
             <div className="feature-card rounded-2xl bg-[var(--card-bg)] p-8">
               <div className="flex items-start gap-4">
-                <div className="text-3xl mt-0.5">🎮</div>
+                <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex-shrink-0 flex items-center justify-center mt-0.5">
+                  <svg className="w-5 h-5 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 00.657-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z" />
+                  </svg>
+                </div>
                 <div>
                   <h3 className="font-bold text-lg mb-2">The Problem</h3>
                   <p className="text-[var(--muted)] leading-relaxed">
@@ -135,7 +139,11 @@ export default function About() {
             {/* Chapter 2 */}
             <div className="feature-card rounded-2xl bg-[var(--card-bg)] p-8">
               <div className="flex items-start gap-4">
-                <div className="text-3xl mt-0.5">💸</div>
+                <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex-shrink-0 flex items-center justify-center mt-0.5">
+                  <svg className="w-5 h-5 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                  </svg>
+                </div>
                 <div>
                   <h3 className="font-bold text-lg mb-2">The Constraint</h3>
                   <p className="text-[var(--muted)] leading-relaxed">
@@ -152,7 +160,11 @@ export default function About() {
             {/* Chapter 3 */}
             <div className="feature-card rounded-2xl bg-[var(--card-bg)] p-8">
               <div className="flex items-start gap-4">
-                <div className="text-3xl mt-0.5">🔨</div>
+                <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex-shrink-0 flex items-center justify-center mt-0.5">
+                  <svg className="w-5 h-5 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z" />
+                  </svg>
+                </div>
                 <div>
                   <h3 className="font-bold text-lg mb-2">Building the Solution</h3>
                   <p className="text-[var(--muted)] leading-relaxed">
@@ -170,7 +182,11 @@ export default function About() {
             {/* Chapter 4 */}
             <div className="feature-card rounded-2xl bg-[var(--card-bg)] p-8 border-[var(--accent)]/30">
               <div className="flex items-start gap-4">
-                <div className="text-3xl mt-0.5">✅</div>
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex-shrink-0 flex items-center justify-center mt-0.5">
+                  <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
                 <div>
                   <h3 className="font-bold text-lg mb-2">It Worked</h3>
                   <p className="text-[var(--muted)] leading-relaxed">
@@ -265,7 +281,7 @@ export default function About() {
             <span>·</span>
             <span>MIT License</span>
             <span>·</span>
-            <span>Made with 🐉 for focused humans</span>
+            <span>Made for focused humans</span>
           </div>
         </div>
       </footer>
