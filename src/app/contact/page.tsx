@@ -66,6 +66,7 @@ export default function Contact() {
             </span>
           </Link>
           <div className="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <Link href="/#features" className="hover:text-white transition-colors">Features</Link>
             <Link href="/#how-it-works" className="hover:text-white transition-colors">How It Works</Link>
             <Link href="/#comparison" className="hover:text-white transition-colors">Compare</Link>

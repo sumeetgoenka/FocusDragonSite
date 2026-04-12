@@ -28,6 +28,9 @@ export default function About() {
             </span>
           </Link>
           <div className="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">
+            <Link href="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
             <Link href="/#features" className="hover:text-white transition-colors">
               Features
             </Link>

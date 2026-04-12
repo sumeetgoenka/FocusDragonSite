@@ -38,6 +38,9 @@ export default function Home() {
             </span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">
+            <Link href="/" className="text-white font-medium transition-colors">
+              Home
+            </Link>
             <a href="#features" className="hover:text-white transition-colors">
               Features
             </a>
