@@ -43,6 +43,9 @@ export default function About() {
             <Link href="/faqs" className="hover:text-white transition-colors">
               FAQs
             </Link>
+            <Link href="/contact" className="hover:text-white transition-colors">
+              Contact
+            </Link>
             <Link
               href="/#download"
               className="bg-[var(--accent)] text-white px-4 py-2 rounded-lg font-medium hover:bg-[var(--accent-light)] transition-colors"

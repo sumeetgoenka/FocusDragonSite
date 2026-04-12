@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface SiteNavProps {
-  activePath?: "home" | "about" | "faqs";
+  activePath?: "home" | "about" | "faqs" | "contact";
 }
 
 export default function SiteNav({ activePath = "home" }: SiteNavProps) {
@@ -42,6 +42,9 @@ export default function SiteNav({ activePath = "home" }: SiteNavProps) {
           </Link>
           <Link href="/faqs" className={linkClass("faqs")}>
             FAQs
+          </Link>
+          <Link href="/contact" className={linkClass("contact")}>
+            Contact
           </Link>
           <Link
             href="/#download"
