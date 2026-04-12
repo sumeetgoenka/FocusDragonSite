@@ -89,7 +89,7 @@ Reply with exactly one word: PASS or FAIL.`,
   try {
     await resend.emails.send({
       from: "FocusDragon Contact <onboarding@resend.dev>",
-      to: process.env.CONTACT_EMAIL ?? "anay@anaygoenka.com",
+      to: process.env.CONTACT_EMAIL ?? "anay.goenka@icloud.com",
       replyTo: email,
       subject,
       html,
