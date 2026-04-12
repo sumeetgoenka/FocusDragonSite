@@ -78,9 +78,14 @@ export default function About() {
         <div className="max-w-3xl mx-auto">
           <div className="feature-card dragon-glow rounded-3xl bg-[var(--card-bg)] p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-start gap-8">
-              {/* Avatar placeholder */}
-              <div className="flex-shrink-0 w-24 h-24 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-4xl font-extrabold text-white shadow-lg">
-                A
+              <div className="flex-shrink-0 w-24 h-24 rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/10">
+                <Image
+                  src="/anay.png"
+                  alt="Anay Goenka"
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="flex-1">
                 <h2 className="text-3xl font-bold mb-1">Anay Goenka</h2>
