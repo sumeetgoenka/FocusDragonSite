@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState, FormEvent } from "react";
 
 type Tab = "Feature Request" | "Bug Report";
-type Status = "idle" | "loading" | "success" | "error" | "blocked";
+type Status = "idle" | "loading" | "success" | "error" | "blocked" | "ratelimited";
 
 export default function Contact() {
   const [tab, setTab] = useState<Tab>("Feature Request");
@@ -30,7 +30,10 @@ export default function Contact() {
       const data = await res.json();
 
       if (!res.ok) {
-        if (res.status === 422) {
+        if (res.status === 429) {
+          setStatus("ratelimited");
+          setErrorMsg(data.error);
+        } else if (res.status === 422) {
           setStatus("blocked");
           setErrorMsg(data.error);
         } else {
@@ -140,13 +143,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold mb-2">Message sent</h3>
-                <p className="text-[var(--muted)] mb-6">Thanks — I&apos;ll get back to you as soon as I can.</p>
-                <button
-                  onClick={() => setStatus("idle")}
-                  className="text-[var(--accent)] text-sm hover:underline"
-                >
-                  Send another message
-                </button>
+                <p className="text-[var(--muted)]">Thanks — I&apos;ll get back to you as soon as I can.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
@@ -192,9 +189,9 @@ export default function Contact() {
                 </div>
 
                 {/* Error states */}
-                {(status === "error" || status === "blocked") && (
+                {(status === "error" || status === "blocked" || status === "ratelimited") && (
                   <div className={`flex items-start gap-3 rounded-xl p-4 text-sm ${
-                    status === "blocked"
+                    status === "blocked" || status === "ratelimited"
                       ? "bg-red-500/10 border border-red-500/20 text-red-300"
                       : "bg-yellow-500/10 border border-yellow-500/20 text-yellow-300"
                   }`}>

@@ -5,9 +5,34 @@ import { Filter } from "bad-words";
 
 const profanityFilter = new Filter();
 
+// IP rate limit: max 3 submissions per hour per IP
+const ipLog = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const window = 60 * 60 * 1000; // 1 hour
+  const limit = 3;
+  const timestamps = (ipLog.get(ip) ?? []).filter((t) => now - t < window);
+  if (timestamps.length >= limit) return true;
+  ipLog.set(ip, [...timestamps, now]);
+  return false;
+}
+
 export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+
+  const ip =
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    req.headers.get("x-real-ip") ??
+    "unknown";
+
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: "Too many messages. Please wait before sending another." },
+      { status: 429 }
+    );
+  }
 
   const { name, email, message, type } = await req.json();
 
