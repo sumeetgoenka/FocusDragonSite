@@ -62,7 +62,7 @@ export default function Contact() {
             <Image src="/icon.png" alt="FocusDragon" width={32} height={32} className="rounded-lg" />
             <span className="font-bold text-lg">FocusDragon</span>
             <span className="text-xs text-[var(--muted)] bg-[var(--card-bg)] border border-[var(--card-border)] rounded-full px-2 py-0.5">
-              v1.0.0
+              v1.1.0
             </span>
           </Link>
           <div className="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">
@@ -241,7 +241,7 @@ export default function Contact() {
           <div className="flex items-center gap-3">
             <Image src="/icon.png" alt="FocusDragon" width={24} height={24} className="rounded-md" />
             <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v1.0.0</span>
+            <span className="text-xs text-[var(--muted)]">v1.1.0</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <a href="https://github.com/anaygoenka/FocusDragon" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">

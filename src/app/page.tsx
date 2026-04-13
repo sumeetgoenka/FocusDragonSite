@@ -34,7 +34,7 @@ export default function Home() {
             />
             <span className="font-bold text-lg">FocusDragon</span>
             <span className="text-xs text-[var(--muted)] bg-[var(--card-bg)] border border-[var(--card-border)] rounded-full px-2 py-0.5">
-              v1.0.0
+              v1.1.0
             </span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">
@@ -84,7 +84,7 @@ export default function Home() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
             <span className="text-neutral-400">
-              Free &amp; open-source&nbsp;&nbsp;·&nbsp;&nbsp;v1.0.0
+              Free &amp; open-source&nbsp;&nbsp;·&nbsp;&nbsp;v1.1.0
             </span>
           </div>
 
@@ -533,7 +533,7 @@ export default function Home() {
             <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
             </svg>
-            Download FocusDragon v1.0.0
+            Download FocusDragon v1.1.0
           </a>
 
           <div className="text-sm text-[var(--muted)] space-y-1">
@@ -579,7 +579,7 @@ export default function Home() {
               className="rounded-md"
             />
             <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v1.0.0</span>
+            <span className="text-xs text-[var(--muted)]">v1.1.0</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <a
