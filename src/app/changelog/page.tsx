@@ -13,123 +13,44 @@ export const metadata: Metadata = {
 interface Release {
   version: string;
   date: string;
-  tag: "latest" | "initial" | "patch";
+  latest?: boolean;
   summary: string;
-  changes: { type: "added" | "changed" | "fixed"; text: string }[];
+  changes: string[];
 }
 
 const releases: Release[] = [
   {
     version: "1.1.0",
     date: "April 13, 2026",
-    tag: "latest",
+    latest: true,
     summary:
       "Onboarding overhaul and Safari enforcement rewrite.",
     changes: [
-      {
-        type: "added",
-        text: "New onboarding flow with step-by-step info tutorials for each permission",
-      },
-      {
-        type: "added",
-        text: "Live permission status feedback — see exactly which permissions are granted",
-      },
-      {
-        type: "changed",
-        text: "Safari extension enforcement now reads state directly from disk (Full Disk Access) instead of AppleScript/heartbeat",
-      },
-      {
-        type: "fixed",
-        text: "Settings path resolution on first launch",
-      },
+      "Step-by-step onboarding tutorials for each permission",
+      "Live permission status indicators",
+      "Safari extension state now read directly from disk via Full Disk Access",
+      "Fixed settings path resolution on first launch",
     ],
   },
   {
     version: "1.0.0",
     date: "April 11, 2026",
-    tag: "initial",
     summary:
-      "The first public release of FocusDragon — a free, unbypassable distraction blocker for macOS.",
+      "The first public release of FocusDragon.",
     changes: [
-      {
-        type: "added",
-        text: "Full UI overhaul with new design system, sidebar navigation, and native macOS styling",
-      },
-      {
-        type: "added",
-        text: "6-layer blocking: hosts file, app blocking, process monitoring, daemon enforcement, Safari extension, and tamper resistance",
-      },
-      {
-        type: "added",
-        text: "6 lock mechanisms to keep you committed during focus sessions",
-      },
-      {
-        type: "added",
-        text: "Pomodoro timer with configurable work/break intervals",
-      },
-      {
-        type: "added",
-        text: "Dashboard with focus statistics and session history",
-      },
-      {
-        type: "added",
-        text: "Block editor with emoji/color categories and inline app picker",
-      },
-      {
-        type: "added",
-        text: "Safari extension for in-browser website blocking",
-      },
-      {
-        type: "added",
-        text: "Background daemon for persistent enforcement even when the app is closed",
-      },
-      {
-        type: "added",
-        text: "Developer ID signed and Apple-notarized for Gatekeeper approval",
-      },
-      {
-        type: "added",
-        text: "Universal binary — runs natively on Apple Silicon and Intel Macs",
-      },
+      "6-layer blocking: DNS, app blocking, process monitoring, daemon, Safari extension, tamper resistance",
+      "6 lock mechanisms to keep you committed",
+      "Pomodoro timer with configurable intervals",
+      "Dashboard with focus statistics and session history",
+      "Block editor with emoji/color categories and inline app picker",
+      "Safari extension for in-browser blocking",
+      "Background daemon for enforcement when the app is closed",
+      "Developer ID signed, Apple-notarized, universal binary",
     ],
   },
 ];
 
-/* ── Badge helpers ────────────────────────────────────────── */
-
-const typeBadge = (type: "added" | "changed" | "fixed") => {
-  const styles = {
-    added:
-      "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-    changed:
-      "bg-amber-500/10 text-amber-400 border-amber-500/20",
-    fixed:
-      "bg-blue-500/10 text-blue-400 border-blue-500/20",
-  };
-  return (
-    <span
-      className={`inline-block text-[11px] font-semibold uppercase tracking-wider border rounded-full px-2.5 py-0.5 ${styles[type]}`}
-    >
-      {type}
-    </span>
-  );
-};
-
-const tagBadge = (tag: Release["tag"]) => {
-  if (tag === "latest")
-    return (
-      <span className="ml-3 text-[11px] font-semibold uppercase tracking-wider bg-[var(--accent)]/15 text-[var(--accent)] border border-[var(--accent)]/30 rounded-full px-2.5 py-0.5">
-        Latest
-      </span>
-    );
-  if (tag === "initial")
-    return (
-      <span className="ml-3 text-[11px] font-semibold uppercase tracking-wider bg-white/5 text-[var(--muted)] border border-[var(--card-border)] rounded-full px-2.5 py-0.5">
-        Initial Release
-      </span>
-    );
-  return null;
-};
+/* ── Helpers ──────────────────────────────────────────────── */
 
 /* ── Page ─────────────────────────────────────────────────── */
 
@@ -219,7 +140,11 @@ export default function Changelog() {
                     {/* Header */}
                     <div className="flex flex-wrap items-center gap-2 mb-1">
                       <h2 className="text-2xl font-bold">v{release.version}</h2>
-                      {tagBadge(release.tag)}
+                      {release.latest && (
+                        <span className="ml-2 text-[11px] font-semibold uppercase tracking-wider bg-[var(--accent)]/15 text-[var(--accent)] border border-[var(--accent)]/30 rounded-full px-2.5 py-0.5">
+                          Latest
+                        </span>
+                      )}
                     </div>
                     <p className="text-sm text-[var(--muted)] mb-4">
                       {release.date}
@@ -229,14 +154,12 @@ export default function Changelog() {
                     </p>
 
                     {/* Changes list */}
-                    <ul className="space-y-3">
+                    <ul className="space-y-2.5">
                       {release.changes.map((change, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <div className="mt-0.5 flex-shrink-0">
-                            {typeBadge(change.type)}
-                          </div>
+                          <span className="mt-2 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[var(--muted)]" />
                           <span className="text-sm text-[var(--foreground)]/80 leading-relaxed">
-                            {change.text}
+                            {change}
                           </span>
                         </li>
                       ))}
