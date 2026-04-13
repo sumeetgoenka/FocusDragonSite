@@ -43,6 +43,9 @@ export default function About() {
             <Link href="/about" className="text-white font-medium transition-colors">
               About
             </Link>
+            <Link href="/changelog" className="hover:text-white transition-colors">
+              Changelog
+            </Link>
             <Link href="/faqs" className="hover:text-white transition-colors">
               FAQs
             </Link>

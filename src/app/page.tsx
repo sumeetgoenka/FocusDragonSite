@@ -53,6 +53,9 @@ export default function Home() {
             <Link href="/about" className="hover:text-white transition-colors">
               About
             </Link>
+            <Link href="/changelog" className="hover:text-white transition-colors">
+              Changelog
+            </Link>
             <Link href="/faqs" className="hover:text-white transition-colors">
               FAQs
             </Link>

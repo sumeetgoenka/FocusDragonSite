@@ -71,6 +71,7 @@ export default function Contact() {
             <Link href="/#how-it-works" className="hover:text-white transition-colors">How It Works</Link>
             <Link href="/#comparison" className="hover:text-white transition-colors">Compare</Link>
             <Link href="/about" className="hover:text-white transition-colors">About</Link>
+            <Link href="/changelog" className="hover:text-white transition-colors">Changelog</Link>
             <Link href="/faqs" className="hover:text-white transition-colors">FAQs</Link>
             <Link href="/contact" className="text-white font-medium transition-colors">Contact</Link>
             <Link href="/#download" className="bg-[var(--accent)] text-white px-4 py-2 rounded-lg font-medium hover:bg-[var(--accent-light)] transition-colors">
