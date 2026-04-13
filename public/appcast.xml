@@ -11,6 +11,19 @@
             unless you know what you're doing.
         -->
         <item>
+            <title>Version 1.1.0</title>
+            <description><![CDATA[<p>New onboarding tutorials with permission status feedback; Safari extension enforcement now reads state from disk instead of AppleScript.</p>]]></description>
+            <pubDate>Sun, 13 Apr 2026 10:20:00 +0000</pubDate>
+            <sparkle:version>4</sparkle:version>
+            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://focusdragon.vercel.app/releases/FocusDragon-1.1.0.dmg"
+                sparkle:edSignature="s4YZUl/UsOyRcPqpa4Dk7LnAjfQ5kMQ9jJywamLYJB95nLWoOW9w9RyO56dZ31Vfd7ve/1UjmRyr7FA4WsmMBw=="
+                length="5608053"
+                type="application/octet-stream" />
+        </item>
+        <item>
             <title>Version 1.0</title>
             <description><![CDATA[<p>Initial release of FocusDragon — a free, open distraction blocker for macOS.</p>]]></description>
             <pubDate>Thu, 09 Apr 2026 12:00:00 +0000</pubDate>
