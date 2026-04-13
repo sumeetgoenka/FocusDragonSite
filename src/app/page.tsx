@@ -542,7 +542,7 @@ export default function Home() {
           <div className="text-sm text-[var(--muted)] space-y-1">
             <p>macOS 13 Ventura or later · Universal binary (Apple Silicon &amp; Intel)</p>
             <p className="text-xs">
-              DMG installer · ~15 MB · No auto-updates (yet)
+              DMG installer · ~6 MB · Auto-updates via Sparkle
             </p>
           </div>
 

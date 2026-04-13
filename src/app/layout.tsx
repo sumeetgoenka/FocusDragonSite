@@ -42,6 +42,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if("scrollRestoration" in history) history.scrollRestoration="manual";`,
+          }}
+        />
         {children}
         <Analytics />
       </body>
