@@ -12,6 +12,7 @@
     "@types/bad-words": "^3.0.3",
     "@vercel/analytics": "^1.6.1",
     "bad-words": "^4.0.0",
+    "firebase-admin": "^13.8.0",
     "groq-sdk": "^1.1.2",
     "next": "^15.1.0",
     "react": "^19.0.0",

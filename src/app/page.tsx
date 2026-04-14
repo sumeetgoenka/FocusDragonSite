@@ -530,7 +530,7 @@ export default function Home() {
           </p>
 
           <a
-            href="/FocusDragon.dmg"
+            href="/api/download"
             className="download-btn inline-flex items-center gap-3 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white font-semibold text-xl px-10 py-5 rounded-2xl transition-colors mb-6"
           >
             <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
