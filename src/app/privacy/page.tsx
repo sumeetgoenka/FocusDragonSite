@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy — FocusDragon",
   description:
-    "FocusDragon does not collect, transmit, or sell your data. Everything stays on your device.",
+    "FocusDragon never collects your blocklist, browsing history, or personal data. Crash reports are always on; anonymous usage stats are strictly opt-in.",
 };
 
 export default function Privacy() {
@@ -45,17 +45,32 @@ export default function Privacy() {
       <section className="pt-36 pb-16 px-6">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-5xl font-extrabold tracking-tight mb-4">Privacy Policy</h1>
-          <p className="text-[var(--muted)] mb-10">Last updated: April 14, 2026</p>
+          <p className="text-[var(--muted)] mb-10">Last updated: April 15, 2026</p>
 
           <div className="space-y-8 text-[var(--muted)] leading-relaxed">
             <section>
               <h2 className="text-2xl font-bold text-white mb-3">The short version</h2>
-              <p>
-                FocusDragon does not collect, store, or transmit any of your personal data.
-                The app and its browser extensions run entirely on your device. There is no
-                account, no server, no analytics, no tracking, and no third-party data
-                sharing.
+              <p className="mb-3">
+                FocusDragon never sees your blocklist, browsing history, or anything
+                you do inside your browser. There is no account, no login, and no
+                server that stores your data.
               </p>
+              <p className="mb-3">
+                Two things leave your device, and only these two:
+              </p>
+              <ul className="list-disc list-inside space-y-2">
+                <li>
+                  <strong className="text-white">Crash reports</strong> (always on) — if
+                  the app crashes, a stack trace is sent to Sentry so I can fix it.
+                  No personal data, no blocklist, no browsing info.
+                </li>
+                <li>
+                  <strong className="text-white">Anonymous usage stats</strong> (opt-in,
+                  off by default) — if you enable this in onboarding or Settings →
+                  Privacy, aggregate events like &ldquo;focus session started&rdquo; are
+                  sent to PostHog to help prioritise what to build next.
+                </li>
+              </ul>
             </section>
 
             <section>
@@ -130,12 +145,62 @@ export default function Privacy() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-white mb-3">No accounts, no servers, no analytics</h2>
+              <h2 className="text-2xl font-bold text-white mb-3">Crash reports (Sentry)</h2>
+              <p className="mb-3">
+                FocusDragon uses <a className="text-white underline" href="https://sentry.io" target="_blank" rel="noreferrer">Sentry</a> to
+                capture crashes and uncaught errors. When the app crashes, Sentry
+                records:
+              </p>
+              <ul className="list-disc list-inside space-y-2">
+                <li>The crash stack trace (function names and line numbers).</li>
+                <li>macOS version and app version.</li>
+                <li>The sequence of recent operations that led to the crash.</li>
+              </ul>
+              <p className="mt-3">
+                IP addresses are explicitly <strong className="text-white">not</strong> collected.
+                Crash data is hosted in the EU (<code>de.sentry.io</code>). This reporting is
+                always on because without it, I cannot fix bugs I don&apos;t know about — but
+                it only fires on errors, never on normal use.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold text-white mb-3">Anonymous usage stats (PostHog, opt-in)</h2>
+              <p className="mb-3">
+                If — and only if — you explicitly enable the &ldquo;Help improve
+                FocusDragon&rdquo; toggle during onboarding or in Settings → Privacy,
+                the app sends a small set of anonymous events to{" "}
+                <a className="text-white underline" href="https://posthog.com" target="_blank" rel="noreferrer">PostHog</a>{" "}
+                (EU region, <code>eu.i.posthog.com</code>). This is off by default. You can
+                turn it off at any time and nothing new will be sent.
+              </p>
+              <p className="mb-3">
+                The events collected are things like:
+              </p>
+              <ul className="list-disc list-inside space-y-2">
+                <li><code>onboarding_step_reached</code> (which onboarding step you reached)</li>
+                <li><code>onboarding_completed</code></li>
+                <li><code>focus_session_started</code> (number of blocked domains, protection level)</li>
+                <li><code>focus_session_ended</code></li>
+                <li>App open / background lifecycle events</li>
+              </ul>
+              <p className="mt-3">
+                What is <strong className="text-white">never</strong> collected, even when enabled:
+                the domains on your blocklist, the names or paths of blocked apps,
+                any URLs you visit, any content from your browser, and anything that
+                could identify you. The user identifier is a random UUID that lives
+                only on your Mac.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold text-white mb-3">No accounts, no servers</h2>
               <p>
-                FocusDragon has no login system, no backend, and no analytics SDK. The
-                website you are reading this on (focusdragon.vercel.app) is served by
-                Vercel and uses Vercel&apos;s own infrastructure logging — we do not add
-                trackers, pixels, cookies, or fingerprinting on top of it.
+                FocusDragon has no login system and no backend that stores your
+                data. The website you are reading this on (focusdragon.vercel.app)
+                is served by Vercel and uses Vercel&apos;s own infrastructure logging;
+                we do not add trackers, pixels, cookies, or fingerprinting on top
+                of it.
               </p>
             </section>
 
@@ -162,9 +227,9 @@ export default function Privacy() {
               <h2 className="text-2xl font-bold text-white mb-3">Changes to this policy</h2>
               <p>
                 If FocusDragon ever changes what data it handles, this page will be
-                updated and the &ldquo;last updated&rdquo; date above will change. If a future
-                change introduces any data collection, it will be opt-in and announced in
-                the changelog.
+                updated and the &ldquo;last updated&rdquo; date above will change. Any new data
+                collection beyond crash reports will remain opt-in and will be
+                announced in the changelog.
               </p>
             </section>
 

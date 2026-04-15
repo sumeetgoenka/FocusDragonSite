@@ -596,6 +596,8 @@ export default function Home() {
             <span>·</span>
             <span>MIT License</span>
             <span>·</span>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <span>·</span>
             <span>Made for focused humans</span>
           </div>
         </div>

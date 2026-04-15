@@ -220,16 +220,28 @@ export const faqs: Faq[] = [
     question: "Does FocusDragon collect any data?",
     category: "Getting Started",
     icon: "🛡️",
-    short: "No. Everything stays on your Mac. Zero telemetry.",
-    keywords: ["privacy", "data", "telemetry", "tracking"],
+    short: "Crash reports only. Your blocklist, URLs, and app names never leave your Mac.",
+    keywords: ["privacy", "data", "telemetry", "tracking", "sentry", "posthog"],
     answer: [
       {
         type: "paragraph",
-        text: "No. FocusDragon does not collect telemetry, analytics, or any personal data. No accounts, no cloud sync, no phone-home. Everything — your block lists, settings, statistics — lives on your Mac.",
+        text: "Your blocklist, browsing history, app names, and settings never leave your Mac. There is no account, no login, and no server that stores your data.",
       },
       {
         type: "paragraph",
-        text: "The project is open source on GitHub, so you can verify this yourself.",
+        text: "Two things are sent off-device, and only these two:",
+      },
+      {
+        type: "paragraph",
+        text: "1. Crash reports (always on): if the app crashes, a stack trace goes to Sentry (EU-hosted) so I can fix the bug. No personal data, no blocklist, no IP address.",
+      },
+      {
+        type: "paragraph",
+        text: "2. Anonymous usage stats (opt-in, off by default): if you enable 'Help improve FocusDragon' in onboarding or Settings → Privacy, events like 'focus_session_started' are sent to PostHog (EU) so I can see which features actually get used. Toggle it off anytime.",
+      },
+      {
+        type: "paragraph",
+        text: "See the full privacy policy for the exact list of events. The project is open source so you can verify everything yourself.",
       },
     ],
   },
