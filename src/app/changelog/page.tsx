@@ -219,17 +219,6 @@ export default function Changelog() {
             <span className="text-xs text-[var(--muted)]">v1.1.0</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
-            <a
-              href="https://github.com/anaygoenka/FocusDragon"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              GitHub
-            </a>
-            <span>·</span>
-            <span>MIT License</span>
-            <span>·</span>
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <span>·</span>
             <span>Made for focused humans</span>

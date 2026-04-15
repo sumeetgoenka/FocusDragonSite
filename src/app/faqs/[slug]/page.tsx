@@ -93,15 +93,6 @@ export default async function FaqDetailPage({ params }: Props) {
               className="text-[var(--accent)] hover:underline"
             >
               Email us
-            </a>{" "}
-            or{" "}
-            <a
-              href="https://github.com/anaygoenka/FocusDragon/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--accent)] hover:underline"
-            >
-              open an issue on GitHub
             </a>
             .
           </div>
