@@ -87,7 +87,7 @@ export default function Home() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
             <span className="text-neutral-400">
-              Free &amp; open-source&nbsp;&nbsp;·&nbsp;&nbsp;v1.1.0
+              Free for macOS&nbsp;&nbsp;·&nbsp;&nbsp;v1.1.0
             </span>
           </div>
 
@@ -143,7 +143,7 @@ export default function Home() {
           </div>
           <div>
             <div className="text-3xl font-bold gradient-text">100%</div>
-            <div className="text-sm text-[var(--muted)] mt-1">Open Source</div>
+            <div className="text-sm text-[var(--muted)] mt-1">Native macOS</div>
           </div>
         </div>
       </section>
@@ -189,8 +189,8 @@ export default function Home() {
               <ul className="space-y-2.5 text-[var(--muted)] text-sm">
                 <li className="flex items-center gap-2.5"><Cross /> Cost $30–100+</li>
                 <li className="flex items-center gap-2.5"><Cross /> Subscription models</li>
-                <li className="flex items-center gap-2.5"><Cross /> Closed source code</li>
-                <li className="flex items-center gap-2.5"><Cross /> Privacy concerns</li>
+                <li className="flex items-center gap-2.5"><Cross /> Easy to bypass</li>
+                <li className="flex items-center gap-2.5"><Cross /> Electron, not native</li>
               </ul>
             </div>
             {/* macOS Parental Controls */}
@@ -401,12 +401,12 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
                   </svg>
                 </div>
-                Free &amp; Open Source
+                Free Forever
               </h3>
               <p className="text-[var(--muted)] leading-relaxed">
-                No subscriptions. No paywalls. No data collection. No telemetry.
-                MIT licensed. Everyone deserves powerful productivity tools — you
-                can audit every line of code.
+                No subscriptions. No paywalls. No accounts. No upsells.
+                Everyone deserves powerful productivity tools — FocusDragon is
+                free for every Mac, with no strings attached.
               </p>
             </div>
           </div>
@@ -437,7 +437,6 @@ export default function Home() {
               <tbody>
                 {([
                   ["Price",            "Free",    "$39",     "$40/yr",  "Free"],
-                  ["Open Source",      "check",   "cross",   "cross",   "partial"],
                   ["Block Websites",   "check",   "check",   "check",   "check"],
                   ["Block Apps",       "check",   "check",   "check",   "cross"],
                   ["System-Level",     "check",   "check",   "check",   "cross"],

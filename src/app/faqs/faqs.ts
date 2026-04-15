@@ -34,12 +34,12 @@ export const faqs: Faq[] = [
     question: "What is FocusDragon?",
     category: "Getting Started",
     icon: "🐉",
-    short: "A free, open-source macOS blocker for sites and apps.",
+    short: "A free native macOS blocker for sites and apps.",
     keywords: ["about", "overview", "product"],
     answer: [
       {
         type: "paragraph",
-        text: "FocusDragon is a free, open-source distraction blocker for macOS. It blocks websites and applications using six layers of protection so you can actually get work done.",
+        text: "FocusDragon is a free distraction blocker for macOS. It blocks websites and applications using six layers of protection so you can actually get work done.",
       },
       {
         type: "heading",
@@ -67,11 +67,11 @@ export const faqs: Faq[] = [
     answer: [
       {
         type: "paragraph",
-        text: "Yes. FocusDragon is 100% free and open source. There is no paid tier, no free trial that converts, and no account required.",
+        text: "Yes. FocusDragon is 100% free. There is no paid tier, no free trial that converts, and no account required.",
       },
       {
         type: "paragraph",
-        text: "If you want to support the project, star us on GitHub or share it with a friend who needs to touch grass.",
+        text: "If you want to support the project, share it with a friend who needs to touch grass.",
       },
     ],
   },
@@ -241,7 +241,7 @@ export const faqs: Faq[] = [
       },
       {
         type: "paragraph",
-        text: "See the full privacy policy for the exact list of events. The project is open source so you can verify everything yourself.",
+        text: "See the full privacy policy for the exact list of events.",
       },
     ],
   },

@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "FocusDragon — The Toughest Free Website & App Blocker for Mac",
   description:
-    "FocusDragon is a free, open-source macOS app that blocks distracting websites and applications using 6 layers of protection. DNS-level blocking, process monitoring, background daemon, browser extensions, lock mechanisms, and anti-tamper — all for free.",
+    "FocusDragon is a free macOS app that blocks distracting websites and applications using 6 layers of protection. DNS-level blocking, process monitoring, background daemon, browser extensions, lock mechanisms, and anti-tamper — all for free.",
   keywords: [
     "website blocker",
     "app blocker",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "focus",
     "productivity",
     "free",
-    "open source",
+    "native macos",
     "distraction blocker",
     "cold turkey alternative",
     "freedom alternative",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "FocusDragon — The Toughest Free Website & App Blocker for Mac",
     description:
-      "6 layers of distraction blocking. Free & open source. Built natively for macOS.",
+      "6 layers of distraction blocking. Free forever. Built natively for macOS.",
     type: "website",
     url: "https://focusdragon.app",
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FocusDragon — The Toughest Free Website & App Blocker for Mac",
     description:
-      "6 layers of distraction blocking. Free & open source. Built natively for macOS.",
+      "6 layers of distraction blocking. Free forever. Built natively for macOS.",
   },
 };
 

@@ -69,7 +69,7 @@ export default function ExtensionSetup() {
           <p className="text-lg text-[var(--muted)]">
             The extension is installed — nice. A few small toggles and it'll enforce
             every block you set in the Mac app, in every Chrome window (including
-            incognito). No accounts, no telemetry, no data leaves your Mac.
+            incognito). No accounts, no browsing data leaves your Mac.
           </p>
         </div>
 
