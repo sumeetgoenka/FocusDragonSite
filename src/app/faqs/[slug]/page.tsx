@@ -34,12 +34,14 @@ export default async function FaqDetailPage({ params }: Props) {
     <div className="min-h-screen bg-grid">
       <SiteNav activePath="faqs" />
 
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-3xl mx-auto">
+      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+        <div className="hero-glow" aria-hidden="true" />
+
+        <div className="relative max-w-3xl mx-auto">
           {/* Back link */}
           <Link
             href="/faqs"
-            className="inline-flex items-center gap-2 text-sm text-[var(--muted)] hover:text-white transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-sm text-[var(--muted)] hover:text-white transition-colors mb-10"
           >
             <svg
               className="w-4 h-4"
@@ -58,42 +60,40 @@ export default async function FaqDetailPage({ params }: Props) {
           </Link>
 
           {/* Header */}
-          <div className="flex items-start gap-5 mb-8">
-            <div className="text-6xl">{faq.icon}</div>
-            <div className="flex-1">
-              <div className="text-xs uppercase tracking-wider text-[var(--muted)] mb-2">
-                {faq.category}
-              </div>
-              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
-                {faq.question}
-              </h1>
+          <div className="mb-10">
+            <div className="text-6xl mb-5">{faq.icon}</div>
+            <div className="text-xs uppercase tracking-wider text-[var(--accent)] font-medium mb-3">
+              {faq.category}
             </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
+              {faq.question}
+            </h1>
           </div>
 
           {/* Body */}
           {isUninstall ? (
             <UninstallGuide />
           ) : faq.answer && faq.answer.length > 0 ? (
-            <article className="feature-card rounded-2xl bg-[var(--card-bg)] p-8 md:p-10 space-y-5">
+            <article className="rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-8 md:p-10 space-y-5">
               {faq.answer.map((block, i) => (
                 <AnswerBlock key={i} block={block} />
               ))}
             </article>
           ) : (
-            <div className="feature-card rounded-2xl bg-[var(--card-bg)] p-8 text-[var(--muted)]">
+            <div className="rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-8 text-[var(--muted)]">
               This FAQ is coming soon.
             </div>
           )}
 
           {/* Still need help */}
-          <div className="mt-10 text-center text-sm text-[var(--muted)]">
+          <div className="mt-12 text-center text-sm text-neutral-500">
             Still stuck?{" "}
-            <a
-              href="mailto:hello@focusdragon.app"
+            <Link
+              href="/contact"
               className="text-[var(--accent)] hover:underline"
             >
-              Email us
-            </a>
+              Send me a message
+            </Link>
             .
           </div>
         </div>

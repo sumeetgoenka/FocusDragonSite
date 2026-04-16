@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import SiteNav from "../components/SiteNav";
 import { faqs, faqCategories } from "./faqs";
@@ -15,17 +16,26 @@ export default function FaqsPage() {
       <SiteNav activePath="faqs" />
 
       {/* Hero */}
-      <section className="pt-36 pb-14 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-full px-4 py-2 mb-8 text-sm">
-            <span className="text-[var(--muted)]">Help & answers</span>
-          </div>
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
-            Frequently Asked{" "}
-            <span className="gradient-text dragon-glow-text">Questions</span>
+      <section className="relative pt-36 pb-16 px-6 overflow-hidden">
+        <div className="hero-glow" aria-hidden="true" />
+
+        <div className="relative max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl sm:text-7xl md:text-[5.5rem] md:leading-[1.05] font-black tracking-tight mb-6">
+            Before you try to
+            <br />
+            <span className="gradient-text dragon-glow-text">
+              outsmart it.
+            </span>
           </h1>
-          <p className="text-xl text-[var(--muted)] max-w-xl mx-auto leading-relaxed">
-            Can&apos;t find what you&apos;re looking for? Reach out and we&apos;ll help.
+          <p className="text-xl text-neutral-400 max-w-xl mx-auto leading-relaxed mb-4">
+            Setup, permissions, troubleshooting, and the nuclear option.
+          </p>
+          <p className="text-sm text-neutral-500">
+            Can&apos;t find your answer?{" "}
+            <Link href="/contact" className="text-[var(--accent)] hover:underline">
+              Reach out
+            </Link>{" "}
+            — I read every message.
           </p>
         </div>
       </section>

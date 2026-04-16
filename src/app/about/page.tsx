@@ -55,7 +55,7 @@ export default function About() {
               Solo developer
             </span>
             <span className="layer-badge inline-flex items-center rounded-full px-3.5 py-1.5 text-xs font-medium text-[var(--accent)]">
-              Built FocusDragon at 16
+              Built FocusDragon at 14
             </span>
           </div>
         </div>
