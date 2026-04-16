@@ -2,23 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteNav from "./components/SiteNav";
 
-/* ── tiny SVG icon helpers ─────────────────────────────────── */
-const Check = () => (
-  <svg className="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-  </svg>
-);
-const Cross = () => (
-  <svg className="w-4 h-4 text-red-400/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-  </svg>
-);
-const Minus = () => (
-  <svg className="w-4 h-4 text-[var(--muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
-  </svg>
-);
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-grid">
@@ -28,12 +11,10 @@ export default function Home() {
           HERO
          ══════════════════════════════════════════════════════ */}
       <section className="relative pt-36 pb-28 px-6 overflow-hidden">
-        {/* Radial glow behind the heading */}
         <div className="hero-glow" aria-hidden="true" />
         <div className="hero-glow-secondary" aria-hidden="true" />
 
         <div className="relative max-w-5xl mx-auto text-center">
-          {/* Pill */}
           <div className="inline-flex items-center gap-2.5 bg-white/[0.04] border border-white/[0.08] rounded-full px-5 py-2 mb-12 text-sm backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -62,7 +43,6 @@ export default function Home() {
             </span>
           </p>
 
-          {/* CTA row */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-5">
             <a
               href="#download"
@@ -81,184 +61,145 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <section className="border-y border-[var(--card-border)] bg-[var(--card-bg)]">
-        <div className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div className="text-3xl font-bold gradient-text">6</div>
-            <div className="text-sm text-[var(--muted)] mt-1">Blocking Layers</div>
-          </div>
-          <div>
-            <div className="text-3xl font-bold gradient-text">$0</div>
-            <div className="text-sm text-[var(--muted)] mt-1">Forever Free</div>
-          </div>
-          <div>
-            <div className="text-3xl font-bold gradient-text">5</div>
-            <div className="text-sm text-[var(--muted)] mt-1">Lock Types</div>
-          </div>
-          <div>
-            <div className="text-3xl font-bold gradient-text">100%</div>
-            <div className="text-sm text-[var(--muted)] mt-1">Native macOS</div>
-          </div>
-        </div>
-      </section>
-
       {/* ══════════════════════════════════════════════════════
-          PROBLEM SECTION
+          HOW IT STOPS YOU — 6 LAYERS
          ══════════════════════════════════════════════════════ */}
-      <section className="py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Existing Blockers <span className="gradient-text">Don&apos;t Work</span>
+      <section id="features" className="py-28 px-6 border-t border-[var(--card-border)]">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-5">
+              <span className="gradient-text">6 layers</span> between you
+              <br className="hidden sm:block" />
+              and your distractions.
             </h2>
-            <p className="text-[var(--muted)] text-lg max-w-2xl mx-auto">
-              Browser extensions can be disabled in 2 clicks. Paid apps cost $30–100+.
-              macOS parental controls weren&apos;t designed for self-imposed blocking.
+            <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
+              Every layer works independently. Bypass one, five more are still active.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Browser Extensions */}
-            <div className="feature-card rounded-2xl bg-[var(--card-bg)] p-8">
-              <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center mb-5">
-                <svg className="w-5 h-5 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-                </svg>
-              </div>
-              <h3 className="font-bold text-lg mb-3">Browser Extensions</h3>
-              <ul className="space-y-2.5 text-[var(--muted)] text-sm">
-                <li className="flex items-center gap-2.5"><Cross /> Only work in one browser</li>
-                <li className="flex items-center gap-2.5"><Cross /> Easy to disable or bypass</li>
-                <li className="flex items-center gap-2.5"><Cross /> Don&apos;t block applications</li>
-                <li className="flex items-center gap-2.5"><Cross /> No system-level enforcement</li>
-              </ul>
-            </div>
-            {/* Paid Apps */}
-            <div className="feature-card rounded-2xl bg-[var(--card-bg)] p-8">
-              <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center mb-5">
-                <svg className="w-5 h-5 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
-                </svg>
-              </div>
-              <h3 className="font-bold text-lg mb-3">Paid Apps</h3>
-              <ul className="space-y-2.5 text-[var(--muted)] text-sm">
-                <li className="flex items-center gap-2.5"><Cross /> Cost $30–100+</li>
-                <li className="flex items-center gap-2.5"><Cross /> Subscription models</li>
-                <li className="flex items-center gap-2.5"><Cross /> Easy to bypass</li>
-                <li className="flex items-center gap-2.5"><Cross /> Electron, not native</li>
-              </ul>
-            </div>
-            {/* macOS Parental Controls */}
-            <div className="feature-card rounded-2xl bg-[var(--card-bg)] p-8">
-              <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center mb-5">
-                <svg className="w-5 h-5 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
-                </svg>
-              </div>
-              <h3 className="font-bold text-lg mb-3">macOS Parental Controls</h3>
-              <ul className="space-y-2.5 text-[var(--muted)] text-sm">
-                <li className="flex items-center gap-2.5"><Cross /> Designed for parents, not self-use</li>
-                <li className="flex items-center gap-2.5"><Cross /> Limited customization</li>
-                <li className="flex items-center gap-2.5"><Cross /> No lock mechanisms</li>
-                <li className="flex items-center gap-2.5"><Cross /> Easy to circumvent</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ══════════════════════════════════════════════════════
-          HOW IT WORKS — 6 LAYERS
-         ══════════════════════════════════════════════════════ */}
-      <section id="how-it-works" className="py-24 px-6 border-t border-[var(--card-border)]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="gradient-text">6 Layers</span> of Protection
-            </h2>
-            <p className="text-[var(--muted)] text-lg max-w-2xl mx-auto">
-              FocusDragon doesn&apos;t rely on a single mechanism. It combines six
-              independent layers that make bypassing genuinely annoying.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Layers — stacked, not a grid */}
+          <div className="space-y-4 max-w-3xl mx-auto">
             {[
               {
-                layer: "1",
-                title: "DNS-Level Blocking",
-                desc: "Modifies /etc/hosts to redirect blocked domains to 0.0.0.0. Works across all browsers. VPN-proof.",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                  </svg>
-                ),
+                num: "01",
+                title: "DNS Blocking",
+                desc: "Rewrites /etc/hosts to redirect blocked domains to 0.0.0.0. Works in every browser. VPN-proof.",
               },
               {
-                layer: "2",
-                title: "Process Monitoring",
-                desc: "Continuously monitors running apps and terminates blocked ones within 1–2 seconds. Uses bundle IDs — can't be bypassed by renaming.",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                ),
+                num: "02",
+                title: "Process Killer",
+                desc: "Monitors running apps every 1.5 seconds. Blocked apps are terminated on sight — can't be bypassed by renaming.",
               },
               {
-                layer: "3",
-                title: "Background Daemon",
-                desc: "Runs as root with elevated privileges. Auto-starts on boot. Protects hosts file from tampering. Can't be killed without admin access.",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z" />
-                  </svg>
-                ),
+                num: "03",
+                title: "Root Daemon",
+                desc: "Runs as root with elevated privileges. Starts on boot. Repairs itself if tampered with. Can't be killed without admin access.",
               },
               {
-                layer: "4",
-                title: "Browser Extensions",
-                desc: "Redundant blocking for Chrome, Firefox, Safari, Edge, Brave, Opera & more. Works in incognito. Blocks by IP too.",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 00.657-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z" />
-                  </svg>
-                ),
+                num: "04",
+                title: "Browser Extension",
+                desc: "In-browser blocking with heartbeat monitoring. If the extension goes silent, the daemon force-quits the browser.",
               },
               {
-                layer: "5",
-                title: "Lock Mechanisms",
-                desc: "Timer lock, random text lock, schedule lock, restart lock, and breakable lock. Choose how hard it should be to disable.",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                  </svg>
-                ),
+                num: "05",
+                title: "Network Firewall",
+                desc: "PF-based packet filtering blocks all outbound traffic. Whitelist-only mode lets approved domains through.",
               },
               {
-                layer: "6",
+                num: "06",
                 title: "Anti-Tamper",
-                desc: "Prevents uninstallation during locks. Blocks System Settings to prevent time changes. Detects and logs bypass attempts.",
-                icon: (
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1.001A3.75 3.75 0 0012 18z" />
-                  </svg>
-                ),
+                desc: "Blocks System Settings, Terminal, and Activity Monitor. Prevents uninstallation during locks. Logs bypass attempts.",
               },
-            ].map((item) => (
+            ].map((layer) => (
               <div
-                key={item.layer}
-                className="feature-card rounded-2xl bg-[var(--card-bg)] p-8 relative overflow-hidden"
+                key={layer.num}
+                className="group flex items-start gap-6 rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[var(--accent)]/40 p-6 md:p-8 transition-all hover:shadow-[0_8px_30px_rgba(249,115,22,0.1)]"
               >
-                <div className="layer-badge inline-flex items-center rounded-full px-3 py-1 text-xs font-medium text-[var(--accent)] mb-4">
-                  Layer {item.layer}
+                <div className="text-3xl font-black text-[var(--accent)]/30 group-hover:text-[var(--accent)]/60 transition-colors select-none shrink-0 w-12">
+                  {layer.num}
                 </div>
-                <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center mb-3 text-neutral-300">
-                  {item.icon}
+                <div>
+                  <h3 className="font-bold text-lg text-white mb-1">{layer.title}</h3>
+                  <p className="text-[var(--muted)] text-sm leading-relaxed">{layer.desc}</p>
                 </div>
-                <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          LOCK TYPES
+         ══════════════════════════════════════════════════════ */}
+      <section className="py-28 px-6 border-t border-[var(--card-border)]">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-5">
+              Locks that make you
+              <br className="hidden sm:block" />
+              <span className="gradient-text">mean it.</span>
+            </h2>
+            <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
+              Choose how hard it should be to quit. From a gentle nudge to
+              &quot;I physically cannot access this machine until tomorrow.&quot;
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
+            {[
+              {
+                name: "Timer",
+                desc: "Block for a set duration. Cannot unlock early. Survives reboots.",
+                intensity: "medium",
+              },
+              {
+                name: "Schedule",
+                desc: "Activate on specific days and hours. \"Block weekdays 9 AM – 5 PM.\"",
+                intensity: "medium",
+              },
+              {
+                name: "Breakable",
+                desc: "Non-skippable countdown delay before unlock. Enough friction to reconsider.",
+                intensity: "low",
+              },
+              {
+                name: "Random Text",
+                desc: "Type a long random string to unlock. No copy-paste — clipboard is auto-cleared.",
+                intensity: "high",
+              },
+              {
+                name: "Restart Lock",
+                desc: "Requires actual system reboots to unlock. The daemon counts real boot events.",
+                intensity: "high",
+              },
+              {
+                name: "Date Lock",
+                desc: "Locked until a calendar date. \"Unlock on June 1st.\" No exceptions.",
+                intensity: "extreme",
+              },
+            ].map((lock) => (
+              <div
+                key={lock.name}
+                className="rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <h3 className="font-bold text-white text-lg">{lock.name}</h3>
+                  <span
+                    className={`text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full ${
+                      lock.intensity === "low"
+                        ? "bg-emerald-500/15 text-emerald-400"
+                        : lock.intensity === "medium"
+                          ? "bg-amber-500/15 text-amber-400"
+                          : lock.intensity === "high"
+                            ? "bg-orange-500/15 text-orange-400"
+                            : "bg-red-500/15 text-red-400"
+                    }`}
+                  >
+                    {lock.intensity}
+                  </span>
+                </div>
                 <p className="text-[var(--muted)] text-sm leading-relaxed">
-                  {item.desc}
+                  {lock.desc}
                 </p>
               </div>
             ))}
@@ -267,101 +208,168 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          FEATURES
+          THE DAEMON — dramatic single section
          ══════════════════════════════════════════════════════ */}
-      <section id="features" className="py-24 px-6 border-t border-[var(--card-border)]">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-28 px-6 border-t border-[var(--card-border)]">
+        <div className="max-w-4xl mx-auto">
+          <div className="rounded-3xl bg-[var(--card-bg)] border border-[var(--card-border)] p-10 md:p-16 dragon-glow">
+            <div className="max-w-2xl">
+              <div className="text-xs uppercase tracking-widest text-[var(--accent)] font-semibold mb-6">
+                The background daemon
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-6">
+                It doesn&apos;t care
+                <br />
+                what you want.
+              </h2>
+              <p className="text-neutral-400 text-lg leading-relaxed mb-8">
+                FocusDragon installs a system daemon that runs as root.
+                It starts on boot, enforces blocks even when the app is closed,
+                and repairs itself if you tamper with it. Close the app, force-quit it,
+                delete it — the daemon keeps going.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-x-10 gap-y-4 text-sm">
+                {[
+                  "Monitors hosts file every 5 seconds",
+                  "Kills blocked apps every 1.5 seconds",
+                  "Auto-repairs tampered DNS rules",
+                  "Verifies browser extension heartbeats",
+                  "Force-quits browsers with stale extensions",
+                  "Kills 20+ unsupported browser variants",
+                  "Survives every reboot",
+                  "Cannot be stopped without admin access",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-2.5 text-neutral-300">
+                    <svg className="w-4 h-4 text-[var(--accent)] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          THE CONTRAST — bypass difficulty
+         ══════════════════════════════════════════════════════ */}
+      <section className="py-28 px-6 border-t border-[var(--card-border)]">
+        <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Built for People Who <span className="gradient-text">Actually</span> Need Focus
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-5">
+              Other blockers are a{" "}
+              <span className="gradient-text">suggestion.</span>
             </h2>
-            <p className="text-[var(--muted)] text-lg max-w-2xl mx-auto">
-              Whether you&apos;re a student, remote worker, or anyone who struggles with
-              distractions, FocusDragon gives you the tools to stay on track.
+            <p className="text-neutral-400 text-lg max-w-xl mx-auto">
+              This is the difference between a blocker you can outsmart and one you can&apos;t.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="feature-card rounded-2xl bg-[var(--card-bg)] p-8">
-              <h3 className="font-bold text-xl mb-4 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-white/[0.06] flex items-center justify-center">
-                  <svg className="w-[18px] h-[18px] text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {/* The others */}
+            <div className="rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-8">
+              <div className="text-xs uppercase tracking-widest text-neutral-500 font-semibold mb-5">
+                Browser extensions &amp; most apps
+              </div>
+              <div className="text-5xl font-black text-red-400 mb-3">2 clicks</div>
+              <p className="text-neutral-500 text-sm mb-6">to disable completely.</p>
+              <ul className="space-y-2.5 text-neutral-500 text-sm">
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-red-400/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
-                </div>
-                5 Lock Types
-              </h3>
-              <ul className="space-y-3 text-[var(--muted)]">
-                <li className="flex items-start gap-3">
-                  <span className="text-[var(--accent)] font-bold">Timer</span>
-                  <span>— &quot;Block for 4 hours, cannot unlock early&quot;</span>
+                  Disable extension in settings
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[var(--accent)] font-bold">Random Text</span>
-                  <span>— Type a 40-character random string to unlock</span>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-red-400/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  Open incognito or another browser
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[var(--accent)] font-bold">Schedule</span>
-                  <span>— &quot;Block 9 AM – 5 PM, weekdays&quot;</span>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-red-400/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  Force-quit the app
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[var(--accent)] font-bold">Restart</span>
-                  <span>— Must restart your Mac to unlock</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[var(--accent)] font-bold">Breakable</span>
-                  <span>— 60-second delay before unlock</span>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-red-400/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  Uninstall and reinstall
                 </li>
               </ul>
             </div>
 
-            <div className="feature-card rounded-2xl bg-[var(--card-bg)] p-8">
-              <h3 className="font-bold text-xl mb-4 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-white/[0.06] flex items-center justify-center">
-                  <svg className="w-[18px] h-[18px] text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+            {/* FocusDragon */}
+            <div className="rounded-2xl bg-[var(--card-bg)] border border-[var(--accent)]/30 p-8 shadow-[0_0_40px_rgba(249,115,22,0.08)]">
+              <div className="text-xs uppercase tracking-widest text-[var(--accent)] font-semibold mb-5">
+                FocusDragon
+              </div>
+              <div className="text-5xl font-black text-emerald-400 mb-3">5+ steps</div>
+              <p className="text-neutral-400 text-sm mb-6">and most are blocked during a lock.</p>
+              <ul className="space-y-2.5 text-neutral-300 text-sm">
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
-                </div>
-                Use Cases
-              </h3>
-              <ul className="space-y-3 text-[var(--muted)]">
-                <li>&quot;Block Reddit during work hours&quot;</li>
-                <li>&quot;No YouTube while studying for exams&quot;</li>
-                <li>&quot;Block all games from 9 AM – 5 PM&quot;</li>
-                <li>&quot;Lock myself out of Twitter for a week&quot;</li>
-                <li>&quot;Pomodoro: 25 min work, 5 min break&quot;</li>
+                  Daemon keeps blocking after quit
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Incognito &amp; other browsers auto-killed
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  System Settings &amp; Terminal blocked
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  Uninstall blocked during active lock
+                </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="feature-card rounded-2xl bg-[var(--card-bg)] p-8">
-              <h3 className="font-bold text-xl mb-4 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-white/[0.06] flex items-center justify-center">
-                  <svg className="w-[18px] h-[18px] text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
-                  </svg>
-                </div>
-                Native macOS Experience
-              </h3>
-              <p className="text-[var(--muted)] leading-relaxed">
-                Built with SwiftUI — not Electron. Follows Apple Human Interface
-                Guidelines. Fast, responsive, and battery-friendly. Feels like it
-                belongs on your Mac.
+      {/* ══════════════════════════════════════════════════════
+          FREE, NATIVE, NO CATCH
+         ══════════════════════════════════════════════════════ */}
+      <section className="py-28 px-6 border-t border-[var(--card-border)]">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-16">
+            What others charge <span className="gradient-text">$40+</span> for.
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-8 text-center">
+              <div className="text-4xl font-black gradient-text mb-2">$0</div>
+              <div className="text-white font-semibold mb-2">Forever free</div>
+              <p className="text-neutral-500 text-sm">
+                No trial. No subscription. No upsell. No account.
               </p>
             </div>
-
-            <div className="feature-card rounded-2xl bg-[var(--card-bg)] p-8">
-              <h3 className="font-bold text-xl mb-4 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-white/[0.06] flex items-center justify-center">
-                  <svg className="w-[18px] h-[18px] text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                  </svg>
-                </div>
-                Free Forever
-              </h3>
-              <p className="text-[var(--muted)] leading-relaxed">
-                No subscriptions. No paywalls. No accounts. No upsells.
-                Everyone deserves powerful productivity tools — FocusDragon is
-                free for every Mac, with no strings attached.
+            <div className="rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-8 text-center">
+              <div className="text-4xl font-black gradient-text mb-2">SwiftUI</div>
+              <div className="text-white font-semibold mb-2">Native macOS</div>
+              <p className="text-neutral-500 text-sm">
+                Not Electron. Fast, light, battery-friendly. Feels like it belongs on your Mac.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-8 text-center">
+              <div className="text-4xl font-black gradient-text mb-2">Zero</div>
+              <div className="text-white font-semibold mb-2">Data collected</div>
+              <p className="text-neutral-500 text-sm">
+                Your blocklist, browsing history, and settings never leave your Mac.
               </p>
             </div>
           </div>
@@ -369,112 +377,23 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          COMPARISON TABLE
+          DOWNLOAD
          ══════════════════════════════════════════════════════ */}
-      <section id="comparison" className="py-24 px-6 border-t border-[var(--card-border)]">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              How FocusDragon <span className="gradient-text">Compares</span>
-            </h2>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="comparison-table w-full text-sm">
-              <thead>
-                <tr className="border-b border-[var(--card-border)]">
-                  <th className="text-left py-4 px-4 text-[var(--muted)] font-medium">Feature</th>
-                  <th className="text-center py-4 px-4 text-[var(--accent)] font-bold">FocusDragon</th>
-                  <th className="text-center py-4 px-4 text-[var(--muted)] font-medium">Cold Turkey</th>
-                  <th className="text-center py-4 px-4 text-[var(--muted)] font-medium">Freedom.to</th>
-                  <th className="text-center py-4 px-4 text-[var(--muted)] font-medium">Extensions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {([
-                  ["Price",            "Free",    "$39",     "$40/yr",  "Free"],
-                  ["Block Websites",   "check",   "check",   "check",   "check"],
-                  ["Block Apps",       "check",   "check",   "check",   "cross"],
-                  ["System-Level",     "check",   "check",   "check",   "cross"],
-                  ["Lock Mechanisms",  "5 types", "Yes",     "Limited", "cross"],
-                  ["macOS Native",     "SwiftUI", "Electron","Electron","N/A"],
-                  ["Browser Extensions","check",  "check",   "check",   "check"],
-                  ["Statistics",       "check",   "check",   "check",   "partial"],
-                ] as const).map((row, i) => (
-                  <tr key={i}>
-                    <td className="font-medium">{row[0]}</td>
-                    {[1, 2, 3, 4].map((col) => {
-                      const val = row[col];
-                      const isHighlight = col === 1;
-                      let content: React.ReactNode = val;
-                      if (val === "check")   content = <span className="inline-flex justify-center"><Check /></span>;
-                      else if (val === "cross")   content = <span className="inline-flex justify-center"><Cross /></span>;
-                      else if (val === "partial") content = <span className="inline-flex justify-center"><Minus /></span>;
-                      return (
-                        <td
-                          key={col}
-                          className={`text-center ${isHighlight ? "font-medium text-white" : "text-[var(--muted)]"}`}
-                        >
-                          {content}
-                        </td>
-                      );
-                    })}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* Why It's Tough */}
-      <section className="py-24 px-6 border-t border-[var(--card-border)]">
+      <section id="download" className="py-28 px-6 border-t border-[var(--card-border)]">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Why It&apos;s <span className="gradient-text">Actually Tough</span>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6">
+            Ready to <span className="gradient-text">stop pretending</span>
+            <br className="hidden sm:block" />
+            willpower is enough?
           </h2>
-          <p className="text-[var(--muted)] text-lg mb-10 max-w-2xl mx-auto">
-            Bypassing FocusDragon requires knowing the exact mechanism, having your
-            admin password, disabling the LaunchDaemon, editing protected system
-            files, and during a lock — waiting for the timer, restarting your Mac,
-            or typing random text.
-          </p>
-          <div className="feature-card rounded-2xl bg-[var(--card-bg)] p-8 md:p-12 inline-block text-left dragon-glow">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="font-medium text-[var(--muted)] mb-3 text-sm uppercase tracking-wider">
-                  Browser Extension
-                </h3>
-                <div className="text-4xl font-bold text-red-400 mb-2">2 clicks</div>
-                <p className="text-[var(--muted)] text-sm">5 seconds to disable</p>
-              </div>
-              <div>
-                <h3 className="font-medium text-[var(--muted)] mb-3 text-sm uppercase tracking-wider">
-                  FocusDragon
-                </h3>
-                <div className="text-4xl font-bold text-emerald-400 mb-2">5+ steps</div>
-                <p className="text-[var(--muted)] text-sm">
-                  Annoying enough to keep you focused
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Download Section */}
-      <section id="download" className="py-24 px-6 border-t border-[var(--card-border)]">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Ready to <span className="gradient-text">Focus</span>?
-          </h2>
-          <p className="text-[var(--muted)] text-lg mb-10 max-w-xl mx-auto">
-            Download FocusDragon and take back control of your attention.
+          <p className="text-neutral-400 text-lg mb-12 max-w-xl mx-auto">
+            Download FocusDragon and take back the hours you&apos;ve been losing.
             Free forever — no account required.
           </p>
 
           <a
             href="/api/download"
-            className="download-btn inline-flex items-center gap-3 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white font-semibold text-xl px-10 py-5 rounded-2xl transition-colors mb-6"
+            className="download-btn inline-flex items-center gap-3 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white font-bold text-xl px-10 py-5 rounded-2xl transition-colors mb-6"
           >
             <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -482,14 +401,14 @@ export default function Home() {
             Download FocusDragon v1.1.0
           </a>
 
-          <div className="text-sm text-[var(--muted)] space-y-1">
+          <div className="text-sm text-neutral-500 space-y-1">
             <p>macOS 13 Ventura or later · Universal binary (Apple Silicon &amp; Intel)</p>
             <p className="text-xs">
               DMG installer · ~6 MB · Auto-updates via Sparkle
             </p>
           </div>
 
-          <div className="mt-12 feature-card rounded-2xl bg-[var(--card-bg)] p-8 text-left max-w-lg mx-auto">
+          <div className="mt-12 rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-8 text-left max-w-lg mx-auto">
             <h3 className="font-bold mb-4">Quick Install</h3>
             <ol className="space-y-3 text-[var(--muted)] text-sm">
               <li className="flex gap-3">
@@ -530,7 +449,9 @@ export default function Home() {
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <span>·</span>
-            <span>Made for focused humans</span>
+            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+            <span>·</span>
+            <Link href="/changelog" className="hover:text-white transition-colors">Changelog</Link>
           </div>
         </div>
       </footer>
