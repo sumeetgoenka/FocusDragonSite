@@ -2,49 +2,39 @@ import type { Metadata } from "next";
 import { Instruction, WhyItMatters } from "../_components";
 
 export const metadata: Metadata = {
-  title: "Chrome Was Closed — Block Active | FocusDragon",
+  title: "Chrome Extension Needs Attention | FocusDragon",
   description:
-    "FocusDragon closed Chrome during an active block because a required permission was revoked.",
+    "The FocusDragon Chrome extension is missing a required permission. Fix it to keep blocking working.",
 };
 
-export default function FixPermissionsBlockActivePage() {
+export default function FixNoBlockPage() {
   return (
     <div className="max-w-3xl mx-auto">
-      {/* Alert banner */}
+      {/* Calm alert */}
       <div className="flex items-center justify-center gap-3 mb-8">
-        <div
-          className="text-6xl select-none"
-          style={{
-            animation:
-              "shake 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both",
-          }}
-        >
-          🚨
-        </div>
+        <div className="text-6xl select-none">⚠️</div>
       </div>
 
       <div className="text-center mb-10">
-        <div className="inline-flex items-center gap-2 bg-red-500/15 border border-red-500/40 rounded-full px-4 py-2 mb-6 text-sm font-medium">
-          <span className="text-red-400">
-            Block is active &mdash; Chrome was force-closed
+        <div className="inline-flex items-center gap-2 bg-amber-500/15 border border-amber-500/40 rounded-full px-4 py-2 mb-6 text-sm font-medium">
+          <span className="text-amber-400">
+            Chrome extension needs attention
           </span>
         </div>
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-          A required permission was{" "}
-          <span className="text-red-400">revoked</span>
+          A permission is{" "}
+          <span className="text-amber-400">missing</span>
         </h1>
         <p className="text-lg text-[var(--muted)] max-w-xl mx-auto">
-          You have an active focus block running. FocusDragon detected that the
-          Chrome extension is missing a permission it needs to enforce the block.
-          Chrome was force-closed to prevent bypass.
-          Fix it below &mdash; you have{" "}
-          <span className="font-semibold text-[var(--accent)]">2 minutes</span>{" "}
-          to re-enable it before Chrome is closed again.
+          The FocusDragon Chrome extension is missing a permission it needs
+          to block websites properly. No block is currently active, so
+          nothing is being enforced right now &mdash; but you should fix this
+          before starting your next focus session.
         </p>
       </div>
 
       {/* Fix: Site Access */}
-      <div className="feature-card rounded-3xl bg-[var(--card-bg)] p-8 md:p-10 mb-8 border-2 border-red-500/30">
+      <div className="feature-card rounded-3xl bg-[var(--card-bg)] p-8 md:p-10 mb-8 border-2 border-amber-500/30">
         <h2 className="text-xl font-bold mb-2">
           Fix 1 &mdash; Site Access revoked
         </h2>
@@ -76,7 +66,7 @@ export default function FixPermissionsBlockActivePage() {
       </div>
 
       {/* Fix: Incognito */}
-      <div className="feature-card rounded-3xl bg-[var(--card-bg)] p-8 md:p-10 mb-8 border-2 border-red-500/30">
+      <div className="feature-card rounded-3xl bg-[var(--card-bg)] p-8 md:p-10 mb-8 border-2 border-amber-500/30">
         <h2 className="text-xl font-bold mb-2">
           Fix 2 &mdash; Incognito access disabled
         </h2>
@@ -106,36 +96,37 @@ export default function FixPermissionsBlockActivePage() {
       </div>
 
       <WhyItMatters
-        emoji="🐉"
-        title="Why FocusDragon does this"
-        body="During an active block, FocusDragon must be able to see and redirect every page you visit — in all windows, including Incognito. If either permission is missing, the block has a hole. FocusDragon closes Chrome to protect your focus until the permissions are restored."
+        emoji="💡"
+        title="Why this matters"
+        body="Without these permissions, FocusDragon can't see what pages you visit in Chrome or block them during focus sessions. Fix it now so your next block works seamlessly."
       />
 
-      {/* Timer warning */}
+      {/* Return to app */}
       <div className="text-center">
         <div className="inline-block">
-          <div className="rounded-2xl bg-red-500/10 border-2 border-red-500/40 p-6 mb-4">
+          <div
+            className="rounded-2xl bg-[var(--accent)]/10 border-2 border-[var(--accent)]/40 p-6 mb-4"
+            style={{ animation: "pulse-glow 2s ease-in-out infinite" }}
+          >
             <div className="text-lg font-bold mb-2">
-              ⏱️ You have 2 minutes
+              ✅ Fix it, then return to FocusDragon
             </div>
             <div className="text-sm text-[var(--muted)]">
-              Open Chrome, fix the permission above, then{" "}
+              Press{" "}
               <span className="font-mono text-xs bg-[var(--background)] px-2 py-0.5 rounded">
                 ⌘ Tab
               </span>{" "}
-              back to FocusDragon. If it&apos;s not fixed within 2 minutes,
-              Chrome will be closed again.
+              or click the FocusDragon icon in the Dock. The app will
+              automatically detect when the permissions are restored.
             </div>
           </div>
         </div>
       </div>
 
       <style>{`
-        @keyframes shake {
-          10%, 90% { transform: translate3d(-1px, 0, 0); }
-          20%, 80% { transform: translate3d(2px, 0, 0); }
-          30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
-          40%, 60% { transform: translate3d(4px, 0, 0); }
+        @keyframes pulse-glow {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(255, 100, 50, 0.3); }
+          50%      { box-shadow: 0 0 30px 5px rgba(255, 100, 50, 0.15); }
         }
       `}</style>
     </div>
