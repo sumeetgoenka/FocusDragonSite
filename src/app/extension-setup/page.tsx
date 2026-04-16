@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import SiteNav from "../components/SiteNav";
 
 export const metadata: Metadata = {
   title: "Chrome Extension Setup — FocusDragon",
@@ -34,29 +34,7 @@ export default function ExtensionSetup() {
 
   return (
     <div className="min-h-screen bg-grid">
-      <nav className="fixed top-0 w-full z-50 border-b border-[var(--card-border)] bg-[var(--background)]/80 backdrop-blur-xl">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <Image
-              src="/icon.png"
-              alt="FocusDragon"
-              width={32}
-              height={32}
-              className="rounded-lg"
-            />
-            <span className="font-bold text-lg">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)] bg-[var(--card-bg)] border border-[var(--card-border)] rounded-full px-2 py-0.5">
-              v1.1.0
-            </span>
-          </Link>
-          <div className="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <Link href="/about" className="hover:text-white transition-colors">About</Link>
-            <Link href="/changelog" className="hover:text-white transition-colors">Changelog</Link>
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
       <main className="max-w-3xl mx-auto px-6 pt-32 pb-20">
         <div className="mb-10">
