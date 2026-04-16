@@ -28,29 +28,14 @@ export default function SiteNav({ activePath = "home" }: SiteNavProps) {
           </span>
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">
-          <Link href="/" className={linkClass("home")}>
-            Home
-          </Link>
           <Link href="/#features" className={linkClass("home")}>
             Features
-          </Link>
-          <Link href="/#how-it-works" className={linkClass("home")}>
-            How It Works
-          </Link>
-          <Link href="/#comparison" className={linkClass("home")}>
-            Compare
           </Link>
           <Link href="/about" className={linkClass("about")}>
             About
           </Link>
-          <Link href="/changelog" className={linkClass("changelog")}>
-            Changelog
-          </Link>
           <Link href="/faqs" className={linkClass("faqs")}>
             FAQs
-          </Link>
-          <Link href="/contact" className={linkClass("contact")}>
-            Contact
           </Link>
           <Link
             href="/#download"

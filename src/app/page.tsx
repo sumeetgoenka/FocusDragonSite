@@ -38,29 +38,14 @@ export default function Home() {
             </span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">
-            <Link href="/" className="text-white font-medium transition-colors">
-              Home
-            </Link>
             <a href="#features" className="hover:text-white transition-colors">
               Features
-            </a>
-            <a href="#how-it-works" className="hover:text-white transition-colors">
-              How It Works
-            </a>
-            <a href="#comparison" className="hover:text-white transition-colors">
-              Compare
             </a>
             <Link href="/about" className="hover:text-white transition-colors">
               About
             </Link>
-            <Link href="/changelog" className="hover:text-white transition-colors">
-              Changelog
-            </Link>
             <Link href="/faqs" className="hover:text-white transition-colors">
               FAQs
-            </Link>
-            <Link href="/contact" className="hover:text-white transition-colors">
-              Contact
             </Link>
             <a
               href="#download"
@@ -75,52 +60,55 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           HERO
          ══════════════════════════════════════════════════════ */}
-      <section className="relative pt-32 pb-24 px-6 overflow-hidden">
+      <section className="relative pt-36 pb-28 px-6 overflow-hidden">
         {/* Radial glow behind the heading */}
         <div className="hero-glow" aria-hidden="true" />
+        <div className="hero-glow-secondary" aria-hidden="true" />
 
         <div className="relative max-w-5xl mx-auto text-center">
           {/* Pill */}
-          <div className="inline-flex items-center gap-2.5 bg-white/[0.04] border border-white/[0.08] rounded-full px-5 py-2 mb-10 text-sm backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2.5 bg-white/[0.04] border border-white/[0.08] rounded-full px-5 py-2 mb-12 text-sm backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
             <span className="text-neutral-400">
-              Free for macOS&nbsp;&nbsp;·&nbsp;&nbsp;v1.1.0
+              Free &amp; open for macOS
             </span>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-[5.25rem] md:leading-[1.08] font-extrabold tracking-tight mb-7">
-            Distraction blocking{" "}
-            <br className="hidden sm:block" />
-            that&apos;s{" "}
+          <h1 className="text-5xl sm:text-7xl md:text-[6rem] md:leading-[1.05] font-black tracking-tight mb-8">
+            You know you&apos;ll
+            <br />
             <span className="gradient-text dragon-glow-text">
-              actually hard
-            </span>{" "}
-            to bypass
+              bypass it.
+            </span>
+            <br />
+            <span className="text-neutral-500">Not this one.</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-            6 independent blocking layers. System-level enforcement.
-            Lock mechanisms that make you commit.{" "}
-            <span className="text-white font-medium">Built natively for macOS.</span>
+          <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-14 leading-relaxed">
+            6 layers of system-level blocking. Locks that force you to commit.
+            A background daemon you can&apos;t just quit.{" "}
+            <span className="text-white font-medium">
+              The free macOS blocker built for people who&apos;ve tried everything.
+            </span>
           </p>
 
           {/* CTA row */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-5">
             <a
               href="#download"
-              className="download-btn group bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all flex items-center gap-3"
+              className="download-btn group bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white font-bold text-lg px-10 py-5 rounded-2xl transition-all flex items-center gap-3"
             >
-              <svg className="w-5 h-5 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
-              Download for Mac
+              Download for Mac — It&apos;s Free
             </a>
           </div>
 
-          <p className="text-sm text-neutral-500">
+          <p className="text-sm text-neutral-500 mb-3">
             macOS 13 Ventura or later · Apple Silicon &amp; Intel
           </p>
         </div>
