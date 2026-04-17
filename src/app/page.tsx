@@ -1,10 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
 import SiteNav from "./components/SiteNav";
+import SiteFooter from "./components/SiteFooter";
+import JsonLd, { softwareAppSchema } from "./components/JsonLd";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-grid">
+      <JsonLd data={softwareAppSchema} />
       <SiteNav />
 
       {/* ══════════════════════════════════════════════════════
@@ -487,23 +489,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-[var(--card-border)] py-12 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <Image src="/icon.png" alt="FocusDragon" width={24} height={24} className="rounded-md" />
-            <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v1.1.0</span>
-          </div>
-          <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-            <span>&middot;</span>
-            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
-            <span>&middot;</span>
-            <Link href="/changelog" className="hover:text-white transition-colors">Changelog</Link>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
