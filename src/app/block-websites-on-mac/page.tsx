@@ -36,7 +36,7 @@ const howTo = {
 const faqs = [
   {
     q: "How do I block websites on Mac for free?",
-    a: "The easiest free way is to install FocusDragon — it blocks websites across every browser using DNS rules, a root daemon, and network firewall rules. Alternatives include editing /etc/hosts manually, using macOS Screen Time's content restrictions, or installing SelfControl. Each of those has different bypass weaknesses, which this guide covers below.",
+    a: "The easiest free way is to install FocusDragon — it blocks websites across every browser using /etc/hosts entries, PF firewall rules, and browser extensions enforced by a root launchd daemon. Other free options: editing /etc/hosts manually, using macOS Screen Time, installing SelfControl, or using Freedom's free tier. Each has different tradeoffs covered below.",
   },
   {
     q: "Can I block websites on Mac using Screen Time?",
@@ -48,11 +48,11 @@ const faqs = [
   },
   {
     q: "Why can't I just edit /etc/hosts to block a website?",
-    a: "You can, and it works — for about a week, until you remember the file exists. /etc/hosts is editable by any admin user, gets overridden if you switch DNS, and only blocks browsers that respect the system resolver. FocusDragon uses /etc/hosts as one of six layers, so even if you edit it back, the other five layers still block the site.",
+    a: "You can, and it works — for about a week, until you remember the file exists. /etc/hosts is editable by any admin user in two terminal commands, only affects apps that use the system resolver (Firefox with DNS-over-HTTPS will bypass it), and doesn't cover native apps at all. FocusDragon uses /etc/hosts as one of six layers, so even if you edit it back, the PF firewall rule, daemon, and browser extensions still enforce the block.",
   },
   {
     q: "Does blocking websites on Mac slow down my computer?",
-    a: "No, if the blocker is well-built. FocusDragon is written natively in Swift, is around 6 MB installed, and uses less than 0.1% CPU on average. DNS-level and firewall-level blocks happen at the kernel layer and are effectively free.",
+    a: "No, if the blocker is well-built. FocusDragon is written natively in Swift, is around 6 MB installed, and uses less than 0.1% CPU on average. The PF firewall rules run in the kernel and are effectively free at runtime.",
   },
 ];
 
@@ -106,12 +106,14 @@ export default function BlockWebsitesOnMac() {
             SelfControl or a browser extension is fine.
           </p>
           <p className="text-neutral-300 text-lg leading-relaxed mb-4">
-            If you want a <strong className="text-white">serious block</strong> you can&apos;t undo in a moment of weakness,
-            FocusDragon is the only free Mac tool that survives every common bypass &mdash; changing DNS, using another browser,
-            opening incognito, force-quitting the app, or rebooting.
+            If you want a <strong className="text-white">serious block</strong> that covers websites + apps with multiple
+            lock types, only Cold Turkey Pro ($45) and FocusDragon (free) do that on Mac.
           </p>
           <p className="text-neutral-300 text-lg leading-relaxed">
-            If you need the block to <strong className="text-white">cover apps too</strong> (games, Discord, Slack), only FocusDragon and Cold Turkey do that on Mac &mdash; and Cold Turkey costs $39.
+            None of these tools can block traffic tunnelled through a VPN at the network layer &mdash;
+            that requires a paid Apple Developer Network Extension content filter, which no free Mac blocker
+            currently ships. Blockers with app-killer layers (FocusDragon, Cold Turkey Pro) still catch
+            the app side of the problem.
           </p>
         </div>
       </section>
@@ -149,7 +151,7 @@ export default function BlockWebsitesOnMac() {
               <div className="text-xs uppercase tracking-widest text-red-400 font-semibold mb-2">Cons</div>
               <ul className="text-sm text-neutral-300 space-y-1.5">
                 <li>Two commands to undo</li>
-                <li>Bypassed by changing DNS or using a VPN</li>
+                <li>Bypassed by a VPN tunnelling traffic around it</li>
                 <li>Doesn&apos;t cover apps</li>
               </ul>
             </div>
@@ -231,10 +233,11 @@ export default function BlockWebsitesOnMac() {
             <span className="gradient-text">SelfControl</span> (free, open-source)
           </h2>
           <p className="text-neutral-400 text-lg leading-relaxed mb-6">
-            A beloved free Mac app that blocks websites for a set timer and won&apos;t let you cancel early.
-            It&apos;s effectively a friendlier wrapper around /etc/hosts, and shares the same weaknesses &mdash;
-            it can be bypassed by switching DNS, using a VPN, or booting into safe mode and deleting the block file.
-            Read the full comparison: <Link href="/vs/selfcontrol" className="text-[var(--accent)] hover:underline">FocusDragon vs SelfControl</Link>.
+            An open-source (GPL-3.0) Mac app that blocks websites for a set timer and won&apos;t let you cancel early.
+            Under the hood it uses macOS&apos;s PF packet filter plus /etc/hosts &mdash; more robust than hosts alone.
+            Limitations: it only blocks websites and mail servers (not apps), has only one lock mode (a timer from 1 minute to 24 hours),
+            and its own FAQ acknowledges VPNs can bypass it. Read the full comparison:{" "}
+            <Link href="/vs/selfcontrol" className="text-[var(--accent)] hover:underline">FocusDragon vs SelfControl</Link>.
           </p>
         </div>
       </section>
@@ -311,9 +314,9 @@ export default function BlockWebsitesOnMac() {
                   ["/etc/hosts", "Yes", "No", "No", "Yes"],
                   ["Screen Time", "Yes", "Partial", "No", "Yes"],
                   ["Browser extensions", "Yes", "No", "No", "Yes"],
-                  ["SelfControl", "Yes", "No", "No", "Yes"],
-                  ["Cold Turkey ($39)", "No", "Yes", "Medium", "Yes"],
-                  ["Freedom ($8.99/mo)", "No", "Yes", "Medium", "Yes"],
+                  ["SelfControl", "Yes", "No", "Medium", "Yes"],
+                  ["Cold Turkey (free + $45 Pro)", "Partial", "Pro only", "Yes", "Yes"],
+                  ["Freedom (free + $8.99/mo)", "Partial", "Yes", "Yes", "Yes"],
                   ["FocusDragon", "Yes", "Yes", "Yes", "Yes"],
                 ].map((row, i) => (
                   <tr key={row[0]} className={`border-b border-[var(--card-border)] last:border-0 ${row[0] === "FocusDragon" ? "bg-[var(--accent)]/5" : ""}`}>

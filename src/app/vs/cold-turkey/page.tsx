@@ -5,14 +5,14 @@ import SiteFooter from "../../components/SiteFooter";
 import JsonLd, { breadcrumbSchema, faqSchema, softwareAppSchema } from "../../components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Cold Turkey Blocker Alternative for Mac (Free) — FocusDragon",
+  title: "Cold Turkey Alternative for Mac (Free) — FocusDragon",
   description:
-    "Looking for a Cold Turkey alternative for Mac? FocusDragon is a free, native macOS blocker with 6 layers of protection, lock modes Cold Turkey doesn't offer, and a daemon that runs even when the app is closed.",
+    "Cold Turkey Blocker is excellent — and costs $45. FocusDragon is a free, Mac-native alternative with similar strictness: scheduled blocks, app blocking, random-text and restart-count locks, and uninstall protection during locks.",
   alternates: { canonical: "https://focusdragon.app/vs/cold-turkey" },
   openGraph: {
     title: "Cold Turkey Alternative for Mac — FocusDragon (Free)",
     description:
-      "A free, native macOS alternative to Cold Turkey Blocker with a root daemon, random-text locks, and 6 independent blocking layers.",
+      "Honest comparison. Similar strictness to Cold Turkey Blocker, free, Mac-native, local-only.",
     url: "https://focusdragon.app/vs/cold-turkey",
     type: "website",
   },
@@ -20,24 +20,28 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    q: "Is FocusDragon really free compared to Cold Turkey Blocker Pro?",
-    a: "Yes. Cold Turkey Blocker Pro costs $39 for the one-time upgrade (the free version is heavily feature-gated). FocusDragon is free forever with every feature unlocked — no account, no trial, no upsell, no locked Pro tier.",
+    q: "Is FocusDragon really a free alternative to Cold Turkey Blocker Pro?",
+    a: "Yes. Cold Turkey Blocker Pro is a $45 one-time purchase (or $49 for the unlimited-devices license). FocusDragon is free forever with every feature unlocked — no Pro tier, no trial period, no upsell.",
   },
   {
-    q: "Is FocusDragon as strong as Cold Turkey's Frozen Turkey mode?",
-    a: "In most respects, stronger. FocusDragon enforces blocks through a root daemon that keeps running even if you force-quit the app, plus a random-text unlock mode that can't be bypassed by waiting out a timer or editing settings. Cold Turkey's Frozen Turkey is a single nuclear option; FocusDragon offers six lock types you can combine.",
+    q: "Does FocusDragon have Cold Turkey's Frozen Turkey mode?",
+    a: "Not a direct equivalent. Frozen Turkey can shut down or log out of your Mac on a timer, which FocusDragon doesn't do. Instead, FocusDragon offers a restart-count lock (requires N real reboots to unlock) and a date lock (locked until a calendar date). Different approaches to the same 'make this irreversible' goal.",
   },
   {
-    q: "Can FocusDragon block applications like Cold Turkey can?",
-    a: "Yes. FocusDragon's process-killer layer monitors running applications every 1.5 seconds and terminates blocked apps instantly, even if they're renamed or relaunched by another process.",
+    q: "Does Cold Turkey have random-text unlock too?",
+    a: "Yes — Cold Turkey's random-text lock is configurable from 1 to 999 characters. FocusDragon has the same feature, plus a clipboard auto-clear so you can't paste the generated string. Functionally very similar.",
   },
   {
     q: "Does FocusDragon work on Windows like Cold Turkey does?",
-    a: "No. FocusDragon is Mac-only and built natively in Swift and SwiftUI. That's the tradeoff: if you need cross-platform, Cold Turkey wins. If you're on Mac, FocusDragon is faster, lighter, and more integrated.",
+    a: "No. FocusDragon is Mac-only and written natively in Swift. Cold Turkey supports both Windows and macOS. If you need cross-platform, Cold Turkey is the better fit; if you're Mac-only, native is usually faster and lighter.",
+  },
+  {
+    q: "Is Cold Turkey actually more feature-rich than FocusDragon?",
+    a: "Cold Turkey wins on a few dimensions: window-title blocking on Windows, Chromium Task Manager blocking, granular URL/channel/keyword rules, per-user targeting on shared computers, and a first-party Writer/Micromanager suite. FocusDragon wins on price (free vs $45), Mac-nativeness, and restart-count locks. Feature parity is closer than most comparison pages admit.",
   },
   {
     q: "Can I import my Cold Turkey block list into FocusDragon?",
-    a: "FocusDragon doesn't import Cold Turkey data directly, but adding your list of domains and apps takes a few minutes. The app has preset categories (social media, news, gaming, gambling) that cover most common blocks in one click.",
+    a: "Not directly. Adding your list of domains and apps manually takes a few minutes. FocusDragon has preset categories (social media, news, gambling, adult) that cover most common blocks in one click.",
   },
 ];
 
@@ -48,7 +52,6 @@ export default function VsColdTurkey() {
         softwareAppSchema,
         breadcrumbSchema([
           { name: "Home", url: "https://focusdragon.app" },
-          { name: "Comparisons", url: "https://focusdragon.app/vs/cold-turkey" },
           { name: "vs Cold Turkey", url: "https://focusdragon.app/vs/cold-turkey" },
         ]),
         faqSchema(faqs),
@@ -66,15 +69,15 @@ export default function VsColdTurkey() {
             Cold Turkey alternative &middot; macOS
           </div>
           <h1 className="text-5xl sm:text-7xl md:text-[5.5rem] md:leading-[1.05] font-black tracking-tight mb-8">
-            Free, native,
+            Same strictness.
             <br />
-            <span className="gradient-text dragon-glow-text">and harder to bypass.</span>
+            <span className="gradient-text dragon-glow-text">$45 cheaper.</span>
           </h1>
           <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-            Cold Turkey Blocker is solid. But it&apos;s $39 for the features that
-            actually work, and it wasn&apos;t built for Mac.{" "}
+            Cold Turkey Blocker is genuinely one of the best focus tools ever built.
+            It&apos;s also $45 for the Pro features most people actually need.{" "}
             <span className="text-white font-medium">
-              FocusDragon is free, Mac-native, and the daemon physically refuses to stop.
+              FocusDragon gives you a comparable enforcement model &mdash; free, Mac-native, local-only.
             </span>
           </p>
 
@@ -95,7 +98,22 @@ export default function VsColdTurkey() {
         </div>
       </section>
 
-      {/* VERDICT TABLE */}
+      {/* HONEST DISCLAIMER */}
+      <section className="py-16 px-6 border-t border-[var(--card-border)]">
+        <div className="max-w-3xl mx-auto rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-8">
+          <div className="text-xs uppercase tracking-widest text-[var(--accent)] font-semibold mb-4">
+            Upfront
+          </div>
+          <p className="text-neutral-300 text-lg leading-relaxed">
+            Cold Turkey Blocker is a mature product with years of refinement.
+            If you&apos;re already paying for it and happy, there&apos;s no urgent reason to switch.
+            The pitch here isn&apos;t &ldquo;we&apos;re better&rdquo; &mdash; it&apos;s &ldquo;you can get
+            90% of the strictness for $0 if you&apos;re on a Mac.&rdquo;
+          </p>
+        </div>
+      </section>
+
+      {/* FEATURE TABLE */}
       <section id="compare" className="py-20 px-6 border-t border-[var(--card-border)]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
@@ -103,7 +121,7 @@ export default function VsColdTurkey() {
               FocusDragon vs <span className="gradient-text">Cold Turkey Blocker</span>
             </h2>
             <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
-              The honest comparison &mdash; including where Cold Turkey still wins.
+              Based on Cold Turkey&apos;s official pricing page and feature docs, as of April 2026.
             </p>
           </div>
 
@@ -116,19 +134,21 @@ export default function VsColdTurkey() {
               <div className="p-5 font-semibold text-neutral-400 text-center border-l border-[var(--card-border)]">Cold Turkey</div>
 
               {[
-                ["Price", "Free forever", "$39 one-time (Pro)"],
-                ["Platform", "macOS (native Swift)", "macOS + Windows"],
-                ["Blocking layers", "6 independent", "2–3 (hosts + app list)"],
-                ["Root-level daemon", "Yes, always running", "No"],
-                ["Blocks apps", "Yes, kills on sight every 1.5s", "Yes, via allow/block list"],
-                ["Lock types", "6 (timer, schedule, breakable, random-text, restart, date)", "3 (scheduled, timed, Frozen)"],
-                ["Random-text unlock", "Yes", "No"],
+                ["Price", "Free forever", "Free tier + $45 Pro (one-time)"],
+                ["Unlimited-devices license", "N/A — free", "$49 (one-time)"],
+                ["Platforms", "macOS only", "macOS + Windows"],
+                ["Native Mac app", "Yes (Swift / SwiftUI)", "Yes (uses system extension)"],
+                ["Blocks websites", "Yes", "Yes (requires browser extensions)"],
+                ["Blocks desktop apps", "Yes (free)", "Yes (Pro only)"],
+                ["Scheduled blocks", "Yes (free)", "Yes (Pro only)"],
+                ["Random-text unlock", "Yes (clipboard auto-clears)", "Yes (1–999 chars)"],
                 ["Restart-count lock", "Yes", "No"],
-                ["Browser extension heartbeat", "Force-quits browser on tamper", "No"],
-                ["Blocks System Settings during lock", "Yes", "No"],
+                ["Frozen / shutdown mode", "No", "Yes (Frozen Turkey)"],
+                ["Window-title blocking (Win)", "N/A", "Yes"],
+                ["Keyword / channel blocking", "Domains + apps", "Yes (URLs, channels, search terms)"],
+                ["Uninstall protected during lock", "Yes", "Yes"],
                 ["Account required", "No", "No"],
-                ["Data stays local", "100% local, no network perm", "Local-first"],
-                ["Source visible to auditor", "Swift + C daemon (auditable)", "Closed, cross-platform"],
+                ["Data stays local", "Yes", "Yes"],
               ].map(([feature, fd, ct], idx) => (
                 <div key={feature} className="contents">
                   <div className={`p-5 text-neutral-300 ${idx % 2 === 0 ? "bg-transparent" : "bg-black/20"}`}>{feature}</div>
@@ -145,24 +165,29 @@ export default function VsColdTurkey() {
         </div>
       </section>
 
-      {/* THREE DEEP ARGUMENTS */}
+      {/* THE REAL ARGUMENTS */}
       <section className="py-28 px-6 border-t border-[var(--card-border)]">
         <div className="max-w-5xl mx-auto space-y-16">
           {[
             {
               tag: "01 \u00b7 Price",
-              title: "Free beats $39, especially for a tool you need to trust.",
-              body: "Cold Turkey Blocker is free to download, but the features most people actually need — Frozen Turkey, scheduled blocks that survive reboots, locking settings behind a password — are behind the $39 Pro upgrade. That's fine if you can commit. But plenty of people who need a blocker most are the ones least willing to pay for another piece of software they're not sure will work. FocusDragon is free because the person who built it was in exactly that situation. Every lock type, every blocking layer, every feature — unlocked from day one. No trial period, no account, no upsell.",
+              title: "Free tier vs free tier — then $45 for the good stuff.",
+              body: "Both products have a free tier. Cold Turkey's free Blocker is websites-only (no app blocking, no scheduled blocks, no application password, no strong locks) — those are Pro-only at $45 one-time. FocusDragon's free tier is the full product: app blocking, scheduling, every lock type. If you specifically want Cold Turkey Pro's feature set, FocusDragon gives you most of it for $0 on Mac. If you want Cold Turkey Writer or Micromanager (their two other products), those are separate paid tools with no FocusDragon equivalent.",
             },
             {
-              tag: "02 \u00b7 Native Mac, not a port",
-              title: "Built for macOS from the ground up — not cross-platform compromise.",
-              body: "Cold Turkey is a cross-platform app. It works on Mac, but it wasn't designed for it — the UI feels foreign, the process enforcement uses generic techniques that don't leverage macOS primitives, and it runs heavier than it should. FocusDragon is written in Swift and SwiftUI, uses launchd for the daemon, integrates with macOS's native permission prompts, and respects system appearance. It's ~6 MB installed, sips battery, and feels like a first-party Apple tool. If you only need a Mac blocker, native is always better.",
+              tag: "02 \u00b7 Native Mac",
+              title: "Built on Swift and SwiftUI, not a cross-platform port.",
+              body: "Cold Turkey ships on both Windows and macOS. On Mac it installs a system extension and requests Full Disk Access — solid enforcement, but a heavier footprint that doesn't feel entirely native. FocusDragon is written in Swift and SwiftUI, uses launchd for daemon management, and installs at ~6 MB. Light, fast, battery-friendly. Tradeoff: you lose Windows support. If you're dual-platform, Cold Turkey is still your pick.",
             },
             {
-              tag: "03 \u00b7 Lock strength",
-              title: "Six lock types that compose. Not one nuclear button.",
-              body: "Cold Turkey's Frozen Turkey is famous for being nuclear — once activated, you can't cancel it. It's effective, but it's also binary: you're either frozen out of your whole computer or you're not. FocusDragon gives you six lock types you can combine: time-based, schedule-based, random-text (type 200+ characters of gibberish to unlock), restart-count (requires N real reboots), date-based (locked until a calendar date), and breakable (a non-skippable delay that forces you to reconsider). That lets you tune difficulty: low friction for casual focus, extreme commitment for gambling or porn blocking. Cold Turkey gives you a hammer; FocusDragon gives you a toolkit.",
+              tag: "03 \u00b7 Restart-count lock",
+              title: "One lock type Cold Turkey doesn't have.",
+              body: "Cold Turkey has timer, scheduled, time-range, password, and Frozen Turkey locks. FocusDragon has all of those equivalents plus restart-count — requires N real system reboots before the lock releases. It's a specific tool for cool-off periods: 'block sportsbooks for 5 full reboots' is enough friction to outlast most cravings. Combined with Cold Turkey-style random-text unlock, it's a pairing Cold Turkey doesn't offer.",
+            },
+            {
+              tag: "04 \u00b7 Local-only, no account",
+              title: "Nothing leaves your Mac. Ever.",
+              body: "Both products store data locally — that's fair. FocusDragon goes further: the app has no network permission at all, can't phone home, has no account system, and no telemetry by default. If you enable telemetry, it sends aggregate events only (never site names or block contents). Cold Turkey is also local-first and doesn't collect stats, so this is a moderate differentiator — noted here for completeness, not as a major pitch.",
             },
           ].map((arg) => (
             <div key={arg.tag} className="grid md:grid-cols-[220px_1fr] gap-8 md:gap-12">
@@ -191,20 +216,20 @@ export default function VsColdTurkey() {
             <div className="rounded-2xl bg-[var(--card-bg)] border border-[var(--accent)]/30 p-8 shadow-[0_0_40px_rgba(249,115,22,0.08)]">
               <div className="text-xs uppercase tracking-widest text-[var(--accent)] font-semibold mb-4">Pick FocusDragon if</div>
               <ul className="space-y-3 text-neutral-300">
-                <li>&middot; You&apos;re on a Mac and want native speed and polish</li>
-                <li>&middot; You don&apos;t want to pay for a focus tool</li>
-                <li>&middot; You&apos;ve bypassed blockers before and need something harder</li>
-                <li>&middot; You want multiple lock types to compose together</li>
-                <li>&middot; You care about privacy &mdash; no account, no cloud, no tracking</li>
+                <li>&middot; You&apos;re only on a Mac and want something native</li>
+                <li>&middot; You don&apos;t want to pay $45 for a focus tool</li>
+                <li>&middot; Restart-count locks appeal more than Frozen Turkey</li>
+                <li>&middot; You want the full feature set without a Pro tier</li>
               </ul>
             </div>
             <div className="rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-8">
               <div className="text-xs uppercase tracking-widest text-neutral-500 font-semibold mb-4">Pick Cold Turkey if</div>
               <ul className="space-y-3 text-neutral-400">
-                <li>&middot; You need Windows &amp; Mac in one tool</li>
-                <li>&middot; You have a team/org that wants centralised management</li>
-                <li>&middot; You&apos;re already paying and it&apos;s working fine</li>
-                <li>&middot; You prefer one monolithic nuclear lock over several composable ones</li>
+                <li>&middot; You need Windows + Mac in one tool</li>
+                <li>&middot; You want Frozen Turkey&apos;s shutdown-the-Mac option</li>
+                <li>&middot; You want window-title or keyword-level granularity</li>
+                <li>&middot; You also want Writer / Micromanager for writing or whitelist-only modes</li>
+                <li>&middot; You&apos;re already paying and happy &mdash; no reason to switch</li>
               </ul>
             </div>
           </div>
@@ -235,10 +260,10 @@ export default function VsColdTurkey() {
       <section className="py-28 px-6 border-t border-[var(--card-border)]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6">
-            Stop paying to <span className="gradient-text">fix your focus.</span>
+            Ready to <span className="gradient-text">save $45?</span>
           </h2>
           <p className="text-neutral-400 text-lg mb-10 max-w-xl mx-auto">
-            Download FocusDragon and get every lock type, every blocking layer, every feature &mdash; free forever.
+            Download FocusDragon and get the Pro-tier enforcement model &mdash; free, forever, every feature unlocked.
           </p>
           <Link
             href="/#download"

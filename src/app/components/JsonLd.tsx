@@ -18,11 +18,6 @@ export const softwareAppSchema = {
     price: "0",
     priceCurrency: "USD",
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    ratingCount: "127",
-  },
   description:
     "FocusDragon is a free macOS website and app blocker with 6 layers of protection: DNS blocking, process monitoring, a root daemon, browser extensions, network firewall rules, and anti-tamper safeguards.",
   downloadUrl: "https://focusdragon.app/api/download",

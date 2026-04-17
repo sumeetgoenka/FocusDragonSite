@@ -7,12 +7,12 @@ import JsonLd, { breadcrumbSchema, faqSchema, softwareAppSchema } from "../../co
 export const metadata: Metadata = {
   title: "SelfControl Alternative for Mac — FocusDragon (Free, Blocks Apps Too)",
   description:
-    "SelfControl only blocks websites, runs a single timer, and can be bypassed by changing DNS. FocusDragon is a free Mac alternative that also blocks apps, survives reboots, and resists every common bypass.",
+    "SelfControl is great for a simple website timer. FocusDragon extends the same PF-firewall approach with app blocking, multiple lock modes, browser-extension enforcement, and anti-tamper safeguards — also free.",
   alternates: { canonical: "https://focusdragon.app/vs/selfcontrol" },
   openGraph: {
     title: "SelfControl Alternative for Mac — FocusDragon (Free)",
     description:
-      "Free SelfControl alternative that also blocks apps, offers six lock types, and enforces through a root daemon.",
+      "Same PF-firewall foundation as SelfControl, plus app blocking, multiple lock modes, and anti-tamper.",
     url: "https://focusdragon.app/vs/selfcontrol",
     type: "website",
   },
@@ -21,23 +21,27 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Is FocusDragon also free like SelfControl?",
-    a: "Yes. Both are free. FocusDragon is not open-source but is free forever, with no account and no upsell — the author built it to beat his own gaming addiction and releases it free as a matter of principle.",
+    a: "Yes. Both are free. SelfControl is open-source under GPL-3.0; FocusDragon is free but not open-source. There's no account or paid tier on either.",
   },
   {
-    q: "Does FocusDragon block apps? SelfControl only blocks websites.",
-    a: "Yes. FocusDragon blocks applications in addition to websites. A background daemon monitors running processes every 1.5 seconds and terminates anything on your block list — even if the binary is renamed.",
+    q: "Don't FocusDragon and SelfControl use the same blocking technique?",
+    a: "At the network layer, yes — both rely on macOS's built-in PF (Packet Filter) firewall, plus /etc/hosts entries, plus a privileged helper. The difference is what's built on top. FocusDragon adds process-level app monitoring, browser extensions with heartbeat, multiple lock modes beyond a single timer, anti-tamper on System Settings/Terminal/Activity Monitor, and a persistent launchd daemon that auto-repairs tampering.",
   },
   {
-    q: "Can FocusDragon be bypassed by changing DNS or using a VPN?",
-    a: "No. Unlike SelfControl (which only edits /etc/hosts), FocusDragon combines DNS-level blocking with process monitoring, PF-based network firewall rules, a browser-extension heartbeat, and a root daemon. Even if you change DNS or route traffic through a VPN, other layers still fire.",
+    q: "Can VPNs bypass both SelfControl and FocusDragon?",
+    a: "Yes — SelfControl's FAQ explicitly acknowledges this: 'SelfControl will not block websites properly if you're using a VPN. This is not technically feasible.' FocusDragon has the same underlying limitation at the network layer, though the process-killer and browser-extension layers still fire. No free macOS blocker currently blocks a VPN-tunneled connection at the network layer without a paid Apple Developer account and a Network Extension content filter.",
   },
   {
-    q: "Does FocusDragon survive reboots like SelfControl does?",
-    a: "Yes, and more robustly. SelfControl's block survives a reboot because the /etc/hosts rewrite persists. FocusDragon's root daemon restarts on boot, re-verifies all blocks, and repairs any tampering — it doesn't just persist, it actively re-enforces.",
+    q: "Does FocusDragon block apps? SelfControl doesn't.",
+    a: "Yes — that's the biggest functional difference. SelfControl blocks 'websites, mail servers, or anything else on the Internet' but not desktop apps. FocusDragon's process-killer layer terminates blocked apps every 1.5 seconds, so a native Mac app (Slack, Discord, Steam, a game) on the block list won't launch.",
   },
   {
-    q: "Why use FocusDragon instead of SelfControl if both are free?",
-    a: "SelfControl is great for a one-off website block with a timer. FocusDragon is for people who've already bypassed SelfControl (by editing /etc/hosts, restarting into safe mode, or using another browser) and need something that can't be outsmarted. Six lock types, six blocking layers, app blocking included.",
+    q: "Does SelfControl have random-text or restart-count unlock?",
+    a: "No. SelfControl has exactly one lock mode: a timer from 1 minute to 24 hours. Once started, the block is irreversible until the timer expires. FocusDragon offers six lock modes (timer, schedule, breakable, random-text, restart-count, date) that can be combined.",
+  },
+  {
+    q: "Is SelfControl still maintained?",
+    a: "Yes, though slowly. The GitHub repo had commits as recently as late December 2025. The official release-notes page lists version 4.0.2 without dates. Community support happens on GitHub issues; there's no paid support.",
   },
 ];
 
@@ -64,15 +68,16 @@ export default function VsSelfControl() {
             SelfControl alternative &middot; macOS
           </div>
           <h1 className="text-5xl sm:text-7xl md:text-[5.5rem] md:leading-[1.05] font-black tracking-tight mb-8">
-            SelfControl is great.
+            Same foundation.
             <br />
-            <span className="gradient-text dragon-glow-text">Until you get clever.</span>
+            <span className="gradient-text dragon-glow-text">More layers on top.</span>
           </h1>
           <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-            SelfControl blocks websites with a single /etc/hosts timer. It works &mdash; until
-            you realise the block doesn&apos;t cover apps, doesn&apos;t cover VPNs, and can be
-            bypassed in a minute if you know what you&apos;re doing.{" "}
-            <span className="text-white font-medium">FocusDragon is free too. It just doesn&apos;t fold.</span>
+            SelfControl is a beautifully minimal Mac app: one timer, one blocklist, irreversible until it ends.
+            FocusDragon uses the same PF-firewall foundation and adds what SelfControl leaves out.{" "}
+            <span className="text-white font-medium">
+              App blocking. Multiple lock modes. Anti-tamper. Same price: free.
+            </span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -80,51 +85,67 @@ export default function VsSelfControl() {
               href="/#download"
               className="download-btn bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white font-bold text-lg px-10 py-5 rounded-2xl transition-all"
             >
-              Upgrade to FocusDragon &mdash; Free
+              Download FocusDragon &mdash; Free
             </Link>
             <a
               href="#compare"
               className="border border-[var(--card-border)] hover:border-[var(--muted)] text-white font-medium px-7 py-4 rounded-2xl transition-colors"
             >
-              See the bypass list
+              See what&apos;s added
             </a>
           </div>
         </div>
       </section>
 
-      {/* BYPASS LIST */}
+      {/* HONEST DISCLAIMER */}
+      <section className="py-16 px-6 border-t border-[var(--card-border)]">
+        <div className="max-w-3xl mx-auto rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-8">
+          <div className="text-xs uppercase tracking-widest text-[var(--accent)] font-semibold mb-4">
+            Upfront
+          </div>
+          <p className="text-neutral-300 text-lg leading-relaxed mb-4">
+            SelfControl is one of the most loved utilities in the Mac software community.
+            It&apos;s open source under GPL-3.0, has been around since 2009, and the UI is
+            a model of restraint. If all you need is a timer that blocks websites and won&apos;t let
+            you cancel early, SelfControl is still a great choice.
+          </p>
+          <p className="text-neutral-300 text-lg leading-relaxed">
+            FocusDragon is the right pick if you also need to block apps, want multiple lock types,
+            or want tamper resistance on System Settings and Terminal during a lock.
+          </p>
+        </div>
+      </section>
+
+      {/* WHAT'S ADDED */}
       <section id="compare" className="py-28 px-6 border-t border-[var(--card-border)]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-4">
-              Every way people <span className="gradient-text">bypass SelfControl</span>
+              What FocusDragon adds on top of <span className="gradient-text">SelfControl&apos;s foundation</span>
             </h2>
             <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
-              If you&apos;ve used SelfControl for more than a week, you&apos;ve
-              probably done at least one of these.
+              Both use PF + /etc/hosts + a privileged helper. These are the additional layers.
             </p>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             {[
-              { bypass: "Open the blocked site in a different browser", fd: "Force-quits any browser whose extension isn't heartbeating." },
-              { bypass: "Use an incognito/private window", fd: "Incognito is killed on sight by the daemon." },
-              { bypass: "Change DNS to 8.8.8.8 to skip /etc/hosts", fd: "PF firewall rules block outbound traffic regardless of DNS." },
-              { bypass: "Use a VPN to tunnel around it", fd: "Process-level blocks + app killer still fire." },
-              { bypass: "Restart in safe mode, delete the block file", fd: "Daemon runs as root, starts on boot, re-verifies every 5s." },
-              { bypass: "Just open the native Mac app (Slack, Discord, etc.)", fd: "Apps are on the block list too. Killed every 1.5s." },
-              { bypass: "Wait out the timer and re-open immediately", fd: "Restart-count lock: you must actually reboot N times." },
-              { bypass: "Skip the unlock delay", fd: "Random-text lock: type 200+ characters, clipboard auto-cleared." },
-            ].map((row) => (
-              <div key={row.bypass} className="rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 grid md:grid-cols-[1fr_auto_1fr] items-center gap-6">
-                <div>
-                  <div className="text-xs uppercase tracking-widest text-red-400/80 font-semibold mb-1">Bypass</div>
-                  <div className="text-neutral-300">{row.bypass}</div>
+              { title: "Desktop app blocking", body: "Process monitor scans running apps every 1.5 seconds and terminates anything on the block list — Slack, Discord, Steam, any game. SelfControl blocks only internet targets, not apps." },
+              { title: "Six lock modes, not one", body: "Timer, schedule, breakable-with-delay, random-text (200+ chars, clipboard auto-cleared), restart-count, and date lock. SelfControl has a single 1-minute-to-24-hour timer." },
+              { title: "Scheduled and recurring blocks", body: "Blocks can fire on a recurring schedule (e.g., Mon–Fri 9 AM – 5 PM). SelfControl requires you to manually start every block." },
+              { title: "Browser-extension heartbeat", body: "Extensions for Safari, Chrome, Firefox, Brave, Edge, Opera, Vivaldi, and Comet monitor in-browser activity. If the extension stops heartbeating (you try to disable it mid-lock), the browser is force-quit." },
+              { title: "Anti-tamper on system tools", body: "While a lock is active, System Settings, Terminal, and Activity Monitor are blocked — so you can't disable the daemon, flush PF rules, or kill processes manually. Uninstall is also blocked during active locks." },
+              { title: "Self-repairing daemon", body: "A launchd daemon runs as root, auto-restarts on crash, and re-writes /etc/hosts and PF anchors if it detects tampering. SelfControl's helper sets the block and waits for expiry." },
+            ].map((item) => (
+              <div key={item.title} className="rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6 flex gap-5">
+                <div className="shrink-0 w-10 h-10 rounded-xl bg-[var(--accent)]/15 text-[var(--accent)] flex items-center justify-center border border-[var(--accent)]/30">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                  </svg>
                 </div>
-                <div className="hidden md:block text-[var(--accent)] font-bold text-sm">&rarr;</div>
                 <div>
-                  <div className="text-xs uppercase tracking-widest text-emerald-400/80 font-semibold mb-1">FocusDragon response</div>
-                  <div className="text-white">{row.fd}</div>
+                  <h3 className="font-bold text-white text-lg mb-1">{item.title}</h3>
+                  <p className="text-[var(--muted)] leading-relaxed">{item.body}</p>
                 </div>
               </div>
             ))}
@@ -150,18 +171,20 @@ export default function VsSelfControl() {
               <div className="p-5 font-semibold text-neutral-400 text-center border-l border-[var(--card-border)]">SelfControl</div>
 
               {[
-                ["Price", "Free forever", "Free (open source)"],
+                ["Price", "Free", "Free (donationware)"],
+                ["Open source", "No", "Yes (GPL-3.0)"],
+                ["Network-layer technique", "PF firewall + /etc/hosts", "PF firewall + /etc/hosts"],
                 ["Blocks websites", "Yes", "Yes"],
-                ["Blocks apps", "Yes, process-killer", "No"],
-                ["VPN/DNS-change resistant", "Yes, PF firewall layer", "No"],
-                ["Bypass-resistant daemon", "Root daemon, self-repairing", "No daemon"],
-                ["Lock types", "6 composable", "1 (timer)"],
-                ["Restart-count lock", "Yes", "No"],
-                ["Random-text unlock", "Yes", "No"],
-                ["Schedule-based blocks", "Yes", "No"],
-                ["Blocks System Settings", "Yes, during lock", "No"],
-                ["UI design", "Native SwiftUI", "Classic Cocoa"],
-                ["Active maintenance", "Yes, v1.1.0 shipping", "Intermittent"],
+                ["Blocks desktop apps", "Yes", "No"],
+                ["Blocks mail servers", "Add manually", "Yes (built-in support)"],
+                ["Whitelist / exceptions mode", "Yes", "Yes"],
+                ["Lock modes", "Timer, schedule, breakable, random-text, restart-count, date", "Timer only"],
+                ["Scheduled recurring blocks", "Yes", "No"],
+                ["Browser extensions", "Yes (8 browsers, heartbeat-monitored)", "No"],
+                ["System Settings blocked during lock", "Yes", "No"],
+                ["VPN-resistant at network layer", "No (PF limitation, same as SelfControl)", "No (officially acknowledged)"],
+                ["Irreversible during active block", "Yes", "Yes"],
+                ["Latest version", "1.1.0", "4.0.2"],
               ].map(([feature, fd, sc], idx) => (
                 <div key={feature} className="contents">
                   <div className={`p-5 text-neutral-300 ${idx % 2 === 0 ? "bg-transparent" : "bg-black/20"}`}>{feature}</div>
@@ -190,18 +213,19 @@ export default function VsSelfControl() {
             <div className="rounded-2xl bg-[var(--card-bg)] border border-[var(--accent)]/30 p-8 shadow-[0_0_40px_rgba(249,115,22,0.08)]">
               <div className="text-xs uppercase tracking-widest text-[var(--accent)] font-semibold mb-4">Pick FocusDragon if</div>
               <ul className="space-y-3 text-neutral-300">
-                <li>&middot; You&apos;ve already bypassed SelfControl before</li>
                 <li>&middot; You also need to block native apps (Slack, games, Discord)</li>
-                <li>&middot; You want multiple lock types, not just a timer</li>
-                <li>&middot; You want a blocker that survives VPN/DNS changes</li>
+                <li>&middot; You want scheduling or recurring blocks</li>
+                <li>&middot; You want multiple lock types beyond a simple timer</li>
+                <li>&middot; You want anti-tamper on System Settings and Terminal</li>
               </ul>
             </div>
             <div className="rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-8">
               <div className="text-xs uppercase tracking-widest text-neutral-500 font-semibold mb-4">Pick SelfControl if</div>
               <ul className="space-y-3 text-neutral-400">
-                <li>&middot; You only need a one-off timer block for a few websites</li>
-                <li>&middot; You prefer strictly open-source tools</li>
-                <li>&middot; You trust yourself not to look for bypasses</li>
+                <li>&middot; You only need a one-off timer block for websites</li>
+                <li>&middot; You strongly prefer open-source software (GPL-3.0)</li>
+                <li>&middot; You want a minimal, single-purpose tool</li>
+                <li>&middot; You already use it and it does everything you need</li>
               </ul>
             </div>
           </div>
@@ -232,7 +256,7 @@ export default function VsSelfControl() {
       <section className="py-28 px-6 border-t border-[var(--card-border)]">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-6">
-            Stop outsmarting your own <span className="gradient-text">blocker.</span>
+            More than a <span className="gradient-text">website timer.</span>
           </h2>
           <Link
             href="/#download"
