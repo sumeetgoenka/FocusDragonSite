@@ -21,9 +21,21 @@ interface Release {
 
 const releases: Release[] = [
   {
-    version: "1.1.5",
+    version: "1.1.6",
     date: "April 20, 2026",
     latest: true,
+    summary:
+      "Critical onboarding fix — System Settings and Terminal are no longer force-quit outside of active locks.",
+    changes: [
+      "Fixed: System Settings, Terminal, and Activity Monitor were being killed even when no lock was active, preventing Full Disk Access from being granted during onboarding",
+      "Fixed: \"Safari extension tampered\" alert was re-appearing every 3 seconds after dismissal — now debounces for 60 seconds after you dismiss it",
+      "Fixed: missing Full Disk Access is now reported as \"grant FDA\" instead of a misleading \"extension tampered\" warning",
+      "Enforcement (force-quit Safari on tamper) is now suppressed during onboarding so setup cannot be interrupted",
+    ],
+  },
+  {
+    version: "1.1.5",
+    date: "April 20, 2026",
     summary:
       "Cold Turkey parity, Chrome extension, Date Lock, redesigned Block Editor.",
     changes: [
