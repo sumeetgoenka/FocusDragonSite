@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.1.7</title>
+            <description><![CDATA[<p>New Advanced Mode toggle: "Block chrome://extensions during blocks" (default OFF). When on, a configurable grace period (default 60s) keeps chrome://extensions reachable for extension fixes. Fixes stale-state detection so chrome://extensions can't stay trapped on the block page after a block ends.</p>]]></description>
+            <pubDate>Mon, 20 Apr 2026 13:32:23 +0000</pubDate>
+            <sparkle:version>7</sparkle:version>
+            <sparkle:shortVersionString>1.1.7</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://focusdragon.vercel.app/releases/FocusDragon-1.1.7.dmg"
+                sparkle:edSignature="LzGk7VWwDL7mI1p7qHjAVUnUPFgS3QBscIXs/YK1d+I/7QgKSvK1bMllbMzefQb0eL1T5OjduhvfnZYeXH2BBQ=="
+                length="9065799"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.1.6</title>
             <description><![CDATA[<p>Critical fix: System Settings no longer force-quits outside of active locks (unblocks granting Full Disk Access). Safari &quot;extension tampered&quot; alert now debounces instead of spamming, and missing Full Disk Access is detected distinctly from a disabled extension.</p>]]></description>
             <pubDate>Mon, 20 Apr 2026 08:51:37 +0000</pubDate>

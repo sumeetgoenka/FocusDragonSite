@@ -21,9 +21,22 @@ interface Release {
 
 const releases: Release[] = [
   {
-    version: "1.1.6",
+    version: "1.1.7",
     date: "April 20, 2026",
     latest: true,
+    summary:
+      "chrome://extensions is no longer blocked by default — extension reconfiguration works mid-block.",
+    changes: [
+      "New Advanced Mode toggle: \"Block chrome://extensions during blocks\" (default OFF). The browser's extensions page stays reachable during an active block unless you explicitly opt in",
+      "Configurable grace period (default 60s, range 0–600s) gives you a window after a block starts to fix a broken extension before the page starts getting blocked",
+      "Stale-state escape hatch: if the native messaging host is unreachable, chrome://extensions fails open instead of stranding you on the block page",
+      "Fixes the \"block turned off but chrome://extensions still blocked\" bug by propagating block-state updates with a staleness timestamp",
+      "Applies to Chrome, Edge, Brave, Opera, Vivaldi, Comet, and Firefox (about:addons, moz-extension://)",
+    ],
+  },
+  {
+    version: "1.1.6",
+    date: "April 20, 2026",
     summary:
       "Critical onboarding fix — System Settings and Terminal are no longer force-quit outside of active locks.",
     changes: [
@@ -198,7 +211,7 @@ export default function Changelog() {
               className="rounded-md"
             />
             <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v1.1.5</span>
+            <span className="text-xs text-[var(--muted)]">v1.1.7</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>

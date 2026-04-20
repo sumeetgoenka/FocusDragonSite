@@ -184,7 +184,7 @@ export default function VsSelfControl() {
                 ["System Settings blocked during lock", "Yes", "No"],
                 ["VPN-resistant at network layer", "No (PF limitation, same as SelfControl)", "No (officially acknowledged)"],
                 ["Irreversible during active block", "Yes", "Yes"],
-                ["Latest version", "1.1.6", "4.0.2"],
+                ["Latest version", "1.1.7", "4.0.2"],
               ].map(([feature, fd, sc], idx) => (
                 <div key={feature} className="contents">
                   <div className={`p-5 text-neutral-300 ${idx % 2 === 0 ? "bg-transparent" : "bg-black/20"}`}>{feature}</div>
