@@ -219,7 +219,7 @@ export default function Contact() {
           <div className="flex items-center gap-3">
             <Image src="/icon.png" alt="FocusDragon" width={24} height={24} className="rounded-md" />
             <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v1.1.0</span>
+            <span className="text-xs text-[var(--muted)]">v1.1.5</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>

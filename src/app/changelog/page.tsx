@@ -21,9 +21,27 @@ interface Release {
 
 const releases: Release[] = [
   {
+    version: "1.1.5",
+    date: "April 20, 2026",
+    latest: true,
+    summary:
+      "Cold Turkey parity, Chrome extension, Date Lock, redesigned Block Editor.",
+    changes: [
+      "Cold Turkey feature parity — advanced URL matching, pre-made lists, all six break types, multi-user targeting",
+      "Chrome extension + Extensions sidebar for cross-browser blocking",
+      "Date Lock — lock a block until a specific future date",
+      "Locked Block mode (replaces Frozen)",
+      "Redesigned Block Editor with tabbed layout that fits on screen",
+      "Dashboard and Statistics views",
+      "Device-level blocks",
+      "Launch-hang fix and tightened permission checks",
+      "Sentry crash reporting + PostHog telemetry (opt-in)",
+      "Native messaging host signed with Developer ID — no more recurring TCC prompts",
+    ],
+  },
+  {
     version: "1.1.0",
     date: "April 13, 2026",
-    latest: true,
     summary:
       "Onboarding overhaul and Safari enforcement rewrite.",
     changes: [
@@ -168,7 +186,7 @@ export default function Changelog() {
               className="rounded-md"
             />
             <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v1.1.0</span>
+            <span className="text-xs text-[var(--muted)]">v1.1.5</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>

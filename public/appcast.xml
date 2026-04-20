@@ -10,6 +10,20 @@
             Scripts/release.sh injects new entries automatically — do not hand-edit
             unless you know what you're doing.
         -->
+
+        <item>
+            <title>Version 1.1.5</title>
+            <description><![CDATA[<p>Cold Turkey parity (advanced URL matching, pre-made lists, all six break types, dashboard, statistics, device blocks, multi-user targeting), Chrome extension + Extensions sidebar, Date Lock, Locked Block mode, redesigned Block Editor with tabbed layout, launch-hang fix, Sentry + PostHog telemetry, signed native messaging host</p>]]></description>
+            <pubDate>Mon, 20 Apr 2026 08:14:26 +0000</pubDate>
+            <sparkle:version>5</sparkle:version>
+            <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://focusdragon.vercel.app/releases/FocusDragon-1.1.5.dmg"
+                sparkle:edSignature="2Hy4I49jZvNjS9+NQlvaLBvmiL3TyCyLIdsqAmvlmImWyZhlDepaQEAo2pYTW/Tphyph4jg2xG/qbIpFoKTVCw=="
+                length="9057053"
+                type="application/octet-stream" />
+        </item>
         <item>
             <title>Version 1.1.0</title>
             <description><![CDATA[<p>New onboarding tutorials with permission status feedback; Safari extension enforcement now reads state from disk instead of AppleScript.</p>]]></description>
