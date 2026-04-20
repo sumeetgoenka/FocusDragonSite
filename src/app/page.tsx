@@ -111,18 +111,74 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {[
-              { emoji: "🎓", title: "Students", desc: "Block social media during study sessions. Stop losing entire evenings to YouTube before exams." },
-              { emoji: "💻", title: "Remote workers", desc: "Stay focused during work hours without a manager watching. Block distracting sites 9-to-5." },
-              { emoji: "✍️", title: "Writers & creators", desc: "Enter deep work without Reddit or Twitter pulling you out every 10 minutes." },
-              { emoji: "🎰", title: "Gambling recovery", desc: "Block betting sites with locks you physically cannot undo. Remove the option entirely." },
-              { emoji: "😴", title: "Better sleep", desc: "Block stimulating sites after 10 PM. Stop doom-scrolling in bed until 2 AM." },
-              { emoji: "📵", title: "Digital detox", desc: "Go cold turkey on specific platforms. Lock them away for a week and see what changes." },
-              { emoji: "🧠", title: "ADHD & focus issues", desc: "External structure when your brain won't provide it. Make distractions physically inaccessible." },
-              { emoji: "📚", title: "Researchers", desc: "Block everything except your research tools. Force yourself to stay in the material." },
-              { emoji: "🏋️", title: "Habit builders", desc: "Pair blocking with any routine. Block entertainment until you've done your morning workout." },
+              {
+                title: "Students",
+                desc: "Block social media during study sessions. Stop losing entire evenings to YouTube before exams.",
+                icon: (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                ),
+              },
+              {
+                title: "Remote workers",
+                desc: "Stay focused during work hours without a manager watching. Block distracting sites 9-to-5.",
+                icon: (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
+                ),
+              },
+              {
+                title: "Writers & creators",
+                desc: "Enter deep work without Reddit or Twitter pulling you out every 10 minutes.",
+                icon: (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                ),
+              },
+              {
+                title: "Gambling recovery",
+                desc: "Block betting sites with locks you physically cannot undo. Remove the option entirely.",
+                icon: (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
+                ),
+              },
+              {
+                title: "Better sleep",
+                desc: "Block stimulating sites after 10 PM. Stop doom-scrolling in bed until 2 AM.",
+                icon: (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                ),
+              },
+              {
+                title: "Digital detox",
+                desc: "Go cold turkey on specific platforms. Lock them away for a week and see what changes.",
+                icon: (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                ),
+              },
+              {
+                title: "ADHD & focus issues",
+                desc: "External structure when your brain won't provide it. Make distractions physically inaccessible.",
+                icon: (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5 10.5 2.25l-.75 7.5h4.5L7.5 21.75l.75-8.25h-4.5Z" />
+                ),
+              },
+              {
+                title: "Researchers",
+                desc: "Block everything except your research tools. Force yourself to stay in the material.",
+                icon: (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                ),
+              },
+              {
+                title: "Habit builders",
+                desc: "Pair blocking with any routine. Block entertainment until you've done your morning workout.",
+                icon: (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                ),
+              },
             ].map((uc) => (
               <div key={uc.title} className="rounded-2xl bg-[var(--card-bg)] border border-[var(--card-border)] p-6">
-                <div className="text-2xl mb-3">{uc.emoji}</div>
+                <svg className="w-7 h-7 mb-4 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+                  {uc.icon}
+                </svg>
                 <h3 className="font-bold text-white mb-1">{uc.title}</h3>
                 <p className="text-[var(--muted)] text-sm leading-relaxed">{uc.desc}</p>
               </div>
@@ -419,7 +475,9 @@ export default function Home() {
           <div className="max-w-3xl mx-auto">
             <div className="rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)] p-8 md:p-10">
               <div className="flex items-start gap-4">
-                <div className="text-3xl">🔒</div>
+                <svg className="w-8 h-8 shrink-0 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                </svg>
                 <div>
                   <h3 className="font-bold text-white text-xl mb-3">Your data stays on your Mac. Period.</h3>
                   <p className="text-neutral-400 leading-relaxed mb-4">
