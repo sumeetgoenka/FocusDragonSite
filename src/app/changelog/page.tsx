@@ -21,9 +21,20 @@ interface Release {
 
 const releases: Release[] = [
   {
-    version: "1.1.8",
+    version: "1.1.9",
     date: "April 21, 2026",
     latest: true,
+    summary:
+      "Critical auto-update fix — Check for Updates… actually works now.",
+    changes: [
+      "Fixed: every previous release was shipped without the Sparkle appcast URL key (silently dropped by Xcode's auto-generated Info.plist), so Check for Updates errored out. SUFeedURL + SUPublicEDKey are now injected post-build",
+      "Fixed: Settings → About showed a hardcoded \"1.0.0\" regardless of the running version. Now reads from the bundle so it always tracks the real version + build number",
+      "One-time manual download required for existing 1.0.0–1.1.8 users (their installs literally can't auto-update themselves). From 1.2.0 onwards, Sparkle takes over",
+    ],
+  },
+  {
+    version: "1.1.8",
+    date: "April 21, 2026",
     summary:
       "Bulletproof block-editor save — your typed name and URLs no longer get dropped silently.",
     changes: [
@@ -222,7 +233,7 @@ export default function Changelog() {
               className="rounded-md"
             />
             <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v1.1.8</span>
+            <span className="text-xs text-[var(--muted)]">v1.1.9</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
