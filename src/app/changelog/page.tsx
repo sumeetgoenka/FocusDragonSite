@@ -21,9 +21,20 @@ interface Release {
 
 const releases: Release[] = [
   {
+    version: "1.1.8",
+    date: "April 21, 2026",
+    latest: true,
+    summary:
+      "Bulletproof block-editor save — your typed name and URLs no longer get dropped silently.",
+    changes: [
+      "Fixed: creating a block while the name or website field was still focused could silently drop the edit because the TextField hadn't committed its value yet. All save-critical fields now force-commit synchronously before the handler runs",
+      "Added: post-save verification that shows a visible error if a block doesn't land in the list, instead of closing the editor silently",
+      "Pressing Return in the block-name field now saves",
+    ],
+  },
+  {
     version: "1.1.7",
     date: "April 20, 2026",
-    latest: true,
     summary:
       "chrome://extensions is no longer blocked by default — extension reconfiguration works mid-block.",
     changes: [
@@ -211,7 +222,7 @@ export default function Changelog() {
               className="rounded-md"
             />
             <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v1.1.7</span>
+            <span className="text-xs text-[var(--muted)]">v1.1.8</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
