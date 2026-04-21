@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.2.0</title>
+            <description><![CDATA[<p>UI polish pass: FDA onboarding gate (Refresh Status + Skip-for-now), block-row redesign with color accent bars, typography scale tokens, directional page transitions, InfoTip popovers on strictness toggles, breaks-chip wrapping fix, rubber-band bounce disabled on short pages, Settings Check-for-Updates button, menu bar name shows FocusDragon, favicon white-ring fix on focusdragon.app, chrome-extension self-URL exemption, email capture on download.</p>]]></description>
+            <pubDate>Tue, 21 Apr 2026 12:11:40 +0000</pubDate>
+            <sparkle:version>10</sparkle:version>
+            <sparkle:shortVersionString>1.2.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://focusdragon.vercel.app/releases/FocusDragon-1.2.0.dmg"
+                sparkle:edSignature="I66R2afWKOYqL0b7wCZv0Sduz4kEA6C/FHl4O2YeyVDSbHKm9Q5rkFcJBqsQsWy0TLW3OsN0Rp3ZkdHvLPHUCA=="
+                length="9276389"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.1.9</title>
             <description><![CDATA[<p>CRITICAL: Fixes auto-updates. The Sparkle appcast URL key was silently missing from every shipped Info.plist, which is why Check for Updates returned 'You must specify the URL of the appcast as the SUFeedURL key'. Going forward, auto-updates work. Existing users on 1.0.0–1.1.8 need to download this one manually from focusdragon.app — after that, 1.2.0 and beyond will auto-update. Also: the About section now shows the real bundle version instead of a hardcoded 1.0.0.</p>]]></description>
             <pubDate>Tue, 21 Apr 2026 08:01:46 +0000</pubDate>

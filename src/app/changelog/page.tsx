@@ -21,9 +21,28 @@ interface Release {
 
 const releases: Release[] = [
   {
-    version: "1.1.9",
+    version: "1.2.0",
     date: "April 21, 2026",
     latest: true,
+    summary:
+      "UI polish pass — onboarding gate, block-row redesign, directional transitions, in-app tips.",
+    changes: [
+      "Onboarding: Full Disk Access card now has a Refresh Status button, a red/green confirmation pill, and a greyed-out Next button until FDA is granted. A \"Skip for now\" escape hatch appears after one failed refresh.",
+      "Block list rows redesigned — left accent bar in the block's chosen color, cleaner subtitle line (sites · apps · lock kind), pruned badge strip.",
+      "Directional page transitions — moving down the sidebar slides from the right, moving up slides from the left.",
+      "InfoTip popovers on Strictness toggles explain why each setting exists, not just what it does.",
+      "Breaks chip row wraps onto a new line instead of squeezing into mid-word breaks (\"Allowan ce\", \"Pomodo ro\").",
+      "Rubber-band scroll bounce disabled on pages that fit in the window.",
+      "Settings → About now has a Check for Updates button (in addition to the one in the FocusDragon menu).",
+      "Menu bar shows \"FocusDragon\" instead of truncating to \"Focus\".",
+      "Daemon Refresh Status now actually refreshes (was caching the SMAppService result).",
+      "chrome-extension://<self>/ URLs are now never blocked — fixes blocked.html redirecting to itself.",
+      "Website: email capture modal on Download (tiny \"No thanks\" escape hatch preserved). Favicon white ring on Google results fixed.",
+    ],
+  },
+  {
+    version: "1.1.9",
+    date: "April 21, 2026",
     summary:
       "Critical auto-update fix — Check for Updates… actually works now.",
     changes: [
@@ -233,7 +252,7 @@ export default function Changelog() {
               className="rounded-md"
             />
             <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v1.1.9</span>
+            <span className="text-xs text-[var(--muted)]">v1.2.0</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
