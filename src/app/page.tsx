@@ -2,6 +2,9 @@ import Link from "next/link";
 import SiteNav from "./components/SiteNav";
 import SiteFooter from "./components/SiteFooter";
 import JsonLd, { softwareAppSchema } from "./components/JsonLd";
+import DownloadButton from "./components/DownloadButton";
+
+const APP_VERSION = "1.1.9";
 
 export default function Home() {
   return (
@@ -36,15 +39,15 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-5">
-            <a
-              href="#download"
+            <DownloadButton
+              version={APP_VERSION}
               className="download-btn group bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white font-bold text-lg px-10 py-5 rounded-2xl transition-all flex items-center gap-3"
             >
               <svg className="w-6 h-6 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
               Download for Mac &mdash; It&apos;s Free
-            </a>
+            </DownloadButton>
           </div>
 
           <p className="text-sm text-neutral-500 mb-3">
@@ -518,15 +521,15 @@ export default function Home() {
             Free forever &mdash; no account required.
           </p>
 
-          <a
-            href="/api/download"
+          <DownloadButton
+            version={APP_VERSION}
             className="download-btn inline-flex items-center gap-3 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white font-bold text-xl px-10 py-5 rounded-2xl transition-colors mb-6"
           >
             <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
             </svg>
-            Download FocusDragon v1.1.9
-          </a>
+            Download FocusDragon v{APP_VERSION}
+          </DownloadButton>
 
           <div className="text-sm text-neutral-500 space-y-1">
             <p>macOS 13 Ventura or later &middot; Universal binary (Apple Silicon &amp; Intel)</p>
