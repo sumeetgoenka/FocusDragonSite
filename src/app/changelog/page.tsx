@@ -21,9 +21,22 @@ interface Release {
 
 const releases: Release[] = [
   {
-    version: "1.2.0",
+    version: "1.2.1",
     date: "April 21, 2026",
     latest: true,
+    summary:
+      "Chrome status honesty, working Launch-at-login, aligned statistics charts, human-readable durations.",
+    changes: [
+      "Fixed: Chrome extension status showed green while a block still force-quit Chrome and opened the \"fix extension\" page. The status dot now checks host permissions (not just heartbeat + incognito), so green means green.",
+      "Fixed: Launch at login toggle did nothing. Now actually registers/unregisters FocusDragon via SMAppService and prompts for permission on first use.",
+      "Statistics: horizontal bar charts now share a fixed-width y-axis label column, so bar origins line up with the axis label underneath.",
+      "Dashboard: \"9m of focus\" is now \"9 minutes of focus\", with correct singular/plural and scaling all the way up to hours, days, months, years, and decades.",
+      "Menu bar app name now reads \"FocusDragon\" (was falling back to a shorter default).",
+    ],
+  },
+  {
+    version: "1.2.0",
+    date: "April 21, 2026",
     summary:
       "UI polish pass — onboarding gate, block-row redesign, directional transitions, in-app tips.",
     changes: [
@@ -252,7 +265,7 @@ export default function Changelog() {
               className="rounded-md"
             />
             <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v1.2.0</span>
+            <span className="text-xs text-[var(--muted)]">v1.2.1</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>

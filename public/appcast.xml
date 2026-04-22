@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.2.1</title>
+            <description><![CDATA[<p>Fixes Chrome extension status mismatch (green now truly means green — host permissions, incognito, and heartbeat all checked together), wires up Launch-at-login via SMAppService so the toggle actually does something, aligns the statistics bar charts by pinning the y-axis label column width, switches the dashboard to long-form durations ("9 minutes" not "9m", with singular/plural and scaling into days / months / years / decades), and locks the menu-bar app name to "FocusDragon".</p>]]></description>
+            <pubDate>Tue, 21 Apr 2026 20:51:00 +0000</pubDate>
+            <sparkle:version>12</sparkle:version>
+            <sparkle:shortVersionString>1.2.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://focusdragon.vercel.app/releases/FocusDragon-1.2.1.dmg"
+                sparkle:edSignature="cus/nZOLm2zY8xPJc4gTHhqJtIOfGgTBlsTDmhP9DUmjQAazP5GuSbnJJiwKzSdGAVZo3mIq8Qt3+t+I3Rb+Bg=="
+                length="9283280"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.2.0</title>
             <description><![CDATA[<p>UI polish pass: FDA onboarding gate (Refresh Status + Skip-for-now), block-row redesign with color accent bars, typography scale tokens, directional page transitions, InfoTip popovers on strictness toggles, breaks-chip wrapping fix, rubber-band bounce disabled on short pages, Settings Check-for-Updates button, menu bar name shows FocusDragon, favicon white-ring fix on focusdragon.app, chrome-extension self-URL exemption, email capture on download.</p>]]></description>
             <pubDate>Tue, 21 Apr 2026 12:11:40 +0000</pubDate>
