@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.2.3</title>
+            <description><![CDATA[<p>Fixes Chrome force-quit on laptop wake and the spurious chrome://extensions + fix-no-block pages opening at block-start. Both were caused by the daemon misreading the heartbeat as stale immediately after sleep — the file mtime is from before sleep, so it looked ancient against wall-clock. The enforcer now detects sleep gaps and applies a 30-second wake-grace window before resuming heartbeat enforcement.</p>]]></description>
+            <pubDate>Thu, 23 Apr 2026 10:53:13 +0000</pubDate>
+            <sparkle:version>18</sparkle:version>
+            <sparkle:shortVersionString>1.2.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://focusdragon.vercel.app/releases/FocusDragon-1.2.3.dmg"
+                sparkle:edSignature="tysWeyJ3OXb44aGIy2q8h04BpnRQp6qN8uMLtjb+FPNeGs/5wP6D1GbC8I3VESrkqlvR3+vLLc2ZbvyoMDbKCQ=="
+                length="9339294"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.2.2</title>
             <description><![CDATA[<p>UI polish across Extension Status, Pomodoro, Dashboard, and Statistics pages. Refinements to random-text breaks, Safari restart flow, and blocked-page styling.</p>]]></description>
             <pubDate>Wed, 22 Apr 2026 16:32:13 +0000</pubDate>

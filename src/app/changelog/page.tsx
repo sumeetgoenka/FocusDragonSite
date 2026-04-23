@@ -21,9 +21,20 @@ interface Release {
 
 const releases: Release[] = [
   {
+    version: "1.2.3",
+    date: "April 23, 2026",
+    latest: true,
+    summary:
+      "Critical fix: Chrome no longer force-quits on laptop wake, and the chrome://extensions + fix-no-block pages stop opening at block-start when Chrome is already fully configured.",
+    changes: [
+      "Fixed: Chrome was being force-quit every time you opened your laptop, even with no block active starting fresh. Root cause: the daemon read the heartbeat file's wall-clock age, didn't account for system sleep, and concluded the extension was dead — so it killed Chrome.",
+      "Fixed: starting a block while Chrome was fully configured was opening chrome://extensions and the fix-no-block instruction page anyway. This was a downstream effect of the same misfire — the kill triggered the repair-window flow even though nothing was broken.",
+      "Daemon now detects sleep gaps (any tick where wall-clock advanced >5× the check interval) and applies a 30-second wake-grace window before resuming heartbeat enforcement, giving Chrome's extension service worker time to reconnect.",
+    ],
+  },
+  {
     version: "1.2.2",
     date: "April 22, 2026",
-    latest: true,
     summary:
       "UI polish across Extension Status, Pomodoro, Dashboard, Statistics — plus refinements to breaks, Safari restart, and blocked-page styling.",
     changes: [
@@ -279,7 +290,7 @@ export default function Changelog() {
               className="rounded-md"
             />
             <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v1.2.2</span>
+            <span className="text-xs text-[var(--muted)]">v1.2.3</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
