@@ -21,9 +21,23 @@ interface Release {
 
 const releases: Release[] = [
   {
+    version: "1.2.2",
+    date: "April 22, 2026",
+    latest: true,
+    summary:
+      "UI polish across Extension Status, Pomodoro, Dashboard, Statistics — plus refinements to breaks, Safari restart, and blocked-page styling.",
+    changes: [
+      "Extension Status: tighter header, real browser app icons (instead of generic globes), the empty Unconfigured section now hides itself, and the misleading red \"Force-quit\" pill is now a neutral \"Unsupported\" badge.",
+      "Pomodoro: dropped the redundant centered title, replaced the three tall session chips with a compact segmented control, and merged the round dots + caption onto a single line — the timer ring now has more room to breathe.",
+      "Dashboard, Statistics, and BlockStats: layout polish and copy refinements.",
+      "Random-text breaks: refined break window behavior and quote handling.",
+      "Safari restart flow: smoother prompt + helper.",
+      "Blocked pages (Safari + Chrome extensions): updated styling and added quote rotation.",
+    ],
+  },
+  {
     version: "1.2.1",
     date: "April 21, 2026",
-    latest: true,
     summary:
       "Chrome status honesty, working Launch-at-login, aligned statistics charts, human-readable durations.",
     changes: [
@@ -265,7 +279,7 @@ export default function Changelog() {
               className="rounded-md"
             />
             <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v1.2.1</span>
+            <span className="text-xs text-[var(--muted)]">v1.2.2</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>

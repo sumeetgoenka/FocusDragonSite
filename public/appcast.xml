@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.2.2</title>
+            <description><![CDATA[<p>UI polish across Extension Status, Pomodoro, Dashboard, and Statistics pages. Refinements to random-text breaks, Safari restart flow, and blocked-page styling.</p>]]></description>
+            <pubDate>Wed, 22 Apr 2026 16:32:13 +0000</pubDate>
+            <sparkle:version>16</sparkle:version>
+            <sparkle:shortVersionString>1.2.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://focusdragon.vercel.app/releases/FocusDragon-1.2.2.dmg"
+                sparkle:edSignature="5H6ibhBZyB2SRdO55YgZZXxuJBEuX4K+fNP5LOGSOMNvFK+FJWGehnJaLBe7A3wdegvsXiKRlh0LXWdFsTnLCQ=="
+                length="9338087"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.2.1</title>
             <description><![CDATA[<p>Fixes Chrome extension status mismatch (green now truly means green — host permissions, incognito, and heartbeat all checked together), wires up Launch-at-login via SMAppService so the toggle actually does something, aligns the statistics bar charts by pinning the y-axis label column width, switches the dashboard to long-form durations ("9 minutes" not "9m", with singular/plural and scaling into days / months / years / decades), and locks the menu-bar app name to "FocusDragon".</p>]]></description>
             <pubDate>Tue, 21 Apr 2026 20:51:00 +0000</pubDate>
