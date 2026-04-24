@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function Upgrade() {
   return (
     <div className="min-h-screen bg-grid">
-      <SiteNav activePath="" />
+      <SiteNav />
 
       {/* Hero */}
       <section className="relative pt-36 pb-16 px-6 overflow-hidden">
