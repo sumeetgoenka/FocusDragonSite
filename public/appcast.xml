@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.2.4</title>
+            <description><![CDATA[<p>AI block builder (preview): describe a block in one sentence and Claude fills in the fields. Bring your own Anthropic key in Settings → AI. Plus: Chrome wake-grace extended to 60s with a proper wake observer, frozen blocks auto-enable Locked Block, Frozen option restored to the manual lock picker, Dashboard focusing-badge color fix.</p>]]></description>
+            <pubDate>Fri, 24 Apr 2026 05:37:53 +0000</pubDate>
+            <sparkle:version>19</sparkle:version>
+            <sparkle:shortVersionString>1.2.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://focusdragon.vercel.app/releases/FocusDragon-1.2.4.dmg"
+                sparkle:edSignature="sbWkYetqoaaRPhEG0YUvh9uQcFahyZpQtSihb5E1PfBkVE0zWhZ1sE570T9Vpve5MNJDPZVkHmUY5B1+1csNAA=="
+                length="9538242"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.2.3</title>
             <description><![CDATA[<p>Fixes Chrome force-quit on laptop wake and the spurious chrome://extensions + fix-no-block pages opening at block-start. Both were caused by the daemon misreading the heartbeat as stale immediately after sleep — the file mtime is from before sleep, so it looked ancient against wall-clock. The enforcer now detects sleep gaps and applies a 30-second wake-grace window before resuming heartbeat enforcement.</p>]]></description>
             <pubDate>Thu, 23 Apr 2026 10:53:13 +0000</pubDate>

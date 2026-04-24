@@ -58,7 +58,7 @@ export default function SiteFooter() {
       <div className="border-t border-[var(--card-border)] py-6 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-[var(--muted)]">
           <span>&copy; {new Date().getFullYear()} FocusDragon &middot; Made in Dubai for focused humans everywhere.</span>
-          <span>v1.2.3 &middot; macOS 13 Ventura or later</span>
+          <span>v1.2.4 &middot; macOS 13 Ventura or later</span>
         </div>
       </div>
     </footer>

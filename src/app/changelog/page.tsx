@@ -21,9 +21,22 @@ interface Release {
 
 const releases: Release[] = [
   {
+    version: "1.2.4",
+    date: "April 24, 2026",
+    latest: true,
+    summary:
+      "AI block builder (preview) — describe a block in one sentence and Claude fills in the fields for you. Plus hardened Chrome wake handling and a handful of small fixes.",
+    changes: [
+      "New: AI block builder. Tap the ✨ \"Describe a block\" button next to Add Block, type a sentence (\"block twitter and reddit 9–5 weekdays, allow gmail at lunch, force lock so I can't cheat\"), and you land in a pre-filled editor you can review before saving. Bring your own Anthropic API key in Settings → AI — paid FocusDragon Pro tier coming with the next big release.",
+      "AI: tamperproof inference — phrases like \"force\", \"can't cheat\", \"commit\", \"no escape\" now automatically enable Locked Block on the resulting block. Frozen lock types auto-enable Locked Block unconditionally; the toggle shows forced-on with the subtitle \"Always on for Frozen blocks\".",
+      "Fixed: the Frozen lock option was missing from the manual lock-type picker in the block editor (every other lock type worked but you couldn't pick Frozen without the AI builder). It's back.",
+      "Fixed: Dashboard \"Focusing\" badge was green on top of an orange gradient — clashed. Now a clean white-on-translucent badge with a pulsing dot.",
+      "Daemon: Chrome wake-grace extended from 30s to 60s on top of 1.2.3's timer-gap detection, plus a proper NSWorkspace.didWake observer so the grace is armed the instant the system reports wake (not inferred from the next timer tick). Belt-and-suspenders for the edge case where Chrome's service worker takes longer than 30s to reconnect.",
+    ],
+  },
+  {
     version: "1.2.3",
     date: "April 23, 2026",
-    latest: true,
     summary:
       "Critical fix: Chrome no longer force-quits on laptop wake, and the chrome://extensions + fix-no-block pages stop opening at block-start when Chrome is already fully configured.",
     changes: [
@@ -290,7 +303,7 @@ export default function Changelog() {
               className="rounded-md"
             />
             <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v1.2.3</span>
+            <span className="text-xs text-[var(--muted)]">v1.2.4</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
