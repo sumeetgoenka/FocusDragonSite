@@ -1,33 +1,23 @@
 import { NextResponse } from "next/server";
-import { cert, getApps, initializeApp } from "firebase-admin/app";
-import { getFirestore, FieldValue } from "firebase-admin/firestore";
+import { FieldValue } from "firebase-admin/firestore";
+import { getDb } from "@/lib/firebase-admin";
 
 export const runtime = "nodejs";
 
-function getDb() {
-  if (!getApps().length) {
-    const raw = process.env.FIREBASE_SERVICE_ACCOUNT;
-    if (!raw) throw new Error("FIREBASE_SERVICE_ACCOUNT env var not set");
-    const serviceAccount = JSON.parse(raw);
-    initializeApp({ credential: cert(serviceAccount) });
-  }
-  return getFirestore();
-}
-
-// Basic RFC-5322-ish check. Intentionally lenient — we'd rather store a
-// slightly-malformed address than block a real lead because the regex was
-// too strict. Downstream dedup/validation happens at export time.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Collection: `downloadLeads`
 // Each doc:
 //   {
-//     email: string,            // lowercased, trimmed
-//     createdAt: FieldValue,    // server timestamp
-//     userAgent: string | null, // for later de-dup / bot filtering
+//     email: string,
+//     createdAt: FieldValue,
+//     userAgent: string | null,
 //     referrer: string | null,
-//     ip: string | null,        // vercel forward header, best-effort
-//     version: string | null,   // the version the user downloaded
+//     ip: string | null,
+//     country: string | null,    // Vercel x-vercel-ip-country (ISO-3166)
+//     city: string | null,       // Vercel x-vercel-ip-city
+//     region: string | null,     // Vercel x-vercel-ip-country-region
+//     version: string | null,
 //   }
 export async function POST(req: Request) {
   let body: { email?: unknown; version?: unknown } = {};
@@ -55,12 +45,13 @@ export async function POST(req: Request) {
       ip:
         req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
         req.headers.get("x-real-ip"),
+      country: req.headers.get("x-vercel-ip-country"),
+      city: decodeURIComponent(req.headers.get("x-vercel-ip-city") ?? "") || null,
+      region: req.headers.get("x-vercel-ip-country-region"),
     });
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("Failed to write download lead", err);
-    // Never block the download over a logging failure — the client
-    // proceeds to the DMG URL regardless of this response status.
     return NextResponse.json({ error: "unavailable" }, { status: 500 });
   }
 }
