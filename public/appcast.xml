@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.3.0</title>
+            <description><![CDATA[<p>Intent-aware blocking: set a task, FocusDragon watches what you're actually doing every 30s and force-quits drift. Three per-block enforcement levels (Suggest, Nudge, Hard). Plus weekly Sunday focus summaries and a Distraction Suggester that learns from your drift log.</p>]]></description>
+            <pubDate>Sat, 25 Apr 2026 06:44:58 +0000</pubDate>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>1.3.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://focusdragon.vercel.app/releases/FocusDragon-1.3.0.dmg"
+                sparkle:edSignature="O2F794V+DlsGNzcy54gKWCHVN9qNf70Hf4PbrH6RKZ4NR4rFtDo4sZAeq+JLsQEuhGkcLp2zn2BCFJWUgsT1Ag=="
+                length="10197293"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.2.4</title>
             <description><![CDATA[<p>AI block builder (preview): describe a block in one sentence and Claude fills in the fields. Bring your own Anthropic key in Settings → AI. Plus: Chrome wake-grace extended to 60s with a proper wake observer, frozen blocks auto-enable Locked Block, Frozen option restored to the manual lock picker, Dashboard focusing-badge color fix.</p>]]></description>
             <pubDate>Fri, 24 Apr 2026 05:37:53 +0000</pubDate>

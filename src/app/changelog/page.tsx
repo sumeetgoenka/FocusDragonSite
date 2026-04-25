@@ -21,9 +21,24 @@ interface Release {
 
 const releases: Release[] = [
   {
+    version: "1.3.0",
+    date: "April 25, 2026",
+    latest: true,
+    summary:
+      "Intent-aware blocking. Tell FocusDragon what you're working on, and it watches what you're actually doing every 30 seconds — drift gets a 5-second blocked page or a force-quit, your call. Plus weekly Sunday focus summaries and a Distraction Suggester that learns from your drift log.",
+    changes: [
+      "New: Intent-aware blocking. Set a global task on Settings → AI (\"writing my dissertation chapter 3\") and any active block with the AI layer enabled polls the current browser tab or app every 30 seconds, asks Claude Haiku whether it matches your task, and intervenes on drift. Text-only — DOM extraction + macOS Accessibility, never screenshots. BYOK with your Anthropic key.",
+      "New: Three per-block enforcement levels. Suggest (log only — see what would have happened), Nudge (first drift = 5-second blocked page on the web or a takeover screen on apps; second drift = force-quit), Hard (force-quit on first drift, every time). Defaults to Suggest so nothing surprises you on day one.",
+      "New: Force-quit recovery. The classifier never adds sites to your block list — every poll is independent, every recovery is immediate. Watch MrBeast and you get force-quit; pivot to the math tutorial and you're back to normal.",
+      "New: Weekly focus summary. Every Sunday at 7pm, FocusDragon writes a one-paragraph summary of your focus week — top blocks, drift categories, streaks. Tap to view; share as a card.",
+      "New: Distraction Suggester. The retrospective view now reads your drift log and suggests sites worth blocking next week, one tap to accept.",
+      "App-name enrichment: the classifier now sees \"Slack (com.tinyspeck.slackmacgap, Social Networking)\" instead of an opaque bundle ID, which makes verdicts noticeably better on indie macOS apps.",
+      "Removed the soft-overlay drift intervention from 1.2.4 — it was the wrong shape. Drift is now a reflex (force-quit or 5-second blocked page), not a dismissible suggestion.",
+    ],
+  },
+  {
     version: "1.2.4",
     date: "April 24, 2026",
-    latest: true,
     summary:
       "AI block builder (preview) — describe a block in one sentence and Claude fills in the fields for you. Plus hardened Chrome wake handling and a handful of small fixes.",
     changes: [
@@ -303,7 +318,7 @@ export default function Changelog() {
               className="rounded-md"
             />
             <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v1.2.4</span>
+            <span className="text-xs text-[var(--muted)]">v1.3.0</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
