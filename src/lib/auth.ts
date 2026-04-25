@@ -1,7 +1,10 @@
 import type { AuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
-export const ADMIN_EMAIL = "anay.goenka@yallo.co";
+export const ADMIN_EMAILS = new Set([
+  "anay.goenka@yallo.co",
+  "anaythetutor@gmail.com",
+]);
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -12,7 +15,8 @@ export const authOptions: AuthOptions = {
   ],
   callbacks: {
     async signIn({ profile }) {
-      return profile?.email?.toLowerCase() === ADMIN_EMAIL;
+      const email = profile?.email?.toLowerCase();
+      return !!email && ADMIN_EMAILS.has(email);
     },
     async session({ session }) {
       return session;

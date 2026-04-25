@@ -11,7 +11,8 @@ export default function AdminLogin() {
   const error = params.get("error");
 
   useEffect(() => {
-    if (status === "authenticated" && session?.user?.email?.toLowerCase() === "anay.goenka@yallo.co") {
+    const email = session?.user?.email?.toLowerCase();
+    if (status === "authenticated" && (email === "anay.goenka@yallo.co" || email === "anaythetutor@gmail.com")) {
       router.replace("/admin");
     }
   }, [status, session, router]);

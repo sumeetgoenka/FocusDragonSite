@@ -1,7 +1,10 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getToken } from "next-auth/jwt";
 
-const ADMIN_EMAIL = "anay.goenka@yallo.co";
+const ADMIN_EMAILS = new Set([
+  "anay.goenka@yallo.co",
+  "anaythetutor@gmail.com",
+]);
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
@@ -16,7 +19,8 @@ export async function middleware(req: NextRequest) {
   }
 
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
-  if (token?.email?.toLowerCase() !== ADMIN_EMAIL) {
+  const email = token?.email?.toLowerCase();
+  if (!email || !ADMIN_EMAILS.has(email)) {
     if (pathname.startsWith("/api/")) {
       return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     }
