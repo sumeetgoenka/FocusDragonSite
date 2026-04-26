@@ -16,14 +16,15 @@ interface Props {
 }
 
 /**
- * Download CTA that opens a modal requiring an email BEFORE handing
- * over the DMG. Email is mandatory — the only escape is closing the
- * modal entirely (Esc / backdrop click), which means no download.
+ * Download CTA that opens a modal asking for the user's email BEFORE
+ * handing over the DMG. The "skip" escape hatch is intentionally small
+ * (plain-text link, muted colour, below the primary submit) — we want
+ * to maximise opt-in rate without trapping users who refuse.
  *
- * Lead capture is fire-and-forget once a valid email is entered: if
- * POST /api/download-lead fails for any reason (network error,
- * Firebase outage), we still proceed to /api/download. Losing a lead
- * is better than blocking a user who already gave us their email.
+ * Lead capture is fire-and-forget: if POST /api/download-lead fails
+ * for any reason (network error, Firebase outage, validation race),
+ * we still proceed to /api/download. Losing a lead is better than
+ * blocking a real user.
  */
 export default function DownloadButton({ version, className, children, from }: Props) {
   const [open, setOpen] = useState(false);
@@ -91,6 +92,11 @@ export default function DownloadButton({ version, className, children, from }: P
     }
   }
 
+  function onSkip() {
+    setOpen(false);
+    beginDownload();
+  }
+
   return (
     <>
       <button type="button" onClick={() => setOpen(true)} className={className}>
@@ -116,12 +122,16 @@ export default function DownloadButton({ version, className, children, from }: P
               id="dl-modal-title"
               className="text-2xl font-black tracking-tight mb-2"
             >
-              Enter your email to download
+              Get the most out of FocusDragon
             </h3>
-            <p className="text-[var(--muted)] text-sm leading-relaxed mb-6">
-              We&apos;ll send the occasional release note and focus tip.
-              No spam, unsubscribe any time.
+            <p className="text-[var(--muted)] text-sm leading-relaxed mb-2">
+              Drop your email and you&apos;ll get:
             </p>
+            <ul className="text-[var(--muted)] text-sm leading-relaxed mb-6 space-y-1.5 list-disc pl-5">
+              <li>The setup playbook — how to configure your first AI-aware block in 3 minutes</li>
+              <li>First access to new features (intent-aware blocking, weekly summaries) before they hit the changelog</li>
+              <li>A short weekly focus tip — no marketing fluff, no spam</li>
+            </ul>
 
             <form onSubmit={onSubmit} className="space-y-4">
               <input
@@ -172,6 +182,18 @@ export default function DownloadButton({ version, className, children, from }: P
               </button>
             </form>
 
+            {/* Deliberately small + muted — we want to maximise email
+                capture, not advertise the escape hatch. Still present
+                and keyboard-accessible so we're not dark-patterning. */}
+            <div className="mt-4 text-center">
+              <button
+                type="button"
+                onClick={onSkip}
+                className="text-[11px] text-neutral-500 hover:text-neutral-300 underline underline-offset-2 transition-colors"
+              >
+                No thanks, just download
+              </button>
+            </div>
           </div>
         </div>
       )}
