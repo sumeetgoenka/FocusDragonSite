@@ -10,6 +10,9 @@ interface Props {
   /** Optional renderProp for the button body so callers can inline an
    *  icon + arbitrary text without us shipping yet another variant. */
   children: React.ReactNode;
+  /** CTA-source tag (e.g. "hero", "footer") forwarded to the download
+   *  + lead endpoints so the admin can attribute conversions. */
+  from?: string;
 }
 
 /**
@@ -23,7 +26,7 @@ interface Props {
  * we still proceed to /api/download. Losing a lead is better than
  * blocking a real user.
  */
-export default function DownloadButton({ version, className, children }: Props) {
+export default function DownloadButton({ version, className, children, from }: Props) {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);

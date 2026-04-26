@@ -1,24 +1,12 @@
 import { NextResponse } from "next/server";
 import { FieldValue } from "firebase-admin/firestore";
 import { getDb } from "@/lib/firebase-admin";
+import { enrichFromRequest } from "@/lib/enrich-request";
 
 export const runtime = "nodejs";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Collection: `downloadLeads`
-// Each doc:
-//   {
-//     email: string,
-//     createdAt: FieldValue,
-//     userAgent: string | null,
-//     referrer: string | null,
-//     ip: string | null,
-//     country: string | null,    // Vercel x-vercel-ip-country (ISO-3166)
-//     city: string | null,       // Vercel x-vercel-ip-city
-//     region: string | null,     // Vercel x-vercel-ip-country-region
-//     version: string | null,
-//   }
 export async function POST(req: Request) {
   let body: { email?: unknown; version?: unknown } = {};
   try {
@@ -36,18 +24,12 @@ export async function POST(req: Request) {
 
   try {
     const db = getDb();
+    const enriched = enrichFromRequest(req);
     await db.collection("downloadLeads").add({
       email: rawEmail,
       version,
       createdAt: FieldValue.serverTimestamp(),
-      userAgent: req.headers.get("user-agent"),
-      referrer: req.headers.get("referer"),
-      ip:
-        req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
-        req.headers.get("x-real-ip"),
-      country: req.headers.get("x-vercel-ip-country"),
-      city: decodeURIComponent(req.headers.get("x-vercel-ip-city") ?? "") || null,
-      region: req.headers.get("x-vercel-ip-country-region"),
+      ...enriched,
     });
     return NextResponse.json({ ok: true });
   } catch (err) {

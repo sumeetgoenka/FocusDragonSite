@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import LandingCookie from "./components/LandingCookie";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -98,6 +99,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify([websiteSchema, organizationSchema]) }}
         />
+        <LandingCookie />
         {children}
         <Analytics />
       </body>
