@@ -1,5 +1,6 @@
 import { getDb } from "@/lib/firebase-admin";
 import WorldMap from "./WorldMap";
+import AreaChart from "./components/AreaChart";
 
 export const dynamic = "force-dynamic";
 
@@ -24,6 +25,8 @@ interface DownloadEvent {
   fromCta: string | null;
   referrer: string | null;
   userAgent: string | null;
+  visitorId: string | null;
+  secondsToDownload: number | null;
   createdAt: Date | null;
 }
 
@@ -72,6 +75,19 @@ function tally<T>(items: T[], key: (t: T) => string | null | undefined) {
     .sort((a, b) => b.count - a.count);
 }
 
+function timeAgo(d: Date | null): string {
+  if (!d) return "—";
+  const s = Math.floor((Date.now() - d.getTime()) / 1000);
+  if (s < 60) return `${s}s ago`;
+  const m = Math.floor(s / 60);
+  if (m < 60) return `${m}m ago`;
+  const h = Math.floor(m / 60);
+  if (h < 24) return `${h}h ago`;
+  const days = Math.floor(h / 24);
+  if (days < 30) return `${days}d ago`;
+  return d.toISOString().slice(0, 10);
+}
+
 async function loadDashboard() {
   const db = getDb();
   const [counterSnap, leadsSnap, eventsSnap] = await Promise.all([
@@ -108,12 +124,13 @@ async function loadDashboard() {
       fromCta: (x.fromCta as string | undefined) ?? null,
       referrer: (x.referrer as string | undefined) ?? null,
       userAgent: (x.userAgent as string | undefined) ?? null,
+      visitorId: (x.visitorId as string | undefined) ?? null,
+      secondsToDownload: (x.secondsToDownload as number | undefined) ?? null,
       createdAt: x.createdAt?.toDate?.() ?? null,
     };
   });
 
   const downloadCountries = tally(events, (e) => e.country);
-  const leadCountries = tally(leads, (l) => l.country);
   const utmSources = tally(events, (e) => e.utmSource);
   const referrers = tally(events, (e) => hostFromReferrer(e.referrer));
   const languages = tally(events, (e) => e.language);
@@ -121,8 +138,22 @@ async function loadDashboard() {
   const browsers = tally(events, (e) => browserFromUA(e.userAgent));
   const ctas = tally(events, (e) => e.fromCta);
 
-  // Hour-of-day in user's local timezone (best-effort).
-  // Falls back to UTC hour when tz is missing.
+  const taggedEvents = events.filter((e) => e.visitorId);
+  const uniqueVisitors = new Set(taggedEvents.map((e) => e.visitorId)).size;
+  const repeatClicks = Math.max(0, taggedEvents.length - uniqueVisitors);
+
+  const latencies = events
+    .map((e) => e.secondsToDownload)
+    .filter((s): s is number => typeof s === "number" && s >= 0 && s <= 86400)
+    .sort((a, b) => a - b);
+  const avgLatency = latencies.length
+    ? Math.round(latencies.reduce((a, b) => a + b, 0) / latencies.length)
+    : null;
+  const medianLatency = latencies.length
+    ? latencies[Math.floor(latencies.length / 2)]
+    : null;
+
+  // Hour-of-day in downloader's local timezone.
   const byHour: number[] = Array(24).fill(0);
   for (const e of events) {
     if (!e.createdAt) continue;
@@ -145,6 +176,25 @@ async function loadDashboard() {
     if (Number.isFinite(hour) && hour >= 0 && hour < 24) byHour[hour]++;
   }
 
+  // Time series: last 30 days, downloads per day (UTC).
+  const dayKey = (d: Date) => d.toISOString().slice(0, 10);
+  const byDay: Record<string, number> = {};
+  const today = new Date();
+  for (let i = 29; i >= 0; i--) {
+    const d = new Date(today);
+    d.setUTCDate(d.getUTCDate() - i);
+    byDay[dayKey(d)] = 0;
+  }
+  for (const e of events) {
+    if (!e.createdAt) continue;
+    const k = dayKey(e.createdAt);
+    if (k in byDay) byDay[k]++;
+  }
+  const timeSeries = Object.entries(byDay).map(([day, value]) => ({
+    label: day.slice(5), // MM-DD
+    value,
+  }));
+
   const mapPoints = events
     .filter((e) => e.latitude != null && e.longitude != null)
     .map((e) => ({
@@ -155,12 +205,32 @@ async function loadDashboard() {
       country: e.country,
     }));
 
+  // Combined activity feed
+  const activity = [
+    ...events.slice(0, 50).map((e) => ({
+      kind: "download" as const,
+      at: e.createdAt,
+      label: [e.city, e.country].filter(Boolean).join(", ") || "Unknown",
+      country: e.country,
+      meta: e.utmSource ? `via ${e.utmSource}` : null,
+    })),
+    ...leads.slice(0, 50).map((l) => ({
+      kind: "lead" as const,
+      at: l.createdAt,
+      label: l.email,
+      country: l.country,
+      meta: [l.city, l.country].filter(Boolean).join(", ") || null,
+    })),
+  ]
+    .filter((a) => a.at)
+    .sort((a, b) => (b.at as Date).getTime() - (a.at as Date).getTime())
+    .slice(0, 25);
+
   return {
     totalDownloads,
     trackedDownloads: events.length,
     leads,
     downloadCountries,
-    leadCountries,
     utmSources,
     referrers,
     languages,
@@ -168,13 +238,22 @@ async function loadDashboard() {
     browsers,
     ctas,
     byHour,
+    timeSeries,
     mapPoints,
+    uniqueVisitors,
+    repeatClicks,
+    taggedEventsCount: taggedEvents.length,
+    avgLatency,
+    medianLatency,
+    activity,
   };
 }
 
-function fmt(d: Date | null) {
-  if (!d) return "—";
-  return d.toISOString().slice(0, 16).replace("T", " ");
+function fmtDuration(secs: number | null): string {
+  if (secs == null) return "—";
+  if (secs < 60) return `${secs}s`;
+  if (secs < 3600) return `${Math.floor(secs / 60)}m ${secs % 60}s`;
+  return `${Math.floor(secs / 3600)}h ${Math.floor((secs % 3600) / 60)}m`;
 }
 
 function flag(country: string | null) {
@@ -183,159 +262,497 @@ function flag(country: string | null) {
   return String.fromCodePoint(...[...country.toUpperCase()].map((c) => c.charCodeAt(0) + A));
 }
 
+function avatarFor(email: string): { initials: string; hue: number } {
+  const initials = email.split("@")[0].slice(0, 2).toUpperCase();
+  let h = 0;
+  for (let i = 0; i < email.length; i++) h = (h * 31 + email.charCodeAt(i)) >>> 0;
+  return { initials, hue: h % 360 };
+}
+
 export default async function AdminHome() {
   const data = await loadDashboard();
   const captureRate = data.totalDownloads > 0
     ? Math.round((data.leads.length / data.totalDownloads) * 100)
     : 0;
-  const maxHour = Math.max(1, ...data.byHour);
+  const last24h = data.activity.filter(
+    (a) => a.at && Date.now() - (a.at as Date).getTime() < 24 * 60 * 60 * 1000,
+  ).length;
 
   return (
-    <div className="space-y-10">
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <Stat label="Total downloads" value={data.totalDownloads.toLocaleString()} />
-        <Stat label="Emails captured" value={`${data.leads.length} (${captureRate}%)`} />
-        <Stat
-          label="Geo-tagged downloads"
-          value={data.trackedDownloads.toLocaleString()}
-          hint={
-            data.trackedDownloads < data.totalDownloads
-              ? `${data.totalDownloads - data.trackedDownloads} pre-tracking`
-              : undefined
-          }
+    <div className="space-y-12">
+      {/* Hero header */}
+      <header className="flex items-end justify-between gap-6 flex-wrap">
+        <div>
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-orange-400/80 mb-2">
+            Live overview
+          </p>
+          <h1 className="text-4xl font-semibold tracking-tight">
+            Welcome back.
+          </h1>
+          <p className="text-zinc-400 mt-1">
+            {last24h > 0
+              ? `${last24h} ${last24h === 1 ? "event" : "events"} in the last 24 hours.`
+              : "No activity in the last 24 hours yet."}
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          <Pulse />
+          <span className="text-xs text-zinc-400">
+            Live · refreshes on reload
+          </span>
+        </div>
+      </header>
+
+      {/* Hero stat cards */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <StatCard
+          label="Total downloads"
+          value={data.totalDownloads.toLocaleString()}
+          accent="from-orange-500/20 to-amber-500/0"
+          icon={DownloadIcon}
         />
-      </div>
+        <StatCard
+          label="Email leads"
+          value={data.leads.length.toLocaleString()}
+          sub={`${captureRate}% capture rate`}
+          accent="from-emerald-500/20 to-teal-500/0"
+          icon={MailIcon}
+        />
+        <StatCard
+          label="Unique visitors"
+          value={data.uniqueVisitors.toLocaleString()}
+          sub={
+            data.taggedEventsCount > 0
+              ? `${data.repeatClicks} repeat clicks`
+              : "no tagged events yet"
+          }
+          accent="from-indigo-500/20 to-violet-500/0"
+          icon={UserIcon}
+        />
+        <StatCard
+          label="Avg time-to-download"
+          value={fmtDuration(data.avgLatency)}
+          sub={data.medianLatency != null ? `median ${fmtDuration(data.medianLatency)}` : undefined}
+          accent="from-fuchsia-500/20 to-pink-500/0"
+          icon={ClockIcon}
+        />
+      </section>
 
-      <section>
-        <H2>World map</H2>
+      {/* Time series */}
+      <Card>
+        <CardHeader
+          title="Downloads over time"
+          subtitle="Last 30 days · UTC days"
+        />
+        <AreaChart points={data.timeSeries} />
+      </Card>
+
+      {/* World map */}
+      <Card>
+        <CardHeader
+          title="Where in the world"
+          subtitle={`${data.mapPoints.length.toLocaleString()} geo-tagged events`}
+        />
         <WorldMap points={data.mapPoints} />
-      </section>
+      </Card>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <section>
-          <H2>Downloads by country</H2>
-          <Tally rows={data.downloadCountries} renderKey={(k) => (
-            <><span className="mr-2 text-base">{flag(k)}</span>{k === "—" ? "Unknown" : k}</>
-          )} empty="No tracked downloads yet." />
-        </section>
-
-        <section>
-          <H2>UTM source</H2>
-          <Tally rows={data.utmSources} empty="No UTM-tagged links yet. Tag your launch URLs (e.g. ?utm_source=hn&utm_campaign=launch)." />
-        </section>
-
-        <section>
-          <H2>Top referrers</H2>
-          <Tally rows={data.referrers} empty="No referrer data yet." />
-        </section>
-
-        <section>
-          <H2>CTA clicked</H2>
-          <Tally rows={data.ctas} empty="No tagged CTAs yet. Add ?from=hero to download buttons." />
-        </section>
-
-        <section>
-          <H2>Language</H2>
-          <Tally rows={data.languages} empty="No language data yet." />
-        </section>
-
-        <section>
-          <H2>OS / Browser</H2>
-          <div className="grid grid-cols-2 gap-3">
-            <Tally rows={data.oses} empty="No OS data." />
-            <Tally rows={data.browsers} empty="No browser data." />
+      {/* Two-column: Acquisition + Audience */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader title="Acquisition" subtitle="Where downloaders come from" />
+          <div className="space-y-6">
+            <SubGroup label="UTM source" empty="No UTM-tagged links yet — try ?utm_source=hn">
+              <TallyBars rows={data.utmSources} accent="#f97316" />
+            </SubGroup>
+            <SubGroup label="Referrer">
+              <TallyBars rows={data.referrers} accent="#6366f1" />
+            </SubGroup>
+            <SubGroup label="CTA clicked" empty="No tagged CTAs yet — try ?from=hero">
+              <TallyBars rows={data.ctas} accent="#10b981" />
+            </SubGroup>
           </div>
-        </section>
+        </Card>
+
+        <Card>
+          <CardHeader title="Audience" subtitle="Who's downloading" />
+          <div className="space-y-6">
+            <SubGroup label="Country">
+              <TallyBars
+                rows={data.downloadCountries}
+                accent="#f97316"
+                renderKey={(k) => (
+                  <>
+                    <span className="mr-2 text-base">{flag(k)}</span>
+                    {k === "—" ? "Unknown" : k}
+                  </>
+                )}
+              />
+            </SubGroup>
+            <SubGroup label="Language">
+              <TallyBars rows={data.languages} accent="#8b5cf6" />
+            </SubGroup>
+            <div className="grid grid-cols-2 gap-4">
+              <SubGroup label="OS">
+                <TallyBars rows={data.oses} accent="#06b6d4" max={4} />
+              </SubGroup>
+              <SubGroup label="Browser">
+                <TallyBars rows={data.browsers} accent="#ec4899" max={4} />
+              </SubGroup>
+            </div>
+          </div>
+        </Card>
       </div>
 
-      <section>
-        <H2>Hour of day (downloader local time)</H2>
-        <div className="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-4">
-          <div className="flex items-end gap-1 h-24">
-            {data.byHour.map((c, h) => (
-              <div key={h} className="flex-1 flex flex-col items-center gap-1">
-                <div
-                  className="w-full bg-orange-500/60 rounded-sm"
-                  style={{ height: `${Math.max(2, (c / maxHour) * 100)}%` }}
-                  title={`${h}:00 — ${c}`}
-                />
-                <span className="text-[9px] opacity-50">{h}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Hour heatmap */}
+      <Card>
+        <CardHeader
+          title="When do they download"
+          subtitle="Hour of day · downloader local time"
+        />
+        <HourHeatmap counts={data.byHour} />
+      </Card>
 
-      <section>
-        <H2>Email leads ({data.leads.length})</H2>
-        <div className="rounded-xl border border-white/10 bg-white/[0.02] overflow-hidden">
-          <table className="w-full text-sm">
-            <thead className="bg-white/[0.03] text-xs uppercase tracking-wide opacity-60">
-              <tr>
-                <th className="text-left px-4 py-2">When (UTC)</th>
-                <th className="text-left px-4 py-2">Email</th>
-                <th className="text-left px-4 py-2">Where</th>
-                <th className="text-left px-4 py-2">Version</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-white/5">
-              {data.leads.map((l) => (
-                <tr key={l.id}>
-                  <td className="px-4 py-2 font-mono text-xs opacity-70">{fmt(l.createdAt)}</td>
-                  <td className="px-4 py-2">{l.email}</td>
-                  <td className="px-4 py-2">
-                    <span className="mr-1">{flag(l.country)}</span>
-                    {[l.city, l.country].filter(Boolean).join(", ") || "—"}
-                  </td>
-                  <td className="px-4 py-2 opacity-70">{l.version ?? "—"}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
+      {/* Activity feed + Leads side by side on lg */}
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+        <Card className="lg:col-span-2">
+          <CardHeader title="Recent activity" subtitle="Live feed" />
+          <ActivityFeed items={data.activity} />
+        </Card>
+        <Card className="lg:col-span-3 overflow-hidden">
+          <CardHeader title={`Email leads (${data.leads.length})`} subtitle="People who shared an email" />
+          <LeadsTable leads={data.leads} />
+        </Card>
+      </div>
     </div>
   );
 }
 
-function H2({ children }: { children: React.ReactNode }) {
+/* ───────── components ───────── */
+
+function Card({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <h2 className="text-sm font-semibold uppercase tracking-wide opacity-60 mb-3">
+    <div
+      className={`rounded-2xl border border-white/[0.07] bg-white/[0.02] backdrop-blur-sm p-6 shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset] ${className}`}
+    >
       {children}
-    </h2>
+    </div>
   );
 }
 
-function Tally({
-  rows,
+function CardHeader({ title, subtitle }: { title: string; subtitle?: string }) {
+  return (
+    <div className="mb-5 flex items-end justify-between">
+      <div>
+        <h2 className="text-base font-semibold tracking-tight">{title}</h2>
+        {subtitle && (
+          <p className="text-xs text-zinc-500 mt-0.5">{subtitle}</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function StatCard({
+  label,
+  value,
+  sub,
+  accent,
+  icon: Icon,
+}: {
+  label: string;
+  value: string;
+  sub?: string;
+  accent: string;
+  icon: () => React.ReactElement;
+}) {
+  return (
+    <div className="relative rounded-2xl border border-white/[0.07] bg-white/[0.02] backdrop-blur-sm overflow-hidden">
+      <div className={`absolute inset-0 bg-gradient-to-br ${accent} pointer-events-none`} />
+      <div className="relative p-5">
+        <div className="flex items-center justify-between">
+          <span className="text-xs font-medium uppercase tracking-wide text-zinc-400">
+            {label}
+          </span>
+          <span className="text-zinc-500"><Icon /></span>
+        </div>
+        <div className="mt-3 text-3xl font-semibold tracking-tight tabular-nums">
+          {value}
+        </div>
+        {sub && (
+          <div className="mt-1 text-xs text-zinc-500">{sub}</div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function SubGroup({
+  label,
+  children,
   empty,
+}: {
+  label: string;
+  children: React.ReactNode;
+  empty?: string;
+}) {
+  return (
+    <div>
+      <div className="text-[10px] font-semibold uppercase tracking-[0.15em] text-zinc-500 mb-2">
+        {label}
+      </div>
+      {children}
+      {empty && (
+        <ChildEmptyHint>{empty}</ChildEmptyHint>
+      )}
+    </div>
+  );
+}
+
+function ChildEmptyHint({ children }: { children: React.ReactNode }) {
+  // Renders only if no siblings rendered — simple visual fallback handled
+  // via TallyBars empty state too. Kept for spec alignment.
+  return <span className="hidden">{children}</span>;
+}
+
+function TallyBars({
+  rows,
+  accent,
+  max = 8,
   renderKey,
 }: {
   rows: { k: string; count: number }[];
-  empty: string;
+  accent: string;
+  max?: number;
   renderKey?: (k: string) => React.ReactNode;
 }) {
+  if (rows.length === 0) {
+    return <div className="text-sm text-zinc-500">—</div>;
+  }
+  const top = Math.max(1, ...rows.map((r) => r.count));
   return (
-    <div className="rounded-xl border border-white/10 bg-white/[0.02] divide-y divide-white/5">
-      {rows.length === 0 && (
-        <div className="px-4 py-3 text-sm opacity-60">{empty}</div>
-      )}
-      {rows.slice(0, 12).map(({ k, count }) => (
-        <div key={k} className="px-4 py-2 flex items-center justify-between text-sm">
-          <span className="truncate">{renderKey ? renderKey(k) : k}</span>
-          <span className="opacity-70">{count}</span>
-        </div>
-      ))}
+    <div className="space-y-1.5">
+      {rows.slice(0, max).map(({ k, count }) => {
+        const pct = (count / top) * 100;
+        return (
+          <div key={k} className="relative h-7 rounded-md overflow-hidden">
+            <div
+              className="absolute inset-y-0 left-0 rounded-md"
+              style={{
+                width: `${pct}%`,
+                background: `linear-gradient(to right, ${accent}33, ${accent}11)`,
+                borderRight: `1px solid ${accent}55`,
+              }}
+            />
+            <div className="relative flex items-center justify-between h-full px-2.5 text-[13px]">
+              <span className="truncate text-zinc-200">
+                {renderKey ? renderKey(k) : k === "—" ? <span className="text-zinc-500">—</span> : k}
+              </span>
+              <span className="text-zinc-400 tabular-nums ml-3">{count}</span>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
 
-function Stat({ label, value, hint }: { label: string; value: string; hint?: string }) {
+function HourHeatmap({ counts }: { counts: number[] }) {
+  const max = Math.max(1, ...counts);
   return (
-    <div className="rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4">
-      <div className="text-xs uppercase tracking-wide opacity-60">{label}</div>
-      <div className="text-3xl font-semibold mt-1">{value}</div>
-      {hint && <div className="text-xs opacity-50 mt-1">{hint}</div>}
+    <div>
+      <div className="grid grid-cols-24 gap-1" style={{ gridTemplateColumns: "repeat(24, minmax(0, 1fr))" }}>
+        {counts.map((c, h) => {
+          const intensity = c / max;
+          const bg =
+            c === 0
+              ? "rgba(255,255,255,0.03)"
+              : `rgba(249,115,22,${0.18 + intensity * 0.7})`;
+          return (
+            <div key={h} className="flex flex-col items-center gap-1.5">
+              <div
+                className="w-full aspect-square rounded-md border border-white/5"
+                style={{ background: bg }}
+                title={`${h.toString().padStart(2, "0")}:00 — ${c} downloads`}
+              />
+              <span className="text-[9px] text-zinc-600 tabular-nums">{h}</span>
+            </div>
+          );
+        })}
+      </div>
+      <div className="mt-3 flex items-center gap-3 text-[10px] text-zinc-500">
+        <span>Less</span>
+        <div className="flex gap-0.5">
+          {[0.18, 0.35, 0.55, 0.75, 0.9].map((a) => (
+            <div
+              key={a}
+              className="w-3 h-3 rounded-sm"
+              style={{ background: `rgba(249,115,22,${a})` }}
+            />
+          ))}
+        </div>
+        <span>More</span>
+      </div>
     </div>
+  );
+}
+
+interface ActivityItem {
+  kind: "download" | "lead";
+  at: Date | null;
+  label: string;
+  country: string | null;
+  meta: string | null;
+}
+
+function ActivityFeed({ items }: { items: ActivityItem[] }) {
+  if (items.length === 0) {
+    return <div className="text-sm text-zinc-500">No activity yet.</div>;
+  }
+  return (
+    <ol className="space-y-3">
+      {items.map((it, i) => (
+        <li
+          key={i}
+          className="flex items-start gap-3 rounded-lg px-3 py-2.5 hover:bg-white/[0.02] transition"
+        >
+          <div
+            className={`flex-shrink-0 mt-0.5 h-7 w-7 rounded-full flex items-center justify-center text-xs ${
+              it.kind === "lead"
+                ? "bg-emerald-500/15 text-emerald-300"
+                : "bg-orange-500/15 text-orange-300"
+            }`}
+          >
+            {it.kind === "lead" ? "✉" : "↓"}
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-baseline justify-between gap-2">
+              <span className="text-sm truncate">
+                <span className="mr-1">{flag(it.country)}</span>
+                {it.label}
+              </span>
+              <span className="text-[11px] text-zinc-500 flex-shrink-0">
+                {timeAgo(it.at)}
+              </span>
+            </div>
+            {it.meta && (
+              <div className="text-[11px] text-zinc-500 mt-0.5">{it.meta}</div>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+function LeadsTable({ leads }: { leads: Lead[] }) {
+  if (leads.length === 0) {
+    return <div className="text-sm text-zinc-500">No leads yet.</div>;
+  }
+  return (
+    <div className="-mx-6 -mb-6">
+      <div className="max-h-[480px] overflow-y-auto">
+        <table className="w-full text-sm">
+          <thead className="bg-white/[0.02] text-[10px] uppercase tracking-[0.15em] text-zinc-500 sticky top-0 backdrop-blur">
+            <tr>
+              <th className="text-left px-6 py-3 font-medium">Lead</th>
+              <th className="text-left px-4 py-3 font-medium">Where</th>
+              <th className="text-left px-4 py-3 font-medium">Version</th>
+              <th className="text-right px-6 py-3 font-medium">When</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-white/5">
+            {leads.map((l) => {
+              const { initials, hue } = avatarFor(l.email);
+              return (
+                <tr key={l.id} className="hover:bg-white/[0.02] transition">
+                  <td className="px-6 py-3">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="h-8 w-8 rounded-full flex items-center justify-center text-[11px] font-semibold flex-shrink-0"
+                        style={{
+                          background: `hsl(${hue} 70% 30% / 0.5)`,
+                          color: `hsl(${hue} 90% 80%)`,
+                          border: `1px solid hsl(${hue} 70% 50% / 0.3)`,
+                        }}
+                      >
+                        {initials}
+                      </div>
+                      <span className="text-zinc-200 truncate">{l.email}</span>
+                    </div>
+                  </td>
+                  <td className="px-4 py-3 text-zinc-300">
+                    <span className="mr-1.5">{flag(l.country)}</span>
+                    {[l.city, l.country].filter(Boolean).join(", ") || "—"}
+                  </td>
+                  <td className="px-4 py-3">
+                    {l.version ? (
+                      <span className="px-1.5 py-0.5 rounded bg-white/5 text-[11px] text-zinc-400 font-mono">
+                        v{l.version}
+                      </span>
+                    ) : (
+                      <span className="text-zinc-600">—</span>
+                    )}
+                  </td>
+                  <td className="px-6 py-3 text-right text-zinc-500 text-xs tabular-nums">
+                    {timeAgo(l.createdAt)}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function Pulse() {
+  return (
+    <span className="relative inline-flex h-2 w-2">
+      <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
+      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+    </span>
+  );
+}
+
+/* ───────── icons (inline svg, no deps) ───────── */
+
+function DownloadIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <polyline points="7 10 12 15 17 10" />
+      <line x1="12" y1="15" x2="12" y2="3" />
+    </svg>
+  );
+}
+function MailIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
+  );
+}
+function UserIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4 21a8 8 0 0 1 16 0" />
+    </svg>
+  );
+}
+function ClockIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="9" />
+      <polyline points="12 7 12 12 15 14" />
+    </svg>
   );
 }

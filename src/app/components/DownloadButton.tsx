@@ -60,7 +60,7 @@ export default function DownloadButton({ version, className, children, from }: P
     // same-origin navigation that Safari's popup blocker won't flag
     // as programmatic. /api/download issues a 302 to the versioned
     // DMG and increments the downloads counter.
-    window.location.href = "/api/download";
+    window.location.href = from ? `/api/download?from=${encodeURIComponent(from)}` : "/api/download";
   }
 
   async function onSubmit(e: React.FormEvent) {
@@ -81,7 +81,7 @@ export default function DownloadButton({ version, className, children, from }: P
       await fetch("/api/download-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: trimmed, version }),
+        body: JSON.stringify({ email: trimmed, version, from: from ?? null }),
       }).catch(() => {
         /* swallow — see comment above */
       });

@@ -8,7 +8,7 @@ export const runtime = "nodejs";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: Request) {
-  let body: { email?: unknown; version?: unknown } = {};
+  let body: { email?: unknown; version?: unknown; from?: unknown } = {};
   try {
     body = await req.json();
   } catch {
@@ -21,6 +21,10 @@ export async function POST(req: Request) {
   }
 
   const version = typeof body.version === "string" ? body.version.slice(0, 32) : null;
+  // The lead POST is fired from the modal with no query string, so
+  // enrichFromRequest can't pick up `?from=`. Carry it in the body
+  // and let it override the (null) URL value.
+  const fromBody = typeof body.from === "string" ? body.from.slice(0, 64) : null;
 
   try {
     const db = getDb();
@@ -30,6 +34,7 @@ export async function POST(req: Request) {
       version,
       createdAt: FieldValue.serverTimestamp(),
       ...enriched,
+      fromCta: fromBody ?? enriched.fromCta,
     });
     return NextResponse.json({ ok: true });
   } catch (err) {
