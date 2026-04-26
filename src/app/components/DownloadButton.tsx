@@ -16,15 +16,14 @@ interface Props {
 }
 
 /**
- * Download CTA that opens a modal asking for the user's email BEFORE
- * handing over the DMG. Intentionally designed so the "skip" escape
- * hatch is small (plain-text link, muted colour, below the primary
- * submit) to maximise opt-in rate without trapping users who refuse.
+ * Download CTA that opens a modal requiring an email BEFORE handing
+ * over the DMG. Email is mandatory — the only escape is closing the
+ * modal entirely (Esc / backdrop click), which means no download.
  *
- * Lead capture is fire-and-forget: if POST /api/download-lead fails
- * for any reason (network error, Firebase outage, validation race),
- * we still proceed to /api/download. Losing a lead is better than
- * blocking a real user.
+ * Lead capture is fire-and-forget once a valid email is entered: if
+ * POST /api/download-lead fails for any reason (network error,
+ * Firebase outage), we still proceed to /api/download. Losing a lead
+ * is better than blocking a user who already gave us their email.
  */
 export default function DownloadButton({ version, className, children, from }: Props) {
   const [open, setOpen] = useState(false);
@@ -92,11 +91,6 @@ export default function DownloadButton({ version, className, children, from }: P
     }
   }
 
-  function onSkip() {
-    setOpen(false);
-    beginDownload();
-  }
-
   return (
     <>
       <button type="button" onClick={() => setOpen(true)} className={className}>
@@ -122,11 +116,11 @@ export default function DownloadButton({ version, className, children, from }: P
               id="dl-modal-title"
               className="text-2xl font-black tracking-tight mb-2"
             >
-              One more thing
+              Enter your email to download
             </h3>
             <p className="text-[var(--muted)] text-sm leading-relaxed mb-6">
-              Drop your email and we&apos;ll send the occasional release note
-              and focus tip. No spam, unsubscribe any time.
+              We&apos;ll send the occasional release note and focus tip.
+              No spam, unsubscribe any time.
             </p>
 
             <form onSubmit={onSubmit} className="space-y-4">
@@ -178,18 +172,6 @@ export default function DownloadButton({ version, className, children, from }: P
               </button>
             </form>
 
-            {/* Deliberately small + muted — we want to maximise email
-                capture, not advertise the escape hatch. Still present
-                and keyboard-accessible so we're not dark-patterning. */}
-            <div className="mt-4 text-center">
-              <button
-                type="button"
-                onClick={onSkip}
-                className="text-[11px] text-neutral-500 hover:text-neutral-300 underline underline-offset-2 transition-colors"
-              >
-                No thanks, just download
-              </button>
-            </div>
           </div>
         </div>
       )}
