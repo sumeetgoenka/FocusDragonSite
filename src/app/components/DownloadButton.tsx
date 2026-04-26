@@ -125,7 +125,7 @@ export default function DownloadButton({ version, className, children, from }: P
               Get the most out of FocusDragon
             </h3>
             <p className="text-[var(--muted)] text-sm leading-relaxed mb-2">
-              Drop your email and you&apos;ll get:
+              Drop your <strong className="text-white font-semibold">email</strong> and you&apos;ll get:
             </p>
             <ul className="text-[var(--muted)] text-sm leading-relaxed mb-6 space-y-1.5 list-disc pl-5">
               <li>The setup playbook — how to configure your first AI-aware block in 3 minutes</li>
