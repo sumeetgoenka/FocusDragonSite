@@ -13,15 +13,15 @@
 
         <item>
             <title>Version 1.3.0</title>
-            <description><![CDATA[<p>Intent-aware blocking: set a task, FocusDragon watches what you're actually doing every 30s and force-quits drift. Three per-block enforcement levels (Suggest, Nudge, Hard). Plus weekly Sunday focus summaries and a Distraction Suggester that learns from your drift log.</p>]]></description>
-            <pubDate>Sat, 25 Apr 2026 06:44:58 +0000</pubDate>
-            <sparkle:version>3</sparkle:version>
+            <description><![CDATA[<p>Intent-aware blocking: set a task, FocusDragon watches what you're doing every 30s and force-quits drift. Three per-block enforcement levels (Suggest, Nudge, Hard). Plus weekly Sunday focus summaries, Distraction Suggester, and 30-min auto-update checks.</p>]]></description>
+            <pubDate>Sun, 26 Apr 2026 06:59:06 +0000</pubDate>
+            <sparkle:version>21</sparkle:version>
             <sparkle:shortVersionString>1.3.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
             <enclosure
                 url="https://focusdragon.vercel.app/releases/FocusDragon-1.3.0.dmg"
-                sparkle:edSignature="O2F794V+DlsGNzcy54gKWCHVN9qNf70Hf4PbrH6RKZ4NR4rFtDo4sZAeq+JLsQEuhGkcLp2zn2BCFJWUgsT1Ag=="
-                length="10197293"
+                sparkle:edSignature="1rwdT8fADfa0OhIUKOvbuuUP+3ynzBOo2ZdL/o5uQ9/o9AbAUnRAb84++/kSQDM2zBBr4SsIkYfm/LjgGlynAQ=="
+                length="10207375"
                 type="application/octet-stream" />
         </item>
 
