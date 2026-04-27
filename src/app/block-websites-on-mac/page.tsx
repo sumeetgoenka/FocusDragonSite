@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: "How to Block Websites on Mac (2026 Guide) — FocusDragon",
   description:
     "The complete 2026 guide to blocking websites on macOS: every built-in method, every free tool, their weaknesses, and the one blocker that actually can't be bypassed.",
-  alternates: { canonical: "https://focusdragon.app/block-websites-on-mac" },
+  alternates: { canonical: "https://www.focusdragon.app/block-websites-on-mac" },
   openGraph: {
     title: "How to Block Websites on Mac — The Complete 2026 Guide",
     description:
       "Every method to block websites on macOS, compared. Screen Time, /etc/hosts, SelfControl, and FocusDragon.",
-    url: "https://focusdragon.app/block-websites-on-mac",
+    url: "https://www.focusdragon.app/block-websites-on-mac",
     type: "article",
   },
 };
@@ -62,8 +62,8 @@ export default function BlockWebsitesOnMac() {
       <JsonLd data={[
         softwareAppSchema,
         breadcrumbSchema([
-          { name: "Home", url: "https://focusdragon.app" },
-          { name: "Block websites on Mac", url: "https://focusdragon.app/block-websites-on-mac" },
+          { name: "Home", url: "https://www.focusdragon.app" },
+          { name: "Block websites on Mac", url: "https://www.focusdragon.app/block-websites-on-mac" },
         ]),
         faqSchema(faqs),
         howTo,

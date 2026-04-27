@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: "Website Blocker for Students on Mac — Study Without Distraction | FocusDragon",
   description:
     "Block Reddit, YouTube, Instagram, TikTok — everything — during study hours. Free Mac website blocker built by a student, for students. No subscription, no account.",
-  alternates: { canonical: "https://focusdragon.app/for-students" },
+  alternates: { canonical: "https://www.focusdragon.app/for-students" },
   openGraph: {
     title: "FocusDragon for Students — Study Without Distraction",
     description:
       "Free Mac website & app blocker for students. Block distractions for exams, essays, and deep study sessions.",
-    url: "https://focusdragon.app/for-students",
+    url: "https://www.focusdragon.app/for-students",
     type: "article",
   },
 };
@@ -43,8 +43,8 @@ export default function ForStudents() {
       <JsonLd data={[
         softwareAppSchema,
         breadcrumbSchema([
-          { name: "Home", url: "https://focusdragon.app" },
-          { name: "For Students", url: "https://focusdragon.app/for-students" },
+          { name: "Home", url: "https://www.focusdragon.app" },
+          { name: "For Students", url: "https://www.focusdragon.app/for-students" },
         ]),
         faqSchema(faqs),
       ]} />

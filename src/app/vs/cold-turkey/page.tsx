@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: "Cold Turkey Alternative for Mac (Free) — FocusDragon",
   description:
     "Cold Turkey Blocker is excellent — and costs $45. FocusDragon is a free, Mac-native alternative with similar strictness: scheduled blocks, app blocking, random-text and restart-count locks, and uninstall protection during locks.",
-  alternates: { canonical: "https://focusdragon.app/vs/cold-turkey" },
+  alternates: { canonical: "https://www.focusdragon.app/vs/cold-turkey" },
   openGraph: {
     title: "Cold Turkey Alternative for Mac — FocusDragon (Free)",
     description:
       "Honest comparison. Similar strictness to Cold Turkey Blocker, free, Mac-native, local-only.",
-    url: "https://focusdragon.app/vs/cold-turkey",
+    url: "https://www.focusdragon.app/vs/cold-turkey",
     type: "website",
   },
 };
@@ -51,8 +51,8 @@ export default function VsColdTurkey() {
       <JsonLd data={[
         softwareAppSchema,
         breadcrumbSchema([
-          { name: "Home", url: "https://focusdragon.app" },
-          { name: "vs Cold Turkey", url: "https://focusdragon.app/vs/cold-turkey" },
+          { name: "Home", url: "https://www.focusdragon.app" },
+          { name: "vs Cold Turkey", url: "https://www.focusdragon.app/vs/cold-turkey" },
         ]),
         faqSchema(faqs),
       ]} />

@@ -20,14 +20,14 @@ export const softwareAppSchema = {
   },
   description:
     "FocusDragon is a free macOS website and app blocker with 6 layers of protection: DNS blocking, process monitoring, a root daemon, browser extensions, network firewall rules, and anti-tamper safeguards.",
-  downloadUrl: "https://focusdragon.app/api/download",
+  downloadUrl: "https://www.focusdragon.app/api/download",
   softwareVersion: "1.2.3",
   author: {
     "@type": "Person",
     name: "Anay Goenka",
     url: "https://anaygoenka.com",
   },
-  url: "https://focusdragon.app",
+  url: "https://www.focusdragon.app",
 };
 
 export function breadcrumbSchema(items: { name: string; url: string }[]) {

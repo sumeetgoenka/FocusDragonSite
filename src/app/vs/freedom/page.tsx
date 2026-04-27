@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: "Freedom Alternative for Mac (Free, No Subscription) — FocusDragon",
   description:
     "Freedom's Premium features — Locked Mode, scheduled sessions, unlimited durations — are $8.99/mo or $99.50 lifetime. FocusDragon gives you equivalent functionality on Mac, free and local-only.",
-  alternates: { canonical: "https://focusdragon.app/vs/freedom" },
+  alternates: { canonical: "https://www.focusdragon.app/vs/freedom" },
   openGraph: {
     title: "Freedom Alternative for Mac — FocusDragon (Free)",
     description:
       "Honest comparison of Freedom and FocusDragon. Mac-only, local-only, no account, every feature free.",
-    url: "https://focusdragon.app/vs/freedom",
+    url: "https://www.focusdragon.app/vs/freedom",
     type: "website",
   },
 };
@@ -51,8 +51,8 @@ export default function VsFreedom() {
       <JsonLd data={[
         softwareAppSchema,
         breadcrumbSchema([
-          { name: "Home", url: "https://focusdragon.app" },
-          { name: "vs Freedom", url: "https://focusdragon.app/vs/freedom" },
+          { name: "Home", url: "https://www.focusdragon.app" },
+          { name: "vs Freedom", url: "https://www.focusdragon.app/vs/freedom" },
         ]),
         faqSchema(faqs),
       ]} />

@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: "Best Free Website Blocker for Mac (2026) — FocusDragon",
   description:
     "We tested every free website blocker for macOS. Here's the honest ranking, including which ones are actually bypass-resistant and which ones are placebo.",
-  alternates: { canonical: "https://focusdragon.app/free-website-blocker-mac" },
+  alternates: { canonical: "https://www.focusdragon.app/free-website-blocker-mac" },
   openGraph: {
     title: "Best Free Website Blocker for Mac (2026)",
     description:
       "Every free Mac website blocker, ranked. No affiliate spam — just the honest breakdown.",
-    url: "https://focusdragon.app/free-website-blocker-mac",
+    url: "https://www.focusdragon.app/free-website-blocker-mac",
     type: "article",
   },
 };
@@ -107,8 +107,8 @@ export default function FreeWebsiteBlockerMac() {
       <JsonLd data={[
         softwareAppSchema,
         breadcrumbSchema([
-          { name: "Home", url: "https://focusdragon.app" },
-          { name: "Free blockers ranked", url: "https://focusdragon.app/free-website-blocker-mac" },
+          { name: "Home", url: "https://www.focusdragon.app" },
+          { name: "Free blockers ranked", url: "https://www.focusdragon.app/free-website-blocker-mac" },
         ]),
         faqSchema(faqs),
       ]} />

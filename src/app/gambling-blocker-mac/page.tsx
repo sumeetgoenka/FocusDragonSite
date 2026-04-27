@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: "Gambling Blocker for Mac (Free) — Unbypassable Locks | FocusDragon",
   description:
     "A free gambling blocker for macOS with locks you physically cannot undo. Block DraftKings, FanDuel, sportsbooks, casinos, and every crypto exchange — with a lock that survives reboots, uninstalls, and changes of heart.",
-  alternates: { canonical: "https://focusdragon.app/gambling-blocker-mac" },
+  alternates: { canonical: "https://www.focusdragon.app/gambling-blocker-mac" },
   openGraph: {
     title: "Free Gambling Blocker for Mac — FocusDragon",
     description:
       "Unbypassable gambling blocker for macOS. Date locks, random-text locks, and a root daemon that doesn't negotiate.",
-    url: "https://focusdragon.app/gambling-blocker-mac",
+    url: "https://www.focusdragon.app/gambling-blocker-mac",
     type: "article",
   },
 };
@@ -47,8 +47,8 @@ export default function GamblingBlockerMac() {
       <JsonLd data={[
         softwareAppSchema,
         breadcrumbSchema([
-          { name: "Home", url: "https://focusdragon.app" },
-          { name: "Gambling blocker", url: "https://focusdragon.app/gambling-blocker-mac" },
+          { name: "Home", url: "https://www.focusdragon.app" },
+          { name: "Gambling blocker", url: "https://www.focusdragon.app/gambling-blocker-mac" },
         ]),
         faqSchema(faqs),
       ]} />

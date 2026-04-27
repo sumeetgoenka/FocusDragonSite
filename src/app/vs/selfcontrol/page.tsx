@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: "SelfControl Alternative for Mac — FocusDragon (Free, Blocks Apps Too)",
   description:
     "SelfControl is great for a simple website timer. FocusDragon extends the same PF-firewall approach with app blocking, multiple lock modes, browser-extension enforcement, and anti-tamper safeguards — also free.",
-  alternates: { canonical: "https://focusdragon.app/vs/selfcontrol" },
+  alternates: { canonical: "https://www.focusdragon.app/vs/selfcontrol" },
   openGraph: {
     title: "SelfControl Alternative for Mac — FocusDragon (Free)",
     description:
       "Same PF-firewall foundation as SelfControl, plus app blocking, multiple lock modes, and anti-tamper.",
-    url: "https://focusdragon.app/vs/selfcontrol",
+    url: "https://www.focusdragon.app/vs/selfcontrol",
     type: "website",
   },
 };
@@ -51,8 +51,8 @@ export default function VsSelfControl() {
       <JsonLd data={[
         softwareAppSchema,
         breadcrumbSchema([
-          { name: "Home", url: "https://focusdragon.app" },
-          { name: "vs SelfControl", url: "https://focusdragon.app/vs/selfcontrol" },
+          { name: "Home", url: "https://www.focusdragon.app" },
+          { name: "vs SelfControl", url: "https://www.focusdragon.app/vs/selfcontrol" },
         ]),
         faqSchema(faqs),
       ]} />

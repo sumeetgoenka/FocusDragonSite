@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://focusdragon.app/sitemap.xml",
-    host: "https://focusdragon.app",
+    sitemap: "https://www.focusdragon.app/sitemap.xml",
+    host: "https://www.focusdragon.app",
   };
 }

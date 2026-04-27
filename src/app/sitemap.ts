@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://focusdragon.app";
+const BASE_URL = "https://www.focusdragon.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

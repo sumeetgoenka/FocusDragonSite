@@ -4,7 +4,7 @@ import LandingCookie from "./components/LandingCookie";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://focusdragon.app"),
+  metadataBase: new URL("https://www.focusdragon.app"),
   title: {
     default: "FocusDragon — The Toughest Free Website & App Blocker for Mac",
     template: "%s | FocusDragon",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description:
       "6 layers of distraction blocking. Free forever. Built natively for macOS.",
     type: "website",
-    url: "https://focusdragon.app",
+    url: "https://www.focusdragon.app",
     siteName: "FocusDragon",
   },
   twitter: {
@@ -61,10 +61,10 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "FocusDragon",
-  url: "https://focusdragon.app",
+  url: "https://www.focusdragon.app",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://focusdragon.app/faqs?q={search_term_string}",
+    target: "https://www.focusdragon.app/faqs?q={search_term_string}",
     "query-input": "required name=search_term_string",
   },
 };
@@ -73,8 +73,8 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "FocusDragon",
-  url: "https://focusdragon.app",
-  logo: "https://focusdragon.app/icon.png",
+  url: "https://www.focusdragon.app",
+  logo: "https://www.focusdragon.app/icon.png",
   founder: {
     "@type": "Person",
     name: "Anay Goenka",

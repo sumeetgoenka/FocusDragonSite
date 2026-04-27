@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: "Website Blocker for ADHD on Mac — External Focus Scaffolding | FocusDragon",
   description:
     "Willpower isn't a weakness — the ADHD brain needs external structure. FocusDragon is a free Mac blocker built for the moments your executive function stops answering the phone.",
-  alternates: { canonical: "https://focusdragon.app/for-adhd" },
+  alternates: { canonical: "https://www.focusdragon.app/for-adhd" },
   openGraph: {
     title: "FocusDragon for ADHD — External Focus Scaffolding",
     description:
       "Free Mac website & app blocker designed for the ADHD brain. Six lock modes so your future self can't talk your present self out of it.",
-    url: "https://focusdragon.app/for-adhd",
+    url: "https://www.focusdragon.app/for-adhd",
     type: "article",
   },
 };
@@ -43,8 +43,8 @@ export default function ForAdhd() {
       <JsonLd data={[
         softwareAppSchema,
         breadcrumbSchema([
-          { name: "Home", url: "https://focusdragon.app" },
-          { name: "For ADHD", url: "https://focusdragon.app/for-adhd" },
+          { name: "Home", url: "https://www.focusdragon.app" },
+          { name: "For ADHD", url: "https://www.focusdragon.app/for-adhd" },
         ]),
         faqSchema(faqs),
       ]} />
