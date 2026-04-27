@@ -21,9 +21,24 @@ interface Release {
 
 const releases: Release[] = [
   {
-    version: "1.3.1",
+    version: "1.3.2",
     date: "April 27, 2026",
     latest: true,
+    summary:
+      "A reimagined onboarding — name your dragon, watch it hatch, earn scales for each permission. Plus custom block icons, a fix for the \"background service won't enable\" bug some users hit on fresh installs, and dead-link cleanup across the extension help flow.",
+    changes: [
+      "New: 7-beat dragon onboarding. Cold open → name your dragon → pick your enemy → grow scales (permissions reframed as Heart, Claws, Voice) → earn wings (browser extension) → hatching moment → first treasure for the hoard. Every drift caught and every focus session completed grows the hoard from here on.",
+      "New: dragon companion in the dashboard. Your named dragon and the hoard counter live in the greeting bar; tap the hoard for the recent-events list.",
+      "New: custom block icons. Upload an image, crop it, and your block displays the custom icon everywhere instead of the emoji glyph. Falls back to the emoji if the image is missing.",
+      "Fixed: background service couldn't be enabled when FocusDragon was launched from the DMG mount or ~/Downloads. macOS translocates the bundle to a read-only path and SMAppService refuses to register from there — the daemon never appeared under Login Items & Extensions and \"Refresh\" did nothing. FocusDragon now prompts to move itself into /Applications on first launch and relaunches automatically. Existing users in /Applications are unaffected.",
+      "Fixed: when registration genuinely fails (signing mismatch, locked /Applications, etc.), the onboarding now shows an inline error explaining the cause instead of silently sitting on a stuck spinner.",
+      "Fixed: extension help links opened a 404 (\"Full Disk Access\" page on the marketing site that never existed). The Fix Now button now jumps straight to System Settings → Full Disk Access.",
+      "Migrated all in-app help links from focusdragon.vercel.app to the canonical focusdragon.app domain.",
+    ],
+  },
+  {
+    version: "1.3.1",
+    date: "April 27, 2026",
     summary:
       "AI Powered (Beta) is now its own block type with a dedicated single-pane editor. Plus a stack of fixes for >2-second app hangs that hit users on memory-pressured Macs.",
     changes: [

@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.3.2</title>
+            <description><![CDATA[<p>Dragon onboarding (named dragon, hatching arc, scales for permissions, hoard for caught distractions); custom block icons; auto-relocate to /Applications on first launch so the background service always registers; clearer error when the daemon can't register; dead-link cleanup in extension help and migrated to focusdragon.app.</p>]]></description>
+            <pubDate>Mon, 27 Apr 2026 12:06:03 +0000</pubDate>
+            <sparkle:version>24</sparkle:version>
+            <sparkle:shortVersionString>1.3.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://focusdragon.vercel.app/releases/FocusDragon-1.3.2.dmg"
+                sparkle:edSignature="zZXt12kOkLB7wd345JfgfWyitwxZVTe5qWekV+KLiY5GcJjtRLg+YjcP5MoAkRYsTwgmOZ02MHZHfJvYKE9wAw=="
+                length="10437895"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.3.1</title>
             <description><![CDATA[<p>AI Powered block mode (beta) with single-pane editor and per-block task description; major hang fixes for state writes, dscl, AppleScript, and System Settings polling.</p>]]></description>
             <pubDate>Mon, 27 Apr 2026 06:36:59 +0000</pubDate>
