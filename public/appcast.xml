@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.3.1</title>
+            <description><![CDATA[<p>AI Powered block mode (beta) with single-pane editor and per-block task description; major hang fixes for state writes, dscl, AppleScript, and System Settings polling.</p>]]></description>
+            <pubDate>Mon, 27 Apr 2026 06:36:59 +0000</pubDate>
+            <sparkle:version>23</sparkle:version>
+            <sparkle:shortVersionString>1.3.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://focusdragon.vercel.app/releases/FocusDragon-1.3.1.dmg"
+                sparkle:edSignature="+xxi+khB8kEjUk5tmYVTHLVDEe4xRcrSgyRPlj03oLGJ02CAK/4piODM7YTa7/Zar7eSCF8o2bixUm280Y2yAg=="
+                length="10237203"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.3.0</title>
             <description><![CDATA[<p>Intent-aware blocking: set a task, FocusDragon watches what you're doing every 30s and force-quits drift. Three per-block enforcement levels (Suggest, Nudge, Hard). Plus weekly Sunday focus summaries, Distraction Suggester, and 30-min auto-update checks.</p>]]></description>
             <pubDate>Sun, 26 Apr 2026 06:59:06 +0000</pubDate>

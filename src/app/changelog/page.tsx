@@ -21,9 +21,25 @@ interface Release {
 
 const releases: Release[] = [
   {
+    version: "1.3.1",
+    date: "April 27, 2026",
+    latest: true,
+    summary:
+      "AI Powered (Beta) is now its own block type with a dedicated single-pane editor. Plus a stack of fixes for >2-second app hangs that hit users on memory-pressured Macs.",
+    changes: [
+      "New: \"AI Powered (Beta)\" block type. Sits alongside Website & App and Device as the third top-level mode. The editor strips out the tab bar and gives you one scroll: a BYOK banner if you haven't pasted a key, a \"describe your block\" field, the Suggest/Nudge/Hard enforcement picker, and disclosure sections for hard-blocked websites, apps, exceptions, and advanced rules. Items in the lists are still hard-blocked literally — the AI runs on top.",
+      "Removed all AI controls from the regular Website & App and Device blocks. They're purely literal again. Existing blocks that had a per-block task description or stronger enforcement auto-migrate to the new AI Powered type on launch.",
+      "Removed the global \"What are you working on?\" Setting. Each AI block carries its own description now, so the global field was redundant.",
+      "Fixed: app hangs over 2 seconds when writing block-state files under memory pressure. The atomic writes and JSON encodes now run on a serial background queue instead of the main thread.",
+      "Fixed: the macOS user-directory enumeration (3+ synchronous dscl shells) was running on the main thread inside view bodies. Moved off-main with a prewarm at app start; the editor's \"Applies to\" picker no longer hangs the editor on open.",
+      "Fixed: Safari restart flow's AppleScript IPC was synchronous on the main thread, hanging during the quit/relaunch sequence. Moved to a background queue.",
+      "Fixed: System Settings blocker was polling NSWorkspace once a second. Replaced with NSWorkspace launch notifications plus a re-scan when the lock state flips, eliminating ~86,000 polls/day.",
+      "Fixed: DateFormatter allocations inside the dashboard's TimelineView-driven body. Hoisted to static cached instances.",
+    ],
+  },
+  {
     version: "1.3.0",
     date: "April 25, 2026",
-    latest: true,
     summary:
       "Intent-aware blocking. Tell FocusDragon what you're working on, and it watches what you're actually doing every 30 seconds — drift gets a 5-second blocked page or a force-quit, your call. Plus weekly Sunday focus summaries and a Distraction Suggester that learns from your drift log.",
     changes: [
@@ -318,7 +334,7 @@ export default function Changelog() {
               className="rounded-md"
             />
             <span className="font-medium">FocusDragon</span>
-            <span className="text-xs text-[var(--muted)]">v1.3.0</span>
+            <span className="text-xs text-[var(--muted)]">v1.3.1</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-[var(--muted)]">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
