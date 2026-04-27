@@ -21,9 +21,18 @@ interface Release {
 
 const releases: Release[] = [
   {
-    version: "1.3.2",
+    version: "1.3.3",
     date: "April 27, 2026",
     latest: true,
+    summary:
+      "Hotfix: 1.3.2 crashed on launch for any user who hadn't completed onboarding (new installs, or anyone who reset onboarding state). One-line fix in the egg-rendering loop.",
+    changes: [
+      "Fixed: hard crash on Beat 1 of the new onboarding when the egg's crack count was zero. The Canvas loop traversed `1...0` and tripped a Swift runtime trap. Existing users with completed onboarding were unaffected, but every new 1.3.2 install crashed immediately. The loop now guards against the zero case.",
+    ],
+  },
+  {
+    version: "1.3.2",
+    date: "April 27, 2026",
     summary:
       "A reimagined onboarding — name your dragon, watch it hatch, earn scales for each permission. Plus custom block icons, a fix for the \"background service won't enable\" bug some users hit on fresh installs, and dead-link cleanup across the extension help flow.",
     changes: [
