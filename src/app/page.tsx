@@ -4,7 +4,7 @@ import SiteFooter from "./components/SiteFooter";
 import JsonLd, { softwareAppSchema } from "./components/JsonLd";
 import DownloadButton from "./components/DownloadButton";
 
-const APP_VERSION = "1.3.3";
+const APP_VERSION = "1.3.4";
 
 export default function Home() {
   return (

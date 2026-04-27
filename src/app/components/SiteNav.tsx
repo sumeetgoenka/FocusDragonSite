@@ -24,7 +24,7 @@ export default function SiteNav({ activePath = "home" }: SiteNavProps) {
           />
           <span className="font-bold text-lg">FocusDragon</span>
           <span className="text-xs text-[var(--muted)] bg-[var(--card-bg)] border border-[var(--card-border)] rounded-full px-2 py-0.5">
-            v1.3.3
+            v1.3.4
           </span>
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">

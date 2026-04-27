@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.3.4</title>
+            <description><![CDATA[<p>Onboarding polish + fix for the false 'permission missing' page Chrome kept opening at block-start. Egg now renders as a real shell instead of a wireframe; Voice scale (notifications) now bounces you to System Settings when notifications were previously denied; Beat 3's preset block ships enabled so the Beat 7 test actually blocks. App-side bugfix: stopped misreading our own protective grace-timer touch as a daemon kill, which was firing the Chrome fix-no-block page on every block-start even when the extension was fully configured.</p>]]></description>
+            <pubDate>Mon, 27 Apr 2026 14:38:34 +0000</pubDate>
+            <sparkle:version>26</sparkle:version>
+            <sparkle:shortVersionString>1.3.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://focusdragon.vercel.app/releases/FocusDragon-1.3.4.dmg"
+                sparkle:edSignature="ukERCzQT1WcVYUMW37rRaFfLtB9B+HJZ4TpBJuIBDKyjjucaAHmZrchxI9bcSC0ptbGuFhulzk/0kHN9d2bGBw=="
+                length="10528860"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.3.3</title>
             <description><![CDATA[<p>Hotfix: 1.3.2 crashed on launch for any user who hadn't completed onboarding (new installs and anyone who reset onboarding state). The egg view's crack-rendering loop trapped on Range 1...0 when crackCount was 0. Fixed.</p>]]></description>
             <pubDate>Mon, 27 Apr 2026 12:41:49 +0000</pubDate>

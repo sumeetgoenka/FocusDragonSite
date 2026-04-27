@@ -21,9 +21,21 @@ interface Release {
 
 const releases: Release[] = [
   {
-    version: "1.3.3",
+    version: "1.3.4",
     date: "April 27, 2026",
     latest: true,
+    summary:
+      "Onboarding polish and a fix for the false \"permission missing\" page Chrome kept opening at block-start even when the extension was fully configured.",
+    changes: [
+      "Fixed: Chrome opened a \"fix-no-block\" page in a new window every time you started a block, even though the FocusDragon Chrome extension was fully configured. Cause: the app and the daemon both touched a shared chrome-grace-timer file (the app's touch is *protective*, the daemon's touch signals a kill), and the app was misreading its own protective touch as a daemon kill and opening the repair UX. Now we only act on grace-timer advancement when there's real evidence Chrome is unhealthy.",
+      "Onboarding: the egg in beats 1–6 used to render as a hand-drawn wireframe outline. Replaced with a warm vertical shell gradient, a soft top-left highlight, and a thin contour line — reads as an actual egg now.",
+      "Onboarding: \"Grant\" on the Voice scale (notifications) used to silently fail when notifications had been previously denied at the OS level — macOS won't re-prompt after a deny. The button now opens System Settings → Notifications → FocusDragon and polls for the toggle to flip on.",
+      "Onboarding: the preset block created when you pick an enemy (Doomscroll / Sleep / Work) now ships *enabled*, so the \"try opening a blocked site\" test in Beat 7 actually fires the block-page instead of opening the URL un-blocked.",
+    ],
+  },
+  {
+    version: "1.3.3",
+    date: "April 27, 2026",
     summary:
       "Hotfix: 1.3.2 crashed on launch for any user who hadn't completed onboarding (new installs, or anyone who reset onboarding state). One-line fix in the egg-rendering loop.",
     changes: [
