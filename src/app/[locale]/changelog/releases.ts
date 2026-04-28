@@ -1,0 +1,54 @@
+/// Release notes are kept in English (technical content). The chrome
+/// around them — page title, "latest" badge text, CTAs — is translated.
+export interface Release {
+  version: string;
+  date: string;
+  latest?: boolean;
+  summary: string;
+  changes: string[];
+}
+
+export const releases: Release[] = [
+  {
+    version: "1.3.7",
+    date: "April 28, 2026",
+    latest: true,
+    summary: "The cinematic dragon intro now plays on every launch, not just the first run.",
+    changes: [
+      "Intro: the dragon-takes-flight intro now plays every time you open FocusDragon. Click anywhere or press Esc / Return / Space to skip.",
+    ],
+  },
+  {
+    version: "1.3.6",
+    date: "April 28, 2026",
+    summary: "Cinematic intro before first-run onboarding, a Stop-all-blocks bulk action, and a data-loss fix in the block editor.",
+    changes: [
+      "Onboarding: a cinematic dragon-takes-flight intro now plays once before Beat 1, then never again.",
+      "Blocker: new \"Stop all blocks\" item in the menu — routes through per-block stop logic so locks are respected.",
+      "Fixed: block editor used to wipe website list when toggling kind; now preserves every field across kind switches.",
+      "Fixed: Sparkle auto-update prompt no longer overlays onboarding splash on first launch.",
+    ],
+  },
+  {
+    version: "1.3.5",
+    date: "April 28, 2026",
+    summary: "Onboarding got real artwork and a real hatching video.",
+    changes: [
+      "Onboarding: bundled a real hatching video for Beat 6 (HEVC-with-alpha, colour-corrected).",
+      "Onboarding: new focusdragon.png hero image with the catch flow merged into the same screen.",
+      "Onboarding: real Safari and Chrome icons on Beat 5 with soft orange glow.",
+      "Onboarding: replay no longer appends duplicate preset blocks.",
+    ],
+  },
+  {
+    version: "1.3.4",
+    date: "April 27, 2026",
+    summary: "Onboarding polish and a fix for the false \"permission missing\" page Chrome kept opening.",
+    changes: [
+      "Fixed: Chrome stopped opening a fix-no-block page on every block-start despite a healthy extension.",
+      "Onboarding: warmer egg gradient replaces the wireframe outline.",
+      "Onboarding: \"Grant\" on Voice scale now opens System Settings → Notifications and polls for the toggle.",
+      "Onboarding: enemy preset block now ships enabled so the test fires the block-page.",
+    ],
+  },
+];
