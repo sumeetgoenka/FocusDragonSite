@@ -21,9 +21,21 @@ interface Release {
 
 const releases: Release[] = [
   {
-    version: "1.3.5",
+    version: "1.3.6",
     date: "April 28, 2026",
     latest: true,
+    summary:
+      "Cinematic intro before first-run onboarding, a Stop-all-blocks bulk action, and a data-loss fix in the block editor that ate the website list when toggling to Device Block.",
+    changes: [
+      "Onboarding: a cinematic dragon-takes-flight intro now plays once before Beat 1, then never again. Persisted per-install. New Settings → About → Replay intro button shows it on demand.",
+      "Blocker: new \"Stop all blocks\" item in the ⋯ menu. Routes through the per-block stop logic so password / random-text / breakable / Locked Blocks are respected — the bulk action reports back how many couldn't be stopped without their per-block ceremony.",
+      "Fixed: in the block editor, tapping \"Device Block\" used to wipe the websites you'd just added — toggling back to \"Website & App Block\" lost everything. The draft now keeps every field across kind switches; kind-mismatched fields are scrubbed only at save time.",
+      "Fixed: the Sparkle \"Check for updates automatically?\" prompt could overlay the onboarding splash on first launch. We now opt into automatic checks explicitly so the prompt never appears.",
+    ],
+  },
+  {
+    version: "1.3.5",
+    date: "April 28, 2026",
     summary:
       "Onboarding got real artwork and a real hatching video. Beat 6 now plays a colour-corrected HEVC-with-alpha hatch sequence and lands on the FocusDragon hero portrait with the catch flow merged in — so onboarding ends on one continuous beat instead of two.",
     changes: [

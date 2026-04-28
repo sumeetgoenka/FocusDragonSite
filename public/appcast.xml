@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.3.6</title>
+            <description><![CDATA[<p>Cinematic intro before onboarding, Stop-all-blocks button, fix block editor losing websites when switching to Device Block</p>]]></description>
+            <pubDate>Tue, 28 Apr 2026 12:38:28 +0000</pubDate>
+            <sparkle:version>29</sparkle:version>
+            <sparkle:shortVersionString>1.3.6</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://focusdragon.vercel.app/releases/FocusDragon-1.3.6.dmg"
+                sparkle:edSignature="6/c9S3dGSs7RNZrJAtZMIdjo2eq/4wa46xl3uwoUOqfBbUmwGlBP2CgTVIckmyuP65Z1Srxp7hW2A1UicG9nBA=="
+                length="33292375"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.3.5</title>
             <description><![CDATA[<p>Onboarding: real hatching video, focusdragon hero image, merged catch flow, polished Wings page</p>]]></description>
             <pubDate>Tue, 28 Apr 2026 08:04:57 +0000</pubDate>
