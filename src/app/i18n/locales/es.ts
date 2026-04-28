@@ -49,8 +49,8 @@ export const es: Dict = {
     skip: "No, gracias, solo descargar",
   },
   home: {
-    metaTitle: "FocusDragon — El bloqueador gratuito de webs y apps más duro para Mac",
-    metaDescription: "FocusDragon es una app gratuita para macOS que bloquea webs y aplicaciones distractoras con 6 capas de protección. Bloqueo a nivel DNS, monitoreo de procesos, daemon en segundo plano, extensiones de navegador, mecanismos de bloqueo y anti-manipulación — todo gratis.",
+    metaTitle: "FocusDragon en español — El bloqueador de webs más duro para Mac, gratis",
+    metaDescription: "Bloquea YouTube, Twitter, Reddit y cualquier web distractora en macOS. Seis capas de bloqueo que de verdad aguantan — DNS, daemon, extensión de navegador, anti-manipulación. Gratis, notarizado por Apple.",
     heroTitle1: "Sabes que vas a",
     heroTitle2: "saltártelo.",
     heroTitle3: "Este no.",

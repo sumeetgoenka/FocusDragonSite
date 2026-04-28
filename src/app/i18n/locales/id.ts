@@ -49,8 +49,8 @@ export const id: Dict = {
     skip: "Tidak, langsung unduh saja",
   },
   home: {
-    metaTitle: "FocusDragon — Pemblokir Situs & Aplikasi Gratis Paling Tangguh untuk Mac",
-    metaDescription: "FocusDragon adalah aplikasi macOS gratis yang memblokir situs dan aplikasi pengganggu menggunakan 6 lapis perlindungan. Pemblokiran tingkat DNS, monitoring proses, daemon latar belakang, ekstensi browser, mekanisme kunci, dan anti-tamper — semua gratis.",
+    metaTitle: "FocusDragon dalam Bahasa Indonesia — Pemblokir situs paling tangguh untuk Mac, gratis",
+    metaDescription: "Blokir YouTube, Twitter, Reddit, dan situs pengganggu apa pun di macOS. Enam lapis kunci yang benar-benar bertahan — DNS, daemon, ekstensi browser, anti-tamper. Gratis, disahkan Apple.",
     heroTitle1: "Anda tahu Anda akan",
     heroTitle2: "membypass-nya.",
     heroTitle3: "Yang ini tidak.",

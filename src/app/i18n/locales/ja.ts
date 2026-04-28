@@ -49,8 +49,8 @@ export const ja: Dict = {
     skip: "結構です、そのままダウンロード",
   },
   home: {
-    metaTitle: "FocusDragon — Mac 向けの最も手強い無料ウェブサイト・アプリブロッカー",
-    metaDescription: "FocusDragon は 6 層の保護で気を散らすウェブサイトとアプリをブロックする無料の macOS アプリです。DNS レベルのブロック、プロセス監視、バックグラウンドデーモン、ブラウザ拡張、ロック機構、改ざん防止 — すべて無料。",
+    metaTitle: "FocusDragon 日本語版 — Mac 用、最強の無料ウェブサイトブロッカー",
+    metaDescription: "macOS で YouTube、Twitter、Reddit、あらゆる気を散らすサイトをブロック。本当に破れない 6 層のロック — DNS、デーモン、ブラウザ拡張、改ざん防止。無料、Apple 公証済み。",
     heroTitle1: "どうせ自分で",
     heroTitle2: "回避してしまう。",
     heroTitle3: "でも、これは違います。",

@@ -49,8 +49,8 @@ export const it: Dict = {
     skip: "No grazie, scarica e basta",
   },
   home: {
-    metaTitle: "FocusDragon — Il blocco gratuito di siti e app più tosto per Mac",
-    metaDescription: "FocusDragon è un'app gratuita per macOS che blocca siti e app distraenti con 6 livelli di protezione. Blocco a livello DNS, monitoraggio dei processi, daemon in background, estensioni per browser, meccanismi di lock e anti-manomissione — tutto gratis.",
+    metaTitle: "FocusDragon in italiano — Il blocco siti più tosto per Mac, gratis",
+    metaDescription: "Blocca YouTube, Twitter, Reddit e qualsiasi sito distrattore su macOS. Sei livelli di lock che reggono davvero — DNS, daemon, estensione browser, anti-manomissione. Gratis, notarizzato da Apple.",
     heroTitle1: "Sai già che",
     heroTitle2: "lo aggirerai.",
     heroTitle3: "Questo no.",

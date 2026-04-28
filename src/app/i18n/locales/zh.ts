@@ -49,8 +49,8 @@ export const zh: Dict = {
     skip: "不用了,直接下载",
   },
   home: {
-    metaTitle: "FocusDragon — Mac 上最硬核的免费网站与应用拦截器",
-    metaDescription: "FocusDragon 是一款免费的 macOS 应用,通过 6 层防护拦截让你分心的网站和应用。DNS 级拦截、进程监控、后台守护进程、浏览器扩展、锁机制和反篡改 — 全部免费。",
+    metaTitle: "FocusDragon 中文版 — Mac 上最硬核的免费网站拦截器",
+    metaDescription: "在 macOS 上拦截 YouTube、Twitter、Reddit 和一切让你分心的网站。六层真正扛得住的锁 — DNS、后台守护进程、浏览器扩展、防篡改。免费,Apple 公证。",
     heroTitle1: "你知道你会",
     heroTitle2: "绕过它。",
     heroTitle3: "但不是这一个。",

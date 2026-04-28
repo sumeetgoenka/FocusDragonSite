@@ -49,8 +49,8 @@ export const tr: Dict = {
     skip: "Hayır, sadece indir",
   },
   home: {
-    metaTitle: "FocusDragon — Mac için en sert ücretsiz site ve uygulama engelleyicisi",
-    metaDescription: "FocusDragon, dikkat dağıtıcı siteleri ve uygulamaları 6 katmanlı korumayla engelleyen ücretsiz bir macOS uygulamasıdır. DNS düzeyinde engelleme, süreç izleme, arka plan daemon'u, tarayıcı uzantıları, kilit mekanizmaları ve sabotaj önleme — hepsi ücretsiz.",
+    metaTitle: "FocusDragon Türkçe — Mac için en sert site engelleyici, ücretsiz",
+    metaDescription: "macOS'ta YouTube, Twitter, Reddit ve dikkat dağıtan her siteyi engelle. Gerçekten tutan altı kilit katmanı — DNS, daemon, tarayıcı uzantısı, sabotaj koruması. Ücretsiz, Apple noterli.",
     heroTitle1: "Onu aşacağınızı",
     heroTitle2: "biliyorsunuz.",
     heroTitle3: "Bunu değil.",

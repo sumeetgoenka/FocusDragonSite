@@ -49,8 +49,8 @@ export const nl: Dict = {
     skip: "Nee bedankt, alleen downloaden",
   },
   home: {
-    metaTitle: "FocusDragon — De stevigste gratis website- & app-blocker voor Mac",
-    metaDescription: "FocusDragon is een gratis macOS-app die afleidende websites en apps blokkeert met 6 lagen bescherming: DNS-blokkering, procesmonitoring, achtergrond-daemon, browserextensies, vergrendelingen en anti-tamper — allemaal gratis.",
+    metaTitle: "FocusDragon in het Nederlands — De stevigste website-blocker voor Mac, gratis",
+    metaDescription: "Blokkeer YouTube, Twitter, Reddit en elke afleidende site op macOS. Zes lagen vergrendeling die echt houden — DNS, daemon, browserextensie, anti-tamper. Gratis, genotariseerd door Apple.",
     heroTitle1: "Je weet dat je hem",
     heroTitle2: "zou omzeilen.",
     heroTitle3: "Deze niet.",

@@ -49,8 +49,8 @@ export const vi: Dict = {
     skip: "Không cần, cứ tải về",
   },
   home: {
-    metaTitle: "FocusDragon — Trình chặn website và ứng dụng miễn phí cứng cựa nhất cho Mac",
-    metaDescription: "FocusDragon là một ứng dụng macOS miễn phí chặn các website và ứng dụng gây mất tập trung bằng 6 lớp bảo vệ. Chặn ở mức DNS, giám sát tiến trình, daemon nền, tiện ích trình duyệt, cơ chế khóa và chống can thiệp — tất cả miễn phí.",
+    metaTitle: "FocusDragon tiếng Việt — Trình chặn web cứng cựa nhất cho Mac, miễn phí",
+    metaDescription: "Chặn YouTube, Twitter, Reddit và mọi trang gây mất tập trung trên macOS. Sáu lớp khóa thực sự giữ vững — DNS, daemon, tiện ích trình duyệt, chống can thiệp. Miễn phí, Apple công chứng.",
     heroTitle1: "Bạn biết mình sẽ",
     heroTitle2: "vượt qua nó.",
     heroTitle3: "Nhưng không phải cái này.",

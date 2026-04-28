@@ -49,8 +49,8 @@ export const ko: Dict = {
     skip: "괜찮아요, 그냥 다운로드",
   },
   home: {
-    metaTitle: "FocusDragon — Mac에서 가장 강력한 무료 웹사이트·앱 차단기",
-    metaDescription: "FocusDragon은 6겹의 보호 장치로 산만하게 만드는 웹사이트와 앱을 차단하는 무료 macOS 앱입니다. DNS 레벨 차단, 프로세스 모니터링, 백그라운드 데몬, 브라우저 확장, 락 메커니즘, 변조 방지 — 모두 무료.",
+    metaTitle: "FocusDragon 한국어판 — Mac 최강의 무료 웹사이트 차단기",
+    metaDescription: "macOS에서 YouTube, Twitter, Reddit 그리고 산만하게 만드는 모든 사이트를 차단하세요. 진짜로 버티는 6겹 잠금 — DNS, 데몬, 브라우저 확장, 변조 방지. 무료, Apple 공증.",
     heroTitle1: "당신은 결국",
     heroTitle2: "우회할 겁니다.",
     heroTitle3: "하지만 이건 다릅니다.",
