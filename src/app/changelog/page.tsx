@@ -21,9 +21,21 @@ interface Release {
 
 const releases: Release[] = [
   {
+    version: "1.3.5",
+    date: "April 28, 2026",
+    latest: true,
+    summary:
+      "Onboarding got real artwork and a real hatching video. Beat 6 now plays a colour-corrected HEVC-with-alpha hatch sequence and lands on the FocusDragon hero portrait with the catch flow merged in — so onboarding ends on one continuous beat instead of two.",
+    changes: [
+      "Onboarding: bundled a real hatching video for Beat 6 (HEVC-with-alpha, colour-corrected — saturation/contrast bumped, despill removed). Replaces the procedural particle/EggFragments choreography.",
+      "Onboarding: after the hatch video, the new focusdragon.png hero image fades in with \"{name} is ready\" and the catch flow inline (primary button, hoard counter, settled state). The separate Beat 7 \"treasure\" page is gone — the catch lives on the same screen as the reveal.",
+      "Onboarding: Beat 5 (Wings) now shows real Safari and Chrome app icons tilted ±12° with a soft orange glow that brightens once a browser is configured. The placeholder claw glyphs are gone.",
+      "Onboarding: replaying onboarding used to append a duplicate \"Sleep\" / \"Doomscroll\" / \"Work distractions\" block on each pass. The enemy preset now de-dupes by name and overwrites the existing block in place.",
+    ],
+  },
+  {
     version: "1.3.4",
     date: "April 27, 2026",
-    latest: true,
     summary:
       "Onboarding polish and a fix for the false \"permission missing\" page Chrome kept opening at block-start even when the extension was fully configured.",
     changes: [
