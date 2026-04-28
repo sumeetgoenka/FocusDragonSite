@@ -21,9 +21,18 @@ interface Release {
 
 const releases: Release[] = [
   {
-    version: "1.3.6",
+    version: "1.3.7",
     date: "April 28, 2026",
     latest: true,
+    summary:
+      "The cinematic dragon intro now plays on every launch, not just the first run.",
+    changes: [
+      "Intro: the dragon-takes-flight intro now plays every time you open FocusDragon. Click anywhere or press Esc / Return / Space to skip.",
+    ],
+  },
+  {
+    version: "1.3.6",
+    date: "April 28, 2026",
     summary:
       "Cinematic intro before first-run onboarding, a Stop-all-blocks bulk action, and a data-loss fix in the block editor that ate the website list when toggling to Device Block.",
     changes: [
