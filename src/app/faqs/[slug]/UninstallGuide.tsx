@@ -160,7 +160,7 @@ export default function UninstallGuide() {
             <div className="text-xs text-[var(--muted)]">
               If something broke, we&apos;d rather fix it than lose you.{" "}
               <a
-                href="mailto:hello@focusdragon.app"
+                href="mailto:anay.goenka@icloud.com"
                 className="text-[var(--accent)] hover:underline"
               >
                 Email us

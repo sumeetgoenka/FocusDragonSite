@@ -208,7 +208,7 @@ export default function Privacy() {
             <section>
               <h2 className="text-2xl font-bold text-white mb-3">Contact</h2>
               <p>
-                Questions about privacy: <a className="text-white underline" href="mailto:anaygoenka12@gmail.com">anaygoenka12@gmail.com</a>
+                Questions about privacy: <a className="text-white underline" href="mailto:anay.goenka@icloud.com">anay.goenka@icloud.com</a>
               </p>
             </section>
           </div>

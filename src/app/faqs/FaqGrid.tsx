@@ -83,7 +83,7 @@ export default function FaqGrid({ faqs, categories }: FaqGridProps) {
           <div className="text-sm mt-2">
             Try a different keyword or{" "}
             <a
-              href="mailto:hello@focusdragon.app"
+              href="mailto:anay.goenka@icloud.com"
               className="text-[var(--accent)] hover:underline"
             >
               email us
