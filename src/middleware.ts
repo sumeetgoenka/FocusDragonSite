@@ -60,6 +60,16 @@ export async function middleware(req: NextRequest) {
   }
 
   const locale = pickLocale(req);
+  // English is the canonical default — serve it at the bare URL via an
+  // internal rewrite so focusdragon.app/ and focusdragon.app/en render
+  // identically without a visible /en prefix. Other locales still
+  // redirect so the URL reflects the active language.
+  if (locale === DEFAULT_LOCALE) {
+    const rewritten = new URL(`/${DEFAULT_LOCALE}${pathname === "/" ? "" : pathname}${search}`, req.url);
+    const res = NextResponse.rewrite(rewritten);
+    res.headers.set("x-pathname", pathname);
+    return res;
+  }
   const target = new URL(`/${locale}${pathname === "/" ? "" : pathname}${search}`, req.url);
   return NextResponse.redirect(target);
 }
