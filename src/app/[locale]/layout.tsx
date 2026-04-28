@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { LOCALES, isLocale, isRtl, type Locale } from "../i18n/locales";
+import { LOCALES, DEFAULT_LOCALE, isLocale, isRtl, type Locale } from "../i18n/locales";
 import { t } from "../i18n/translations";
 
 export const dynamic = "force-static";
@@ -21,8 +21,13 @@ export async function generateMetadata({
     title: d.home.metaTitle,
     description: d.home.metaDescription,
     alternates: {
-      canonical: `/${locale}`,
-      languages: Object.fromEntries(LOCALES.map((l) => [l, `/${l}`])),
+      // English is served at the bare URL via middleware rewrite, so its
+      // canonical is "/" — keeping it at "/en" would split SEO signal
+      // between two URLs that render identical content.
+      canonical: locale === DEFAULT_LOCALE ? "/" : `/${locale}`,
+      languages: Object.fromEntries(
+        LOCALES.map((l) => [l, l === DEFAULT_LOCALE ? "/" : `/${l}`]),
+      ),
     },
     openGraph: {
       title: d.home.metaTitle,

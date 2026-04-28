@@ -1,5 +1,9 @@
 import type { MetadataRoute } from "next";
-import { LOCALES } from "./i18n/locales";
+import { LOCALES, DEFAULT_LOCALE } from "./i18n/locales";
+
+// English is served at the bare URL (no /en prefix) — see middleware.ts.
+const localePath = (locale: string, path: string) =>
+  locale === DEFAULT_LOCALE ? path || "/" : `/${locale}${path}`;
 
 const BASE_URL = "https://www.focusdragon.app";
 
@@ -33,10 +37,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const { path, priority, changeFrequency } of routes) {
     for (const locale of LOCALES) {
       const languages = Object.fromEntries(
-        LOCALES.map((l) => [l, `${BASE_URL}/${l}${path}`]),
+        LOCALES.map((l) => [l, `${BASE_URL}${localePath(l, path)}`]),
       );
       out.push({
-        url: `${BASE_URL}/${locale}${path}`,
+        url: `${BASE_URL}${localePath(locale, path)}`,
         lastModified,
         changeFrequency,
         priority,
