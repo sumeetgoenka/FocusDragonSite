@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 import { createServerClient } from "@supabase/ssr";
 import ProfileForm from "./ProfileForm";
@@ -37,14 +38,41 @@ export default async function CompleteProfilePage() {
   if (existing) redirect("/auth/callback");
 
   return (
-    <div className="min-h-screen bg-grid flex items-center justify-center px-6 py-16">
-      <div className="w-full max-w-md rounded-2xl border border-[var(--card-border)] bg-black/40 backdrop-blur p-8">
-        <h1 className="text-3xl font-black tracking-tight mb-2">Almost there.</h1>
-        <p className="text-neutral-400 mb-8 text-sm">
-          We just need a couple of details before you start using FocusDragon.
-        </p>
-        <ProfileForm />
+    <main className="relative min-h-screen w-full overflow-hidden bg-grid text-white">
+      <div className="hero-glow" aria-hidden="true" />
+      <div className="hero-glow-secondary" aria-hidden="true" />
+
+      <div className="relative z-10 flex min-h-screen items-center justify-center px-6 py-20">
+        <div className="w-full max-w-md">
+          <div className="flex flex-col items-center text-center mb-8">
+            <div className="dragon-glow rounded-3xl mb-6">
+              <Image
+                src="/icon.png"
+                alt="FocusDragon"
+                width={72}
+                height={72}
+                className="rounded-2xl"
+                priority
+              />
+            </div>
+            <h1 className="text-4xl font-black tracking-tight leading-[1.1] mb-3">
+              <span className="gradient-text dragon-glow-text">Name your dragon.</span>
+            </h1>
+            <p className="text-sm text-neutral-400 max-w-sm leading-relaxed">
+              Just a couple of details so your dragon greets you properly
+              when you open the app.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg)]/80 backdrop-blur-md p-6 shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+            <ProfileForm />
+          </div>
+
+          <p className="mt-10 text-center text-[10px] uppercase tracking-[0.18em] text-neutral-600">
+            FocusDragon
+          </p>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
