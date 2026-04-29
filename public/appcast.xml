@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.4.0</title>
+            <description><![CDATA[<p>Accounts arrive in FocusDragon. Sign in with Google or email to use the app — your blocks, settings, and stats stay on your Mac. Sets the stage for cloud sync and the iOS companion.</p>]]></description>
+            <pubDate>Wed, 29 Apr 2026 16:05:28 +0000</pubDate>
+            <sparkle:version>33</sparkle:version>
+            <sparkle:shortVersionString>1.4.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://www.focusdragon.app/releases/FocusDragon-1.4.0.dmg"
+                sparkle:edSignature="hYwlhzFAd+bd68HaIEjChsGgRbvouPt7Hj8jlpcm4v8cuqDgIMu3L0Txdmebzbw7fZ4XiRJmyOVIQpqIRBaIAw=="
+                length="33462337"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.3.9</title>
             <description><![CDATA[<p>Eliminate the post-update fake-onboarding wizard — DaemonSetupView no longer auto-presents after Sparkle updates; replaced with a non-modal banner only when the daemon genuinely needs re-approval</p>]]></description>
             <pubDate>Wed, 29 Apr 2026 06:52:39 +0000</pubDate>

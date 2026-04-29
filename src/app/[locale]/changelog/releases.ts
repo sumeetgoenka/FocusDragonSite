@@ -10,9 +10,21 @@ export interface Release {
 
 export const releases: Release[] = [
   {
-    version: "1.3.9",
+    version: "1.4.0",
     date: "April 29, 2026",
     latest: true,
+    summary: "Accounts arrive in FocusDragon. Sign in with Google or email — your blocks, settings, and stats stay on your Mac.",
+    changes: [
+      "New: forced sign-in on launch via your browser. Click \"Sign in with browser\", complete Google or email magic-link in your browser, then the app picks up the sign-in automatically.",
+      "New: account profile (display name + optional age range) collected once on first sign-in. Used for the dashboard greeting and to plan future iOS / sync features.",
+      "New: Settings → Account section with Sign out and Delete account. Sign out keeps every block, stat, and setting intact on this Mac — only the session is cleared.",
+      "Migration: existing 1.3.x users keep all local data on first sign-in. Nothing is uploaded or deleted; the account simply attaches to the data already on disk.",
+      "Foundation for what's next: cross-device sync, the iOS companion, and paid tiers all hang off this account model.",
+    ],
+  },
+  {
+    version: "1.3.9",
+    date: "April 29, 2026",
     summary: "Stop presenting the daemon-permissions wizard after every Sparkle update.",
     changes: [
       "Fixed: after every autoupdate, FocusDragon was auto-presenting the 4-step \"Welcome / Permissions / Full Disk Access / Done\" daemon-setup wizard whenever macOS briefly flipped the background service to \"needs re-approval.\" That looked exactly like onboarding restarting and was the real reason long-time users kept reporting the old onboarding came back. The wizard no longer auto-mounts; if the daemon genuinely needs re-approval, you'll see a small dismissible banner with a one-click Open Settings button instead.",
