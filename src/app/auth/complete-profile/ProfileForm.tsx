@@ -14,7 +14,6 @@ const AGE_LABELS: Record<AgeRange, string> = {
 
 const ERROR_LABELS: Record<string, string> = {
   display_name_invalid: "Please enter a name between 1 and 60 characters.",
-  age_confirm_required: "You need to confirm you're 16 or older.",
   age_range_invalid: "Pick a valid age range.",
   unauthenticated: "Your sign-in expired. Please sign in again.",
   server_error: "Something went wrong. Please try again.",
@@ -24,7 +23,6 @@ export default function ProfileForm() {
   const router = useRouter();
   const [displayName, setDisplayName] = useState("");
   const [ageRange, setAgeRange] = useState<AgeRange | "none">("none");
-  const [ageConfirm, setAgeConfirm] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -35,10 +33,6 @@ export default function ProfileForm() {
       setError("display_name_invalid");
       return;
     }
-    if (!ageConfirm) {
-      setError("age_confirm_required");
-      return;
-    }
     setSubmitting(true);
     try {
       const res = await fetch("/api/auth/complete-profile", {
@@ -47,7 +41,6 @@ export default function ProfileForm() {
         body: JSON.stringify({
           displayName: displayName.trim(),
           ageRange: ageRange === "none" ? null : ageRange,
-          ageConfirm: true,
         }),
       });
       if (!res.ok) {
@@ -97,17 +90,6 @@ export default function ProfileForm() {
           ))}
         </select>
       </div>
-
-      <label className="flex items-start gap-3 text-sm text-neutral-300 cursor-pointer">
-        <input
-          type="checkbox"
-          checked={ageConfirm}
-          onChange={(e) => setAgeConfirm(e.target.checked)}
-          className="mt-1 h-4 w-4 accent-[var(--accent)]"
-          required
-        />
-        <span>I'm 16 or older.</span>
-      </label>
 
       {error && (
         <p className="text-sm text-red-400">{ERROR_LABELS[error] ?? ERROR_LABELS.server_error}</p>

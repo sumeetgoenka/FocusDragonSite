@@ -7,7 +7,6 @@ import { AGE_RANGES, type AgeRange } from "@/lib/auth-contract";
 type Body = {
   displayName?: unknown;
   ageRange?: unknown;
-  ageConfirm?: unknown;
 };
 
 function bad(error: string) {
@@ -52,8 +51,6 @@ export async function POST(req: Request) {
   if (displayNameRaw.length < 1 || displayNameRaw.length > 60) {
     return bad("display_name_invalid");
   }
-
-  if (body.ageConfirm !== true) return bad("age_confirm_required");
 
   let ageRange: AgeRange | null = null;
   if (body.ageRange !== null && body.ageRange !== undefined) {
