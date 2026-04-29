@@ -140,7 +140,6 @@ export const ja: Dict = {
       { quote: "I have tried every single blocker. Most of them are just too expensive or just do not work at all. The daemon is genuinely unkillable, and with this app's features I am always able to focus and lock in.", name: "Mannan Garg", detail: "Year 9 student, Dubai" },
       { quote: "Mac App Store のあらゆるブロッカーを試してきました。出し抜けなかったのは FocusDragon が初めて。デーモンは本当に殺せません。", name: "情報科学専攻の学生", detail: "期末週に Reddit をブロック" },
       { quote: "ランダム文字列ロックがついに効いてくれました。200 文字の意味のない文字列を打つことを脳は正当化できない。ただ…諦めるんです。", name: "リモート開発者", detail: "月〜金はタイマーロック" },
-      { quote: "退屈になるとすぐシークレットを開いていました。今は拡張が動いていないと Chrome がそのまま落ちる。逃げ場がない。", name: "フリーランスのライター", detail: "40 以上のサイトをブロック" },
     ],
     freeTitle1: "ずっと無料。",
     freeTitle2: "理由はこちら。",

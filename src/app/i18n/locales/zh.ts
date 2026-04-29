@@ -140,7 +140,6 @@ export const zh: Dict = {
       { quote: "I have tried every single blocker. Most of them are just too expensive or just do not work at all. The daemon is genuinely unkillable, and with this app's features I am always able to focus and lock in.", name: "Mannan Garg", detail: "Year 9 student, Dubai" },
       { quote: "我试过 Mac App Store 上的每一个拦截器。FocusDragon 是第一个我没法绕过的。这个守护进程是真的杀不死。", name: "计算机系学生", detail: "期末周拦截 Reddit" },
       { quote: "随机字符锁是终于对我有效的东西。我的大脑没法说服自己去敲 200 个乱码。它就是…放弃了。", name: "远程开发者", detail: "周一到周五用计时器锁" },
-      { quote: "我以前一觉得无聊就开无痕。现在如果扩展没运行,Chrome 就直接挂掉。无处可去。", name: "自由撰稿人", detail: "拦截了 40 多个网站" },
     ],
     freeTitle1: "永久免费。",
     freeTitle2: "原因如下。",

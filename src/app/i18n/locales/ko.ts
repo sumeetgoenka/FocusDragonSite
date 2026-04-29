@@ -140,7 +140,6 @@ export const ko: Dict = {
       { quote: "I have tried every single blocker. Most of them are just too expensive or just do not work at all. The daemon is genuinely unkillable, and with this app's features I am always able to focus and lock in.", name: "Mannan Garg", detail: "Year 9 student, Dubai" },
       { quote: "Mac App Store의 모든 차단기를 써봤습니다. 꾀로 이길 수 없었던 건 FocusDragon이 처음이에요. 이 데몬은 진짜 안 죽습니다.", name: "컴퓨터과학과 학생", detail: "기말 주에 Reddit 차단" },
       { quote: "랜덤 문자열 락이 마침내 저에게 효과가 있는 것이었습니다. 200자의 의미 없는 문자열을 두드릴 명분을 뇌가 만들지 못해요. 그냥… 포기합니다.", name: "원격 개발자", detail: "월–금 타이머 락 사용" },
-      { quote: "심심해지면 곧장 시크릿을 열곤 했어요. 이제 확장이 안 돌면 Chrome이 그냥 죽습니다. 갈 곳이 없어요.", name: "프리랜서 작가", detail: "40개 이상 사이트 차단" },
     ],
     freeTitle1: "영원히 무료.",
     freeTitle2: "이유는 이렇습니다.",

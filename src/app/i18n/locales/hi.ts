@@ -140,7 +140,6 @@ export const hi: Dict = {
       { quote: "I have tried every single blocker. Most of them are just too expensive or just do not work at all. The daemon is genuinely unkillable, and with this app's features I am always able to focus and lock in.", name: "Mannan Garg", detail: "Year 9 student, Dubai" },
       { quote: "मैंने Mac App Store पर हर ब्लॉकर आज़माया है। FocusDragon पहला है जिसे मैं मात नहीं दे पाया। डीमन सच में अमर है।", name: "CS छात्र", detail: "Finals के हफ़्ते Reddit ब्लॉक किया" },
       { quote: "Random-text lock आख़िरकार वो चीज़ है जो मेरे लिए काम करती है। मेरा दिमाग 200 अक्षरों की बकवास टाइप करना तर्कसंगत नहीं ठहरा सकता। बस… हार मान लेता है।", name: "Remote developer", detail: "सोम-शुक्र timer lock इस्तेमाल" },
-      { quote: "मैं बोर होते ही Incognito खोल देता था। अब Chrome बस मर जाता है अगर एक्सटेंशन नहीं चल रही। कहीं जाने को नहीं बचता।", name: "Freelance writer", detail: "40+ साइटें ब्लॉक" },
     ],
     freeTitle1: "हमेशा के लिए मुफ़्त।",
     freeTitle2: "वजह यह है।",

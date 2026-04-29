@@ -140,7 +140,6 @@ export const fa: Dict = {
       { quote: "I have tried every single blocker. Most of them are just too expensive or just do not work at all. The daemon is genuinely unkillable, and with this app's features I am always able to focus and lock in.", name: "Mannan Garg", detail: "Year 9 student, Dubai" },
       { quote: "هر مسدودکنندهٔ Mac App Store را امتحان کرده‌ام. FocusDragon اولین موردی بود که نتوانستم گول بزنم. دیمن واقعاً غیرقابل‌کشتن است.", name: "دانشجوی علوم کامپیوتر", detail: "در هفتهٔ امتحانات Reddit را مسدود کرد" },
       { quote: "قفل متن تصادفی چیزی است که بالاخره برایم جواب داد. مغزم نمی‌تواند تایپ ۲۰۰ کاراکتر بی‌معنی را توجیه کند. فقط… تسلیم می‌شود.", name: "توسعه‌دهندهٔ دورکار", detail: "از قفل زمان‌سنج دوشنبه تا جمعه استفاده می‌کند" },
-      { quote: "قبلاً همان لحظه که حوصله‌ام سر می‌رفت ناشناس را باز می‌کردم. حالا اگر افزونه اجرا نشود Chrome کلاً می‌میرد. جایی برای رفتن نیست.", name: "نویسندهٔ فریلنسر", detail: "بیش از ۴۰ سایت را مسدود کرد" },
     ],
     freeTitle1: "همیشه رایگان.",
     freeTitle2: "دلیلش این است.",

@@ -68,7 +68,7 @@ export default async function NotFound() {
             {c.homeCta}
           </Link>
           <a
-            href="/api/download?v=1.3.8"
+            href="/api/download?v=1.3.9"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/15 text-white/70 hover:text-white hover:border-white/30 transition text-sm"
           >
             {c.downloadCta}

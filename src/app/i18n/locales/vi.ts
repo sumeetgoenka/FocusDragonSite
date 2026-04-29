@@ -140,7 +140,6 @@ export const vi: Dict = {
       { quote: "I have tried every single blocker. Most of them are just too expensive or just do not work at all. The daemon is genuinely unkillable, and with this app's features I am always able to focus and lock in.", name: "Mannan Garg", detail: "Year 9 student, Dubai" },
       { quote: "Tôi đã thử mọi trình chặn trên Mac App Store. FocusDragon là cái đầu tiên tôi không qua mặt được. Daemon thật sự không thể giết.", name: "Sinh viên CNTT", detail: "Chặn Reddit trong tuần thi cuối kỳ" },
       { quote: "Khóa văn bản ngẫu nhiên là thứ cuối cùng có hiệu quả với tôi. Não tôi không hợp lý hóa nổi việc gõ 200 ký tự vô nghĩa. Nó cứ thế… bỏ cuộc.", name: "Lập trình viên làm từ xa", detail: "Dùng khóa hẹn giờ T2-T6" },
-      { quote: "Trước đây cứ chán là tôi mở chế độ ẩn danh. Giờ Chrome chết luôn nếu tiện ích không chạy. Không còn chỗ để đi.", name: "Nhà văn tự do", detail: "Chặn 40+ trang web" },
     ],
     freeTitle1: "Miễn phí mãi mãi.",
     freeTitle2: "Đây là lý do.",

@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.3.9</title>
+            <description><![CDATA[<p>Eliminate the post-update fake-onboarding wizard — DaemonSetupView no longer auto-presents after Sparkle updates; replaced with a non-modal banner only when the daemon genuinely needs re-approval</p>]]></description>
+            <pubDate>Wed, 29 Apr 2026 06:52:39 +0000</pubDate>
+            <sparkle:version>32</sparkle:version>
+            <sparkle:shortVersionString>1.3.9</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://www.focusdragon.app/releases/FocusDragon-1.3.9.dmg"
+                sparkle:edSignature="1nCa8w0UwyQOFi+uNK6bI4EwkhbpxFFQ103eWDUa8sATVuBm22eererBYHZ594aF3KkwPPPrd7+MJH1/zbwxAQ=="
+                length="33326731"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.3.8</title>
             <description><![CDATA[<p>Fix Safari extension notification spam, fix Sparkle autoupdate (legacy redirect was silently freezing users on old binaries), fix onboarding restarting after updates, remove About page</p>]]></description>
             <pubDate>Wed, 29 Apr 2026 05:58:10 +0000</pubDate>

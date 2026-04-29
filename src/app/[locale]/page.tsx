@@ -7,7 +7,7 @@ import SiteFooter from "../components/i18n/SiteFooter";
 import DownloadButton from "../components/i18n/DownloadButton";
 import JsonLd, { softwareAppSchema } from "../components/JsonLd";
 
-const APP_VERSION = "1.3.8";
+const APP_VERSION = "1.3.9";
 
 const useCaseIcons = [
   // 9 paths matching the order in the dictionary

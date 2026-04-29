@@ -140,7 +140,6 @@ export const pl: Dict = {
       { quote: "I have tried every single blocker. Most of them are just too expensive or just do not work at all. The daemon is genuinely unkillable, and with this app's features I am always able to focus and lock in.", name: "Mannan Garg", detail: "Year 9 student, Dubai" },
       { quote: "Próbowałem każdego blokera w Mac App Store. FocusDragon to pierwszy, którego nie udało mi się przechytrzyć. Demona naprawdę nie da się zabić.", name: "Student informatyki", detail: "Zablokował Reddita w sesji" },
       { quote: "Zamek z losowym tekstem to coś, co w końcu u mnie działa. Mózg nie potrafi sobie wytłumaczyć przepisywania 200 znaków bełkotu. Po prostu… odpuszcza.", name: "Programista zdalny", detail: "Stoper od pn do pt" },
-      { quote: "Otwierałem incognito w sekundę, gdy mi się nudziło. Teraz Chrome po prostu umiera, jeśli rozszerzenie nie działa. Nie ma już dokąd uciec.", name: "Copywriterka freelancer", detail: "Zablokowała ponad 40 stron" },
     ],
     freeTitle1: "Darmowy na zawsze.",
     freeTitle2: "Oto dlaczego.",

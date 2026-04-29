@@ -10,9 +10,17 @@ export interface Release {
 
 export const releases: Release[] = [
   {
-    version: "1.3.8",
+    version: "1.3.9",
     date: "April 29, 2026",
     latest: true,
+    summary: "Stop presenting the daemon-permissions wizard after every Sparkle update.",
+    changes: [
+      "Fixed: after every autoupdate, FocusDragon was auto-presenting the 4-step \"Welcome / Permissions / Full Disk Access / Done\" daemon-setup wizard whenever macOS briefly flipped the background service to \"needs re-approval.\" That looked exactly like onboarding restarting and was the real reason long-time users kept reporting the old onboarding came back. The wizard no longer auto-mounts; if the daemon genuinely needs re-approval, you'll see a small dismissible banner with a one-click Open Settings button instead.",
+    ],
+  },
+  {
+    version: "1.3.8",
+    date: "April 29, 2026",
     summary: "Critical autoupdate fix, plus reliability fixes for Safari notifications and onboarding state.",
     changes: [
       "Fixed (critical): a cross-host redirect on the appcast was silently breaking Sparkle autoupdate for many users — they were frozen on whatever version they originally installed. Updates now reach every user on the next poll.",

@@ -140,7 +140,6 @@ export const ar: Dict = {
       { quote: "I have tried every single blocker. Most of them are just too expensive or just do not work at all. The daemon is genuinely unkillable, and with this app's features I am always able to focus and lock in.", name: "Mannan Garg", detail: "Year 9 student, Dubai" },
       { quote: "جرّبت كل حاجب في Mac App Store. FocusDragon هو أول حاجب لم أستطع خداعه. الخدمة فعلاً لا تموت.", name: "طالب علوم حاسوب", detail: "حجب Reddit في أسبوع الامتحانات النهائية" },
       { quote: "قفل النص العشوائي هو ما نفع معي أخيراً. دماغي لا يستطيع تبرير كتابة 200 حرف عشوائي. ببساطة… يستسلم.", name: "مطوّر عن بُعد", detail: "يستخدم أقفال المؤقت الإثنين-الجمعة" },
-      { quote: "كنت أفتح وضع التصفح المتخفي لحظة شعوري بالملل. الآن Chrome يموت إن لم تكن الإضافة تعمل. لا مكان أذهب إليه.", name: "كاتب مستقل", detail: "حجب أكثر من 40 موقعاً" },
     ],
     freeTitle1: "مجاني للأبد.",
     freeTitle2: "وإليك السبب.",
