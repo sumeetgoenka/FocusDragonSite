@@ -10,9 +10,22 @@ export interface Release {
 
 export const releases: Release[] = [
   {
-    version: "1.4.0",
+    version: "1.4.1",
     date: "April 29, 2026",
     latest: true,
+    summary: "Soft sign-in: open the app and configure blocks without an account. Sign in is only required to start a block.",
+    changes: [
+      "Changed: sign-in is now soft. The app launches straight into your dashboard — no gate. A \"Sign in\" pill in the top bar opens sign-in any time.",
+      "New: starting a block prompts for sign-in if you haven't yet, so your blocking history attaches to a stable account. Browsing and configuring blocks is fully free without one.",
+      "Redesigned: the in-app sign-in screen is now dragon-themed with a breathing hero, trust strip, and warmer copy.",
+      "Redesigned: the website sign-in flow (start, profile completion, deep-link launcher) and the admin login share the same dragon visual language.",
+      "Removed: the \"I'm 16 or older\" checkbox during sign-up.",
+      "Fixed: the sign-in flow on the website now correctly persists the session cookie when finishing OAuth (a Next.js 15 server-component-can't-write-cookies trap).",
+    ],
+  },
+  {
+    version: "1.4.0",
+    date: "April 29, 2026",
     summary: "Accounts arrive in FocusDragon. Sign in with Google or email — your blocks, settings, and stats stay on your Mac.",
     changes: [
       "New: forced sign-in on launch via your browser. Click \"Sign in with browser\", complete Google or email magic-link in your browser, then the app picks up the sign-in automatically.",

@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.4.1</title>
+            <description><![CDATA[<p>Soft sign-in: open the app and configure blocks without an account. Sign-in is only required to start a block. Redesigned sign-in screens across the app and the site.</p>]]></description>
+            <pubDate>Wed, 29 Apr 2026 17:34:42 +0000</pubDate>
+            <sparkle:version>34</sparkle:version>
+            <sparkle:shortVersionString>1.4.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://www.focusdragon.app/releases/FocusDragon-1.4.1.dmg"
+                sparkle:edSignature="ONOlovBdxW2971Z5xSzPDLL2ISEQbCeDWVMD9LULpP/v1mNAIBaA+U7/eZnpQ7T+DgCKQrBrBrp6mH8/EDyUCQ=="
+                length="33492060"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.4.0</title>
             <description><![CDATA[<p>Accounts arrive in FocusDragon. Sign in with Google or email to use the app — your blocks, settings, and stats stay on your Mac. Sets the stage for cloud sync and the iOS companion.</p>]]></description>
             <pubDate>Wed, 29 Apr 2026 16:05:28 +0000</pubDate>
