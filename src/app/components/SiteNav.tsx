@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface SiteNavProps {
-  activePath?: "home" | "about" | "changelog" | "faqs" | "contact";
+  activePath?: "home" | "changelog" | "faqs" | "contact";
 }
 
 export default function SiteNav({ activePath = "home" }: SiteNavProps) {
@@ -24,15 +24,12 @@ export default function SiteNav({ activePath = "home" }: SiteNavProps) {
           />
           <span className="font-bold text-lg">FocusDragon</span>
           <span className="text-xs text-[var(--muted)] bg-[var(--card-bg)] border border-[var(--card-border)] rounded-full px-2 py-0.5">
-            v1.3.7
+            v1.3.8
           </span>
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">
           <Link href="/" className={linkClass("home")}>
             Home
-          </Link>
-          <Link href="/about" className={linkClass("about")}>
-            About
           </Link>
           <Link href="/faqs" className={linkClass("faqs")}>
             FAQs

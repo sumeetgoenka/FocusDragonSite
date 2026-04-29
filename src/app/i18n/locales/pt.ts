@@ -137,6 +137,7 @@ export const pt: Dict = {
     socialTitle1: "Pessoas que",
     socialTitle2: "pararam de brigar consigo mesmas.",
     testimonials: [
+      { quote: "I have tried every single blocker. Most of them are just too expensive or just do not work at all. The daemon is genuinely unkillable, and with this app's features I am always able to focus and lock in.", name: "Mannan Garg", detail: "Year 9 student, Dubai" },
       { quote: "Já testei todos os bloqueadores da Mac App Store. FocusDragon é o primeiro que não consegui burlar. O daemon é realmente impossível de matar.", name: "Estudante de Ciência da Computação", detail: "Bloqueou Reddit na semana de provas finais" },
       { quote: "A trava de texto aleatório é o que finalmente funciona pra mim. Meu cérebro não consegue racionalizar digitar 200 caracteres de lixo. Ele só… desiste.", name: "Dev remoto", detail: "Usa cronômetro de seg a sex" },
       { quote: "Eu abria aba anônima no segundo que dava tédio. Agora o Chrome morre se a extensão não estiver rodando. Não tem mais para onde fugir.", name: "Redatora freelancer", detail: "Bloqueou mais de 40 sites" },

@@ -5,7 +5,7 @@ import SiteNav from "../../components/i18n/SiteNav";
 import SiteFooter from "../../components/i18n/SiteFooter";
 import DownloadButton from "../../components/i18n/DownloadButton";
 
-const APP_VERSION = "1.3.7";
+const APP_VERSION = "1.3.8";
 
 interface Props {
   d: Dict;

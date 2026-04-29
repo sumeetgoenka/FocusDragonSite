@@ -137,6 +137,7 @@ export const nl: Dict = {
     socialTitle1: "Mensen die",
     socialTitle2: "zijn gestopt met tegen zichzelf vechten.",
     testimonials: [
+      { quote: "I have tried every single blocker. Most of them are just too expensive or just do not work at all. The daemon is genuinely unkillable, and with this app's features I am always able to focus and lock in.", name: "Mannan Garg", detail: "Year 9 student, Dubai" },
       { quote: "Ik heb elke blocker in de Mac App Store geprobeerd. FocusDragon is de eerste die ik niet te slim af was. De daemon is echt niet kapot te krijgen.", name: "Informaticastudent", detail: "Reddit geblokkeerd in tentamenweek" },
       { quote: "De willekeurige-tekst-vergrendeling is wat eindelijk werkt voor mij. Mijn brein verantwoordt het typen van 200 tekens onzin niet. Het geeft het gewoon op.", name: "Remote ontwikkelaar", detail: "Timer-vergrendelingen ma–vr" },
       { quote: "Vroeger opende ik incognito zodra ik me verveelde. Nu valt Chrome simpelweg om als de extensie niet draait. Geen ontsnapping meer.", name: "Freelance schrijver", detail: "40+ sites geblokkeerd" },

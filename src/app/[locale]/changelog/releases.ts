@@ -10,9 +10,20 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: "1.3.8",
+    date: "April 29, 2026",
+    latest: true,
+    summary: "Critical autoupdate fix, plus reliability fixes for Safari notifications and onboarding state.",
+    changes: [
+      "Fixed (critical): a cross-host redirect on the appcast was silently breaking Sparkle autoupdate for many users — they were frozen on whatever version they originally installed. Updates now reach every user on the next poll.",
+      "Fixed: Safari extension \"no longer responding\" notification no longer fires when nothing is being enforced; added a per-browser cooldown so Safari relaunches don't trigger spurious notifications during the brief stale-heartbeat window.",
+      "Fixed: onboarding could restart after an update if the app was interrupted during the Beat 6 catch animation — completion is now persisted the moment you commit, before the celebration plays.",
+      "Removed: About page (the home page already covers it).",
+    ],
+  },
+  {
     version: "1.3.7",
     date: "April 28, 2026",
-    latest: true,
     summary: "The cinematic dragon intro now plays on every launch, not just the first run.",
     changes: [
       "Intro: the dragon-takes-flight intro now plays every time you open FocusDragon. Click anywhere or press Esc / Return / Space to skip.",

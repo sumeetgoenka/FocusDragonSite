@@ -137,6 +137,7 @@ export const tr: Dict = {
     socialTitle1: "Kendisiyle savaşmayı",
     socialTitle2: "bırakanlar.",
     testimonials: [
+      { quote: "I have tried every single blocker. Most of them are just too expensive or just do not work at all. The daemon is genuinely unkillable, and with this app's features I am always able to focus and lock in.", name: "Mannan Garg", detail: "Year 9 student, Dubai" },
       { quote: "Mac App Store'daki her engelleyiciyi denedim. FocusDragon aşamadığım ilk uygulama. Daemon gerçekten öldürülemez.", name: "Bilgisayar bilimleri öğrencisi", detail: "Final haftası Reddit'i engelledi" },
       { quote: "Rastgele metin kilidi sonunda bende işe yarayan şey oldu. Beynim 200 karakterlik saçma yazmayı mantıklılaştıramıyor. Sadece... pes ediyor.", name: "Uzaktan geliştirici", detail: "Pzt-Cum zamanlayıcı kilidi kullanıyor" },
       { quote: "Sıkıldığım anda gizli modu açıyordum. Şimdi uzantı çalışmıyorsa Chrome çöküyor. Gidecek yer yok.", name: "Serbest yazar", detail: "40+ siteyi engelledi" },

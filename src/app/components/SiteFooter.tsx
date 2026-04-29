@@ -46,7 +46,6 @@ export default function SiteFooter() {
           </div>
           <ul className="space-y-2.5 text-sm text-[var(--muted)]">
             <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-            <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
             <li><Link href="/faqs" className="hover:text-white transition-colors">FAQs</Link></li>
             <li><Link href="/changelog" className="hover:text-white transition-colors">Changelog</Link></li>
             <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link></li>
@@ -58,7 +57,7 @@ export default function SiteFooter() {
       <div className="border-t border-[var(--card-border)] py-6 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-[var(--muted)]">
           <span>&copy; {new Date().getFullYear()} FocusDragon &middot; Made in Dubai for focused humans everywhere.</span>
-          <span>v1.3.7 &middot; macOS 13 Ventura or later</span>
+          <span>v1.3.8 &middot; macOS 13 Ventura or later</span>
         </div>
       </div>
     </footer>

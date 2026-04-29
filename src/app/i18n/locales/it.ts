@@ -137,6 +137,7 @@ export const it: Dict = {
     socialTitle1: "Persone che",
     socialTitle2: "hanno smesso di combattere se stesse.",
     testimonials: [
+      { quote: "I have tried every single blocker. Most of them are just too expensive or just do not work at all. The daemon is genuinely unkillable, and with this app's features I am always able to focus and lock in.", name: "Mannan Garg", detail: "Year 9 student, Dubai" },
       { quote: "Ho provato ogni blocco sul Mac App Store. FocusDragon è il primo che non sono riuscito a fregare. Il daemon è davvero impossibile da uccidere.", name: "Studente di informatica", detail: "Ha bloccato Reddit nella settimana di esami" },
       { quote: "Il lock con testo casuale è quello che finalmente funziona per me. Il mio cervello non riesce a giustificare di battere 200 caratteri di spazzatura. Si arrende e basta.", name: "Sviluppatore in remoto", detail: "Usa lock a timer dal lun al ven" },
       { quote: "Aprivo incognito appena mi annoiavo. Adesso Chrome muore se l'estensione non gira. Non c'è più dove andare.", name: "Copywriter freelance", detail: "Ha bloccato oltre 40 siti" },

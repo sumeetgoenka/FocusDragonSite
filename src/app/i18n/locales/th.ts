@@ -137,6 +137,7 @@ export const th: Dict = {
     socialTitle1: "คนที่",
     socialTitle2: "หยุดสู้กับตัวเอง",
     testimonials: [
+      { quote: "I have tried every single blocker. Most of them are just too expensive or just do not work at all. The daemon is genuinely unkillable, and with this app's features I am always able to focus and lock in.", name: "Mannan Garg", detail: "Year 9 student, Dubai" },
       { quote: "ผมเคยลองตัวบล็อกทุกตัวบน Mac App Store FocusDragon เป็นตัวแรกที่ผมเอาชนะไม่ได้ Daemon นี้อมตะจริง", name: "นักศึกษา CS", detail: "บล็อก Reddit ในสัปดาห์สอบไฟนอล" },
       { quote: "Random-text lock เป็นสิ่งที่ใช้ได้ผลกับผมในที่สุด สมองผมไม่อาจให้เหตุผลกับการพิมพ์ตัวอักษรขยะ 200 ตัวได้ มัน… ก็แค่ยอมแพ้", name: "Remote developer", detail: "ใช้ timer locks จันทร์-ศุกร์" },
       { quote: "ฉันเคยเปิด Incognito ทันทีที่รู้สึกเบื่อ ตอนนี้ Chrome ตายเลยถ้าส่วนขยายไม่ทำงาน ไม่มีที่ให้ไป", name: "Freelance writer", detail: "บล็อกกว่า 40 เว็บไซต์" },

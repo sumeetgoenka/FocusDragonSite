@@ -9,7 +9,7 @@ interface Props {
   locale: Locale;
 }
 
-const APP_VERSION = "1.3.7";
+const APP_VERSION = "1.3.8";
 
 export default function SiteFooter({ d, locale }: Props) {
   const year = new Date().getFullYear();
@@ -48,7 +48,6 @@ export default function SiteFooter({ d, locale }: Props) {
           <div className="text-xs uppercase tracking-widest text-neutral-500 font-semibold mb-4">{d.footer.product}</div>
           <ul className="space-y-2.5 text-sm text-[var(--muted)]">
             <li><Link href={`/${locale}`} className="hover:text-white transition-colors">{d.footer.home}</Link></li>
-            <li><Link href={`/${locale}/about`} className="hover:text-white transition-colors">{d.footer.about}</Link></li>
             <li><Link href={`/${locale}/faqs`} className="hover:text-white transition-colors">{d.footer.faqs}</Link></li>
             <li><Link href={`/${locale}/changelog`} className="hover:text-white transition-colors">{d.footer.changelog}</Link></li>
             <li><Link href={`/${locale}/privacy`} className="hover:text-white transition-colors">{d.footer.privacy}</Link></li>

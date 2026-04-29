@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.3.8</title>
+            <description><![CDATA[<p>Fix Safari extension notification spam, fix Sparkle autoupdate (legacy redirect was silently freezing users on old binaries), fix onboarding restarting after updates, remove About page</p>]]></description>
+            <pubDate>Wed, 29 Apr 2026 05:58:10 +0000</pubDate>
+            <sparkle:version>31</sparkle:version>
+            <sparkle:shortVersionString>1.3.8</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://www.focusdragon.app/releases/FocusDragon-1.3.8.dmg"
+                sparkle:edSignature="/hX/cap4K2Ec+INgPaE74rRBuVrca7L364JPsSMFnYRIY6NT4hi+Xerf9IpDevlPYe3sG74owBLB4vjgFpgCAg=="
+                length="33317823"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.3.7</title>
             <description><![CDATA[<p>Intro splash plays every launch</p>]]></description>
             <pubDate>Tue, 28 Apr 2026 12:54:02 +0000</pubDate>

@@ -137,6 +137,7 @@ export const ru: Dict = {
     socialTitle1: "Люди, которые",
     socialTitle2: "перестали бороться сами с собой.",
     testimonials: [
+      { quote: "I have tried every single blocker. Most of them are just too expensive or just do not work at all. The daemon is genuinely unkillable, and with this app's features I am always able to focus and lock in.", name: "Mannan Garg", detail: "Year 9 student, Dubai" },
       { quote: "Я перепробовал каждый блокировщик в Mac App Store. FocusDragon — первый, который я не смог перехитрить. Демон действительно неубиваем.", name: "Студент CS", detail: "Блокировал Reddit во время сессии" },
       { quote: "Замок на случайный текст — то, что наконец сработало. Мой мозг не может рационализировать набор 200 символов мусора. Он просто… сдаётся.", name: "Удалённый разработчик", detail: "Использует таймеры пн–пт" },
       { quote: "Раньше я открывал инкогнито в ту же секунду, как мне становилось скучно. Теперь Chrome просто умирает, если расширение не запущено. Идти некуда.", name: "Фриланс-писатель", detail: "Заблокировал 40+ сайтов" },

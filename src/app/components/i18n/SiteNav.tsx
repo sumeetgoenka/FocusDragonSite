@@ -6,7 +6,7 @@ import type { Locale } from "../../i18n/locales";
 interface SiteNavProps {
   d: Dict;
   locale: Locale;
-  activePath?: "home" | "about" | "changelog" | "faqs" | "contact";
+  activePath?: "home" | "changelog" | "faqs" | "contact";
 }
 
 /// Locale-aware site navigation. All link hrefs are prefixed with
@@ -25,12 +25,11 @@ export default function SiteNav({ d, locale, activePath = "home" }: SiteNavProps
           <Image src="/icon.png" alt="FocusDragon" width={32} height={32} className="rounded-lg" />
           <span className="font-bold text-lg">FocusDragon</span>
           <span className="text-xs text-[var(--muted)] bg-[var(--card-bg)] border border-[var(--card-border)] rounded-full px-2 py-0.5">
-            v1.3.7
+            v1.3.8
           </span>
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">
           <Link href={`/${locale}`} className={linkClass("home")}>{d.nav.home}</Link>
-          <Link href={`/${locale}/about`} className={linkClass("about")}>{d.nav.about}</Link>
           <Link href={`/${locale}/faqs`} className={linkClass("faqs")}>{d.nav.faqs}</Link>
           <Link
             href={`/${locale}#download`}
