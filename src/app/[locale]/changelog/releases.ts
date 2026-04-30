@@ -10,9 +10,17 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: "1.4.2",
+    date: "April 30, 2026",
+    latest: true,
+    summary: "Critical: the background service no longer asks for re-approval after every Sparkle update.",
+    changes: [
+      "Fixed (critical): every autoupdate was wiping the user's \"Allow in Login Items\" approval for the background service, forcing a System Settings round-trip after each release. The post-update re-registration now preserves your approval — Sparkle updates land silently and your blocks keep working without intervention.",
+    ],
+  },
+  {
     version: "1.4.1",
     date: "April 29, 2026",
-    latest: true,
     summary: "Soft sign-in: open the app and configure blocks without an account. Sign in is only required to start a block.",
     changes: [
       "Changed: sign-in is now soft. The app launches straight into your dashboard — no gate. A \"Sign in\" pill in the top bar opens sign-in any time.",

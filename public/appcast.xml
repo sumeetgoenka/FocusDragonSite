@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.4.2</title>
+            <description><![CDATA[<p>Critical fix: the background service no longer asks for re-approval after every autoupdate. Sparkle updates now preserve your Login Items approval.</p>]]></description>
+            <pubDate>Thu, 30 Apr 2026 04:50:48 +0000</pubDate>
+            <sparkle:version>35</sparkle:version>
+            <sparkle:shortVersionString>1.4.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://www.focusdragon.app/releases/FocusDragon-1.4.2.dmg"
+                sparkle:edSignature="5xTX+3k+g4+mokhxtmtgKq6m+GE3TIkRgWPsKyNx771+AQ4pwg+1nyL9ro1z9b603bRymdOwL3F1Q9n/hGX7Cg=="
+                length="33491895"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.4.1</title>
             <description><![CDATA[<p>Soft sign-in: open the app and configure blocks without an account. Sign-in is only required to start a block. Redesigned sign-in screens across the app and the site.</p>]]></description>
             <pubDate>Wed, 29 Apr 2026 17:34:42 +0000</pubDate>

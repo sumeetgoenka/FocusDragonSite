@@ -9,7 +9,7 @@ interface Props {
   locale: Locale;
 }
 
-const APP_VERSION = "1.4.1";
+const APP_VERSION = "1.4.2";
 
 export default function SiteFooter({ d, locale }: Props) {
   const year = new Date().getFullYear();
