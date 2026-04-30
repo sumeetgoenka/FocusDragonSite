@@ -56,11 +56,11 @@ export default async function CompleteProfilePage() {
               />
             </div>
             <h1 className="text-4xl font-black tracking-tight leading-[1.1] mb-3">
-              <span className="gradient-text dragon-glow-text">Name your dragon.</span>
+              <span className="gradient-text dragon-glow-text">What should we call you?</span>
             </h1>
             <p className="text-sm text-neutral-400 max-w-sm leading-relaxed">
-              Just a couple of details so your dragon greets you properly
-              when you open the app.
+              Just a couple of details so your dragon knows whose
+              shoulder to sit on when you open the app.
             </p>
           </div>
 
