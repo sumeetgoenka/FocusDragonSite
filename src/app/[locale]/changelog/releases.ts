@@ -10,9 +10,19 @@ export interface Release {
 
 export const releases: Release[] = [
   {
-    version: "1.4.2",
+    version: "1.4.3",
     date: "April 30, 2026",
     latest: true,
+    summary: "AI drift enforcement is now bulletproof. Nudge is the new default; Hard adds a 5-minute cooldown that resets on every reopening attempt.",
+    changes: [
+      "Changed: Nudge is the new default enforcement level for new blocks. AI-detected drift now force-quits the offending app and posts an \"I was on-task\" override notification. Tap to add the URL or app to a per-block allow-list for the rest of the session — useful when AI gets a math-shorts video confused with TikTok-style content.",
+      "New: Hard mode adds a 5-minute bundleID cooldown after every AI force-quit. Reopening the locked app within the cooldown triggers an instant re-kill (no LLM call needed) and resets the timer — persistent reopening makes the lockout longer, not shorter.",
+      "Migration: existing blocks keep their saved enforcement level. Nudge is the default for new blocks created from 1.4.3 onward.",
+    ],
+  },
+  {
+    version: "1.4.2",
+    date: "April 30, 2026",
     summary: "Critical: the background service no longer asks for re-approval after every Sparkle update.",
     changes: [
       "Fixed (critical): every autoupdate was wiping the user's \"Allow in Login Items\" approval for the background service, forcing a System Settings round-trip after each release. The post-update re-registration now preserves your approval — Sparkle updates land silently and your blocks keep working without intervention.",

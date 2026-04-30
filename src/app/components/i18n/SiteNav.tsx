@@ -25,7 +25,7 @@ export default function SiteNav({ d, locale, activePath = "home" }: SiteNavProps
           <Image src="/icon.png" alt="FocusDragon" width={32} height={32} className="rounded-lg" />
           <span className="font-bold text-lg">FocusDragon</span>
           <span className="text-xs text-[var(--muted)] bg-[var(--card-bg)] border border-[var(--card-border)] rounded-full px-2 py-0.5">
-            v1.4.2
+            v1.4.3
           </span>
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">

@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.4.3</title>
+            <description><![CDATA[<p>AI drift enforcement is now bulletproof. Nudge is the new default — drift force-quits the app with an 'I was on-task' override. Hard adds a 5-min cooldown that resets on every re-launch attempt. Re-opening a Hard-locked app now triggers an instant re-kill, no LLM call needed.</p>]]></description>
+            <pubDate>Thu, 30 Apr 2026 07:17:43 +0000</pubDate>
+            <sparkle:version>36</sparkle:version>
+            <sparkle:shortVersionString>1.4.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://www.focusdragon.app/releases/FocusDragon-1.4.3.dmg"
+                sparkle:edSignature="fc8x+uugLNBpR2+VHijSdIq8V3+XdZ+h2u93RErzW476de4f/5slJ58OIYUPOzWWyO4MtXubHXSikh9L1x5+Dw=="
+                length="33509662"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.4.2</title>
             <description><![CDATA[<p>Critical fix: the background service no longer asks for re-approval after every autoupdate. Sparkle updates now preserve your Login Items approval.</p>]]></description>
             <pubDate>Thu, 30 Apr 2026 04:50:48 +0000</pubDate>
