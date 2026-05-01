@@ -55,6 +55,13 @@ export async function middleware(req: NextRequest) {
   const segments = pathname.split("/").filter(Boolean);
   const first = segments[0];
   if (first && LOCALE_SET.has(first)) {
+    // English is canonical at the bare URL — 301 any /en/* hits to /*
+    // so we don't split SEO signal or serve duplicate content.
+    if (first === DEFAULT_LOCALE) {
+      const rest = segments.slice(1).join("/");
+      const target = new URL(`/${rest}${search}`, req.url);
+      return NextResponse.redirect(target, 301);
+    }
     const res = NextResponse.next();
     res.headers.set("x-pathname", pathname);
     return res;

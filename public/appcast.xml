@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.4.6</title>
+            <description><![CDATA[<p>Bulletproof Tier 1 doomscroll blocking — YouTube Shorts, Reels and TikTok FYP now hard-block unconditionally on every browser, even when the extension is dormant or out of date. AppleScript URL fallback for Chrome covers MV3 service-worker idle. Privacy guards on the Safari extension's page reader: never reads body text on banking, payments, brokerage, email, identity, password-manager or healthcare sites, nor in private tabs. Native host now pushes page-content requests within ~300 ms instead of waiting for the 30 s extension poll. Focus Complete screen no longer shows the raw 'sf:...' icon sentinel. Privacy policy and Chrome Web Store listing updated to disclose the optional AI focus assistant accurately.</p>]]></description>
+            <pubDate>Fri, 01 May 2026 18:02:23 +0000</pubDate>
+            <sparkle:version>39</sparkle:version>
+            <sparkle:shortVersionString>1.4.6</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://www.focusdragon.app/releases/FocusDragon-1.4.6.dmg"
+                sparkle:edSignature="68Ef338EJcsUVn90NpsheqBB+yo2+ZxCr579ytGBPlXah3/barjD5X/MfN7DgJER0aY7unfWLnTmgLx6Ca10AA=="
+                length="33749801"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.4.5</title>
             <description><![CDATA[<p>Sidebar redesign (expandable rail), Extensions page two-pane layout, post-update daemon re-approval fix.</p>]]></description>
             <pubDate>Fri, 01 May 2026 09:29:01 +0000</pubDate>

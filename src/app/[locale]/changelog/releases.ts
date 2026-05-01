@@ -10,9 +10,22 @@ export interface Release {
 
 export const releases: Release[] = [
   {
-    version: "1.4.5",
+    version: "1.4.6",
     date: "May 1, 2026",
     latest: true,
+    summary: "Bulletproof Tier 1 doomscroll blocking on every browser, Safari extension privacy guards, and a faster path for AI page-content classification on Chrome.",
+    changes: [
+      "Fixed (critical): YouTube Shorts, Instagram Reels and TikTok FYP now hard-block unconditionally on every browser, even when the AI focus assistant is set to Suggest. Tier 1 doomscroll URL matches no longer get silently disarmed by per-block enforcement levels — the preset is meant to be unconditional, and now it actually is.",
+      "Fixed (critical): when the Chrome extension's MV3 service worker is dormant, the Mac app now reads the active tab's URL via AppleScript so doomscroll blocking still fires. Previously a sleeping extension meant Shorts was wide open for up to 30 seconds at a time.",
+      "Fixed: 'AI-powered blocking' on Chrome was racing a 5-second Swift timeout against a 30-second extension poll cycle and almost always lost. The native messaging host now pushes page-content requests to the extension within ~300 ms, and the timeout is bumped to 10 seconds.",
+      "Privacy: the Safari extension's page reader now refuses to read body text on banking, payments, brokerage, email, identity / auth, password-manager and healthcare domains, and never reads body text in private browsing tabs. The Chrome extension already had this; Safari is now at parity.",
+      "Fixed: the Focus Complete celebration screen was showing the raw 'sf:brain.head.profile' icon string as the title for blocks using SF Symbol icons. It now renders the icon properly.",
+      "Updated: privacy policy and Chrome Web Store listing to accurately describe the optional AI focus assistant — what it reads, where classification runs (BYOK or paid relay), and what's excluded.",
+    ],
+  },
+  {
+    version: "1.4.5",
+    date: "May 1, 2026",
     summary: "Sidebar redesign (expandable rail), Extensions page two-pane layout, and a fix for the spurious 'background service stopped' message after Sparkle updates.",
     changes: [
       "Redesigned: the sidebar. Collapses to a 56px icon rail by default and slides out to 200px on hover, with the FocusDragon wordmark fading in alongside the labels. Active state is a soft surface fill plus a 2px orange accent rail on the left edge — orange stays reserved for selected/active state.",
