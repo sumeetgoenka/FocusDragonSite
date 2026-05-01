@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.4.4</title>
+            <description><![CDATA[<p>Block Editor redesign — wider sheet, new identity bar, left-rail scope navigator, strength selector for enforcement, consequence-picker cards for device blocks, hero brief for AI blocks.</p>]]></description>
+            <pubDate>Fri, 01 May 2026 06:51:45 +0000</pubDate>
+            <sparkle:version>37</sparkle:version>
+            <sparkle:shortVersionString>1.4.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://www.focusdragon.app/releases/FocusDragon-1.4.4.dmg"
+                sparkle:edSignature="bXNnb1obc91vIqdIugV18/zhFB52kQHeOlMuC8vXotODc2eNUs5NM8WEGNc3hkJLnZQxVdCurKg6g4H2CvT9Cg=="
+                length="33620496"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.4.3</title>
             <description><![CDATA[<p>AI drift enforcement is now bulletproof. Nudge is the new default — drift force-quits the app with an 'I was on-task' override. Hard adds a 5-min cooldown that resets on every re-launch attempt. Re-opening a Hard-locked app now triggers an instant re-kill, no LLM call needed.</p>]]></description>
             <pubDate>Thu, 30 Apr 2026 07:17:43 +0000</pubDate>

@@ -10,9 +10,22 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: "1.4.4",
+    date: "May 1, 2026",
+    latest: true,
+    summary: "Block Editor redesign — wider sheet, scope navigator, severity-first enforcement, and bigger consequence cards for device blocks.",
+    changes: [
+      "Redesigned: the entire Block Editor sheet. Wider 880×720 layout with a new identity bar (big editable name, gradient icon tile, kind-aware subtitle) and segmented kind tabs with an accent underline for the active mode.",
+      "Redesigned: Website & App blocks. The top tab strip is now a left-rail scope navigator (Websites · Exceptions · Apps · Advanced) with live counts, so you always see the shape of your block at a glance.",
+      "Redesigned: Enforcement. The 10-tile lock grid is now a 5-rung strength selector (None → Soft → Medium → Hard → Iron) — pick the severity first, then the specific lock type. Tiles show what each lock does in a sub-line.",
+      "Redesigned: Device blocks. New warning banner up top, plus three large consequence cards (Lock Screen / Sign Out / Shut Down) with mini-mockups of the resulting Mac state instead of dense rows.",
+      "Redesigned: AI-Powered blocks. The brief is now the hero — bigger textarea, gradient icon medallion, one-tap suggestion chips for common focus modes, and a privacy footer reminding you that page bodies stay local.",
+      "Refined: footer action bar. New blocks show a \"not yet saved\" status; existing blocks get a quieter outlined Delete instead of a red button.",
+    ],
+  },
+  {
     version: "1.4.3",
     date: "April 30, 2026",
-    latest: true,
     summary: "AI drift enforcement is now bulletproof. Nudge is the new default; Hard adds a 5-minute cooldown that resets on every reopening attempt.",
     changes: [
       "Changed: Nudge is the new default enforcement level for new blocks. AI-detected drift now force-quits the offending app and posts an \"I was on-task\" override notification. Tap to add the URL or app to a per-block allow-list for the rest of the session — useful when AI gets a math-shorts video confused with TikTok-style content.",

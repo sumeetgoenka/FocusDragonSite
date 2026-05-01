@@ -13,6 +13,13 @@ interface Lead {
   createdAt: Date | null;
 }
 
+interface SupabaseUser {
+  id: string;
+  email: string | null;
+  createdAt: Date | null;
+  lastSignInAt: Date | null;
+}
+
 interface DownloadEvent {
   country: string | null;
   city: string | null;
@@ -88,12 +95,35 @@ function timeAgo(d: Date | null): string {
   return d.toISOString().slice(0, 10);
 }
 
+async function loadAccounts(): Promise<SupabaseUser[]> {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) return [];
+  try {
+    const res = await fetch(`${url}/auth/v1/admin/users?per_page=1000`, {
+      headers: { apikey: key, Authorization: `Bearer ${key}` },
+      cache: "no-store",
+    });
+    if (!res.ok) return [];
+    const data = (await res.json()) as { users?: Array<Record<string, unknown>> };
+    return (data.users ?? []).map((u) => ({
+      id: String(u.id ?? ""),
+      email: (u.email as string) ?? null,
+      createdAt: u.created_at ? new Date(u.created_at as string) : null,
+      lastSignInAt: u.last_sign_in_at ? new Date(u.last_sign_in_at as string) : null,
+    }));
+  } catch {
+    return [];
+  }
+}
+
 async function loadDashboard() {
   const db = getDb();
-  const [counterSnap, leadsSnap, eventsSnap] = await Promise.all([
+  const [counterSnap, leadsSnap, eventsSnap, accounts] = await Promise.all([
     db.collection("counters").doc("downloads").get(),
     db.collection("downloadLeads").orderBy("createdAt", "desc").get(),
     db.collection("downloadEvents").orderBy("createdAt", "desc").limit(1000).get(),
+    loadAccounts(),
   ]);
 
   const totalDownloads = (counterSnap.data()?.count as number | undefined) ?? 0;
@@ -130,19 +160,50 @@ async function loadDashboard() {
     };
   });
 
-  const downloadCountries = tally(events, (e) => e.country);
-  const utmSources = tally(events, (e) => e.utmSource);
-  const referrers = tally(events, (e) => hostFromReferrer(e.referrer));
-  const languages = tally(events, (e) => e.language);
-  const oses = tally(events, (e) => osFromUA(e.userAgent));
-  const browsers = tally(events, (e) => browserFromUA(e.userAgent));
-  const ctas = tally(events, (e) => e.fromCta);
+  // ── Dedupe by visitor ──
+  // Every download event carries a `visitorId` (hashed IP + UA + salt
+  // by /api/download). Keep the EARLIEST event per visitor so each
+  // person counts once, no matter how many times they hit Download.
+  // Events without a visitorId (legacy / unhashable) fall through
+  // individually so we don't drop them silently.
+  const uniqueEvents: DownloadEvent[] = (() => {
+    const byVisitor = new Map<string, DownloadEvent>();
+    const orphans: DownloadEvent[] = [];
+    for (const e of events) {
+      if (!e.visitorId) {
+        orphans.push(e);
+        continue;
+      }
+      const existing = byVisitor.get(e.visitorId);
+      if (
+        !existing ||
+        (e.createdAt &&
+          existing.createdAt &&
+          e.createdAt.getTime() < existing.createdAt.getTime())
+      ) {
+        byVisitor.set(e.visitorId, e);
+      }
+    }
+    return [...byVisitor.values(), ...orphans];
+  })();
 
   const taggedEvents = events.filter((e) => e.visitorId);
   const uniqueVisitors = new Set(taggedEvents.map((e) => e.visitorId)).size;
   const repeatClicks = Math.max(0, taggedEvents.length - uniqueVisitors);
 
-  const latencies = events
+  // Aggregate metrics use the deduped list — by-country / by-source /
+  // hour-of-day / time series should reflect *people*, not click count.
+  const downloadCountries = tally(uniqueEvents, (e) => e.country);
+  const utmSources = tally(uniqueEvents, (e) => e.utmSource);
+  const referrers = tally(uniqueEvents, (e) => hostFromReferrer(e.referrer));
+  const languages = tally(uniqueEvents, (e) => e.language);
+  const oses = tally(uniqueEvents, (e) => osFromUA(e.userAgent));
+  const browsers = tally(uniqueEvents, (e) => browserFromUA(e.userAgent));
+  const ctas = tally(uniqueEvents, (e) => e.fromCta);
+
+  // Latency uses the deduped list: each person's first-download time
+  // (further duplicates would just re-cycle the same lat measurement).
+  const latencies = uniqueEvents
     .map((e) => e.secondsToDownload)
     .filter((s): s is number => typeof s === "number" && s >= 0 && s <= 86400)
     .sort((a, b) => a - b);
@@ -153,9 +214,9 @@ async function loadDashboard() {
     ? latencies[Math.floor(latencies.length / 2)]
     : null;
 
-  // Hour-of-day in downloader's local timezone.
+  // Hour-of-day in downloader's local timezone — deduped.
   const byHour: number[] = Array(24).fill(0);
-  for (const e of events) {
+  for (const e of uniqueEvents) {
     if (!e.createdAt) continue;
     let hour: number;
     if (e.timezone) {
@@ -176,7 +237,7 @@ async function loadDashboard() {
     if (Number.isFinite(hour) && hour >= 0 && hour < 24) byHour[hour]++;
   }
 
-  // Time series: last 30 days, downloads per day (UTC).
+  // Time series: last 30 days, unique downloaders per day (UTC).
   const dayKey = (d: Date) => d.toISOString().slice(0, 10);
   const byDay: Record<string, number> = {};
   const today = new Date();
@@ -185,7 +246,7 @@ async function loadDashboard() {
     d.setUTCDate(d.getUTCDate() - i);
     byDay[dayKey(d)] = 0;
   }
-  for (const e of events) {
+  for (const e of uniqueEvents) {
     if (!e.createdAt) continue;
     const k = dayKey(e.createdAt);
     if (k in byDay) byDay[k]++;
@@ -195,7 +256,7 @@ async function loadDashboard() {
     value,
   }));
 
-  const mapPoints = events
+  const mapPoints = uniqueEvents
     .filter((e) => e.latitude != null && e.longitude != null)
     .map((e) => ({
       lat: e.latitude as number,
@@ -226,8 +287,39 @@ async function loadDashboard() {
     .sort((a, b) => (b.at as Date).getTime() - (a.at as Date).getTime())
     .slice(0, 25);
 
+  const dayMs = 24 * 60 * 60 * 1000;
+  const nowMs = Date.now();
+  const accountsToday = accounts.filter(
+    (u) => u.createdAt && nowMs - u.createdAt.getTime() < dayMs,
+  ).length;
+  const accounts7d = accounts.filter(
+    (u) => u.createdAt && nowMs - u.createdAt.getTime() < 7 * dayMs,
+  ).length;
+  const recentAccounts = [...accounts]
+    .filter((u) => u.createdAt)
+    .sort(
+      (a, b) =>
+        (b.createdAt as Date).getTime() - (a.createdAt as Date).getTime(),
+    )
+    .slice(0, 10);
+
+  // Headline "Downloads" number reconciles two eras:
+  //  - Events table (since 25 Apr 2026) — deduped per visitorId so a
+  //    single person clicking Download 7 times only counts once.
+  //  - Pre-events historical clicks — the counter was incrementing
+  //    before the events table existed (commits d9f43e5 → 14e9bb7,
+  //    11-day gap). We assume each of those untracked clicks is one
+  //    person (best-guess; we have no visitorId to dedupe with) so
+  //    they're added on top.
+  // Both sources auto-balance as more events come in: as the events
+  // table grows, the historical bucket shrinks toward zero. No
+  // hardcoded numbers anywhere.
+  const untrackedHistorical = Math.max(0, totalDownloads - events.length);
+  const uniqueDownloads = uniqueEvents.length + untrackedHistorical;
+
   return {
     totalDownloads,
+    uniqueDownloads,
     trackedDownloads: events.length,
     leads,
     downloadCountries,
@@ -246,6 +338,10 @@ async function loadDashboard() {
     avgLatency,
     medianLatency,
     activity,
+    accountsTotal: accounts.length,
+    accountsToday,
+    accounts7d,
+    recentAccounts,
   };
 }
 
@@ -271,8 +367,9 @@ function avatarFor(email: string): { initials: string; hue: number } {
 
 export default async function AdminHome() {
   const data = await loadDashboard();
-  const captureRate = data.totalDownloads > 0
-    ? Math.round((data.leads.length / data.totalDownloads) * 100)
+  // Capture rate is now leads ÷ unique downloaders (people, not clicks).
+  const captureRate = data.uniqueDownloads > 0
+    ? Math.round((data.leads.length / data.uniqueDownloads) * 100)
     : 0;
   const last24h = data.activity.filter(
     (a) => a.at && Date.now() - (a.at as Date).getTime() < 24 * 60 * 60 * 1000,
@@ -304,12 +401,25 @@ export default async function AdminHome() {
       </header>
 
       {/* Hero stat cards */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         <StatCard
-          label="Total downloads"
-          value={data.totalDownloads.toLocaleString()}
+          label="Downloads"
+          value={data.uniqueDownloads.toLocaleString()}
           accent="from-orange-500/20 to-amber-500/0"
           icon={DownloadIcon}
+        />
+        <StatCard
+          label="Accounts"
+          value={data.accountsTotal.toLocaleString()}
+          sub={
+            data.accountsToday > 0
+              ? `${data.accountsToday} new today · ${data.accounts7d} this week`
+              : data.accounts7d > 0
+                ? `${data.accounts7d} this week`
+                : "no signups yet"
+          }
+          accent="from-sky-500/20 to-cyan-500/0"
+          icon={AccountIcon}
         />
         <StatCard
           label="Email leads"
@@ -321,11 +431,6 @@ export default async function AdminHome() {
         <StatCard
           label="Unique visitors"
           value={data.uniqueVisitors.toLocaleString()}
-          sub={
-            data.taggedEventsCount > 0
-              ? `${data.repeatClicks} repeat clicks`
-              : "no tagged events yet"
-          }
           accent="from-indigo-500/20 to-violet-500/0"
           icon={UserIcon}
         />
@@ -410,6 +515,37 @@ export default async function AdminHome() {
           subtitle="Hour of day · downloader local time"
         />
         <HourHeatmap counts={data.byHour} />
+      </Card>
+
+      {/* Recent signups */}
+      <Card>
+        <CardHeader
+          title={`Recent signups (${data.accountsTotal})`}
+          subtitle="Supabase auth.users · most recent first"
+        />
+        {data.recentAccounts.length === 0 ? (
+          <p className="text-sm text-zinc-500 mt-3">No accounts yet.</p>
+        ) : (
+          <ul className="mt-3 divide-y divide-white/[0.06]">
+            {data.recentAccounts.map((u) => (
+              <li
+                key={u.id}
+                className="flex items-center justify-between py-2.5 text-sm"
+              >
+                <span className="text-zinc-200 font-mono text-[13px]">
+                  {u.email ?? u.id.slice(0, 8)}
+                </span>
+                <span className="text-zinc-500 tabular-nums">
+                  {u.createdAt
+                    ? `${timeAgo(u.createdAt)} · last seen ${
+                        u.lastSignInAt ? timeAgo(u.lastSignInAt) : "never"
+                      }`
+                    : "—"}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
       </Card>
 
       {/* Activity feed + Leads side by side on lg */}
@@ -745,6 +881,16 @@ function UserIcon() {
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="8" r="4" />
       <path d="M4 21a8 8 0 0 1 16 0" />
+    </svg>
+  );
+}
+function AccountIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M19 8v6" />
+      <path d="M22 11h-6" />
     </svg>
   );
 }
