@@ -10,9 +10,19 @@ export interface Release {
 
 export const releases: Release[] = [
   {
-    version: "1.4.4",
+    version: "1.4.5",
     date: "May 1, 2026",
     latest: true,
+    summary: "Sidebar redesign (expandable rail), Extensions page two-pane layout, and a fix for the spurious 'background service stopped' message after Sparkle updates.",
+    changes: [
+      "Redesigned: the sidebar. Collapses to a 56px icon rail by default and slides out to 200px on hover, with the FocusDragon wordmark fading in alongside the labels. Active state is a soft surface fill plus a 2px orange accent rail on the left edge — orange stays reserved for selected/active state.",
+      "Redesigned: the Extensions page. Two-pane layout with a 280px left list (grouped Configured / Needs attention / Unsupported, with a top progress meter) and a detail pane on the right showing a hero status card and a 4-step requirements checklist that you can fix inline.",
+      "Fixed (critical): after Sparkle updates, the app would sometimes claim the background service had stopped working, push you to re-enable it, and walk you through the permissions setup again. The daemon process was actually still running the whole time — macOS just flagged the new bundle's launchd plist as needing re-approval. The block-start gate now treats that paperwork status as operational, the dashboard health row labels it 'Re-approve in Login Items' instead of pretending it's healthy, and the non-modal banner self-heals the moment you re-tick the Login Items toggle.",
+    ],
+  },
+  {
+    version: "1.4.4",
+    date: "May 1, 2026",
     summary: "Block Editor redesign — wider sheet, scope navigator, severity-first enforcement, and bigger consequence cards for device blocks.",
     changes: [
       "Redesigned: the entire Block Editor sheet. Wider 880×720 layout with a new identity bar (big editable name, gradient icon tile, kind-aware subtitle) and segmented kind tabs with an accent underline for the active mode.",
