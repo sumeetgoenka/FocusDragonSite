@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.4.7</title>
+            <description><![CDATA[<p>Bulletproof block-start gate. Pressing Start from anywhere — blocks tab, dashboard, pomodoro, menu bar — now runs a real per-browser readiness check before the block actually starts. If no extension is configured, the block refuses to start and routes you to the Extensions page. If at least one is ready and others aren't, you get a confirmation sheet listing which browsers will be enforced and which have a 2-minute grace timer before being force-quit. Adds Safari dual-window repair flow: when Safari is killed mid-block for extension tampering (disabled extension, revoked Always-Allow, revoked private-browsing), FocusDragon now opens both the system Settings → Extensions pane and the focusdragon.app/onboard/safari/permissions walkthrough side-by-side, so you have the instructions visible while you flip the switches.</p>]]></description>
+            <pubDate>Sat, 02 May 2026 13:36:55 +0000</pubDate>
+            <sparkle:version>40</sparkle:version>
+            <sparkle:shortVersionString>1.4.7</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://www.focusdragon.app/releases/FocusDragon-1.4.7.dmg"
+                sparkle:edSignature="H3kagaYlIVRwib5mrC/2o9oBes5XnLFTZrYbhEMZ7nbe5OMW14LLhZzrToEgMj15KNbRJgXxOOkaZUcqQi1dDw=="
+                length="33781976"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.4.6</title>
             <description><![CDATA[<p>Bulletproof Tier 1 doomscroll blocking — YouTube Shorts, Reels and TikTok FYP now hard-block unconditionally on every browser, even when the extension is dormant or out of date. AppleScript URL fallback for Chrome covers MV3 service-worker idle. Privacy guards on the Safari extension's page reader: never reads body text on banking, payments, brokerage, email, identity, password-manager or healthcare sites, nor in private tabs. Native host now pushes page-content requests within ~300 ms instead of waiting for the 30 s extension poll. Focus Complete screen no longer shows the raw 'sf:...' icon sentinel. Privacy policy and Chrome Web Store listing updated to disclose the optional AI focus assistant accurately.</p>]]></description>
             <pubDate>Fri, 01 May 2026 18:02:23 +0000</pubDate>

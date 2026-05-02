@@ -10,9 +10,20 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: "1.4.7",
+    date: "May 2, 2026",
+    latest: true,
+    summary: "Bulletproof block-start gate. The pre-flight check now fires from every Start button, refuses to start when no extension is configured, and warns when only some browsers are ready. Adds Safari dual-window repair flow.",
+    changes: [
+      "Fixed (critical): pressing Start from the Blocks tab, Dashboard, or Pomodoro view bypassed the extension-readiness check. Only the menu-bar toggle ever validated extensions, so blocks routinely started with no extension able to enforce them — silently disabling the AI focus assistant. The gate now lives at the single choke point inside BlockListManager.requestEnableBlock and fires from every entry point.",
+      "New: pre-flight gate sheet. When no browser extension is configured, the block refuses to start and routes you straight to the Extensions page. When at least one is ready and others aren't, you get a confirmation listing exactly which browsers will be enforced and which have the 2-minute grace timer before being force-quit.",
+      "New: Safari dual-window repair flow. When Safari is killed mid-block for extension tampering — disabled extension, revoked \"Always Allow on Every Website\", or revoked \"Allow in Private Browsing\" — FocusDragon now opens both the system Settings → Extensions pane and the focusdragon.app/onboard/safari/permissions walkthrough side-by-side. The instructions are visible while you flip the switches, mirroring the Chrome repair flow that's been there since 1.3.x.",
+      "Improved: extension readiness now consults real heartbeat freshness (≤10 s window) for every Chromium browser — Chrome, Brave, Edge, Vivaldi, Opera, Comet — not just an installed-or-not check. A browser counts as ready only if its extension is actually online.",
+    ],
+  },
+  {
     version: "1.4.6",
     date: "May 1, 2026",
-    latest: true,
     summary: "Bulletproof Tier 1 doomscroll blocking on every browser, Safari extension privacy guards, and a faster path for AI page-content classification on Chrome.",
     changes: [
       "Fixed (critical): YouTube Shorts, Instagram Reels and TikTok FYP now hard-block unconditionally on every browser, even when the AI focus assistant is set to Suggest. Tier 1 doomscroll URL matches no longer get silently disarmed by per-block enforcement levels — the preset is meant to be unconditional, and now it actually is.",
