@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { APP_VERSION_TAG } from "@/lib/version";
 
 export default function SiteFooter() {
   return (
@@ -57,7 +58,7 @@ export default function SiteFooter() {
       <div className="border-t border-[var(--card-border)] py-6 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-[var(--muted)]">
           <span>&copy; {new Date().getFullYear()} FocusDragon &middot; Made in Dubai for focused humans everywhere.</span>
-          <span>v1.4.9 &middot; macOS 13 Ventura or later</span>
+          <span>{APP_VERSION_TAG} &middot; macOS 13 Ventura or later</span>
         </div>
       </div>
     </footer>

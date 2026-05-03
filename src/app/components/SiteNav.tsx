@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { APP_VERSION_TAG } from "@/lib/version";
 
 interface SiteNavProps {
   activePath?: "home" | "changelog" | "faqs" | "contact";
@@ -24,7 +25,7 @@ export default function SiteNav({ activePath = "home" }: SiteNavProps) {
           />
           <span className="font-bold text-lg">FocusDragon</span>
           <span className="text-xs text-[var(--muted)] bg-[var(--card-bg)] border border-[var(--card-border)] rounded-full px-2 py-0.5">
-            v1.4.9
+            {APP_VERSION_TAG}
           </span>
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">

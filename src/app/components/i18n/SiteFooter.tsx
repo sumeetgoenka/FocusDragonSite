@@ -3,13 +3,12 @@ import Link from "next/link";
 import type { Dict } from "../../i18n/dictionary";
 import type { Locale } from "../../i18n/locales";
 import { tpl } from "../../i18n/translations";
+import { APP_VERSION } from "@/lib/version";
 
 interface Props {
   d: Dict;
   locale: Locale;
 }
-
-const APP_VERSION = "1.4.9";
 
 export default function SiteFooter({ d, locale }: Props) {
   const year = new Date().getFullYear();

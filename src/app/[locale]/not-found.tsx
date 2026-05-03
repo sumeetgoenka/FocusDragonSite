@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { headers } from "next/headers";
 import { LOCALES, type Locale, isLocale, DEFAULT_LOCALE } from "../i18n/locales";
+import { APP_VERSION } from "@/lib/version";
 
 /**
  * Localized 404. Inline copy per locale (intentionally not part of
@@ -68,7 +69,7 @@ export default async function NotFound() {
             {c.homeCta}
           </Link>
           <a
-            href="/api/download?v=1.4.9"
+            href={`/api/download?v=${APP_VERSION}`}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/15 text-white/70 hover:text-white hover:border-white/30 transition text-sm"
           >
             {c.downloadCta}

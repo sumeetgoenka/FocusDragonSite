@@ -4,8 +4,7 @@ import type { Locale } from "../../i18n/locales";
 import SiteNav from "../../components/i18n/SiteNav";
 import SiteFooter from "../../components/i18n/SiteFooter";
 import DownloadButton from "../../components/i18n/DownloadButton";
-
-const APP_VERSION = "1.4.9";
+import { APP_VERSION } from "@/lib/version";
 
 interface Props {
   d: Dict;

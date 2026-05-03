@@ -5,8 +5,7 @@ import { t } from "../../i18n/translations";
 import SiteNav from "../../components/i18n/SiteNav";
 import SiteFooter from "../../components/i18n/SiteFooter";
 import DownloadButton from "../../components/i18n/DownloadButton";
-
-const APP_VERSION = "1.4.9";
+import { APP_VERSION } from "@/lib/version";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
