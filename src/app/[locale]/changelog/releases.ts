@@ -10,9 +10,18 @@ export interface Release {
 
 export const releases: Release[] = [
   {
-    version: "1.4.8",
+    version: "1.4.9",
     date: "May 3, 2026",
     latest: true,
+    summary: "AI-powered blocks now refuse to start until macOS Accessibility access has been granted, with a deep link to the right System Settings pane.",
+    changes: [
+      "Fixed (critical): AI-powered blocks were silently failing on every native app (Teams, Slack, Notes, VS Code, etc.) when macOS Accessibility access wasn't granted. The classifier needs Accessibility to read window titles and visible text on non-browser apps, but the missing permission was only surfaced via a Notification nobody was listening to — so blocks happily started, drifted into native apps, and never intervened. The pre-flight gate now detects the missing permission, refuses to start the block, explains why it's needed, and deep-links to System Settings → Privacy & Security → Accessibility.",
+      "Plain URL/app blocks (without an AI focus task) skip the Accessibility check entirely. DNS-level and browser-extension blocking work without it — only the AI focus assistant needs it.",
+    ],
+  },
+  {
+    version: "1.4.8",
+    date: "May 3, 2026",
     summary: "Critical fix to the 1.4.7 block-start gate, plus a prominent dashboard update banner so new versions get installed promptly.",
     changes: [
       "Fixed (critical): the 1.4.7 pre-flight gate was reading heartbeat freshness instead of the same onboarding-state machine the Extensions page reads. Configured browsers got misreported as not configured whenever they weren't actively running, and the gate refused to start blocks even when both Safari and Chrome showed green on the Extensions page. The gate now reads BrowserExtensionState directly — the verdict and the Extensions page can never disagree.",

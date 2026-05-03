@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.4.9</title>
+            <description><![CDATA[<p>Fixed (critical): AI-powered blocks now refuse to start until macOS Accessibility access has been granted. Without that permission, the classifier silently couldn't read native apps like Teams, Slack, Notes, or VS Code — every native-app drift was logged as 'unclassifiable' and no intervention ever fired. The new pre-flight gate detects the missing permission, refuses to start the block, explains why it's needed, and deep-links you straight to System Settings → Privacy & Security → Accessibility. URL-only blocks (without an AI focus task) start without the check, since DNS + browser extensions handle those without Accessibility.</p>]]></description>
+            <pubDate>Sun, 03 May 2026 11:43:24 +0000</pubDate>
+            <sparkle:version>43</sparkle:version>
+            <sparkle:shortVersionString>1.4.9</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://www.focusdragon.app/releases/FocusDragon-1.4.9.dmg"
+                sparkle:edSignature="UKIXXXNpF6quU/NIsKQmFySuasiQhvZAgSGUJBrc7/Nw4JhXwdMfUdwvJjQrfbr+51ofBcKYFHODGNE+FamuAA=="
+                length="33800063"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.4.8</title>
             <description><![CDATA[<p>Fixed (critical): the new pre-flight gate from 1.4.7 was reading heartbeat freshness from ExtensionMonitor instead of the same onboarding-state machine the Extensions page reads. Configured browsers got misreported as not configured whenever they weren't actively running, and the gate refused to start blocks even when both Safari and Chrome showed green on the Extensions page. The gate now reads BrowserExtensionState directly so the verdict and the Extensions page can never disagree. Adds a prominent dashboard update banner — when Sparkle finds a new release in the appcast, the dashboard shows a big gradient 'Version X.Y.Z is here! Click to install' button at the top so updates get installed promptly instead of sitting in the menu.</p>]]></description>
             <pubDate>Sun, 03 May 2026 05:17:46 +0000</pubDate>
