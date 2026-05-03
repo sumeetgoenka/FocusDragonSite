@@ -10,9 +10,18 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: "1.4.8",
+    date: "May 3, 2026",
+    latest: true,
+    summary: "Critical fix to the 1.4.7 block-start gate, plus a prominent dashboard update banner so new versions get installed promptly.",
+    changes: [
+      "Fixed (critical): the 1.4.7 pre-flight gate was reading heartbeat freshness instead of the same onboarding-state machine the Extensions page reads. Configured browsers got misreported as not configured whenever they weren't actively running, and the gate refused to start blocks even when both Safari and Chrome showed green on the Extensions page. The gate now reads BrowserExtensionState directly — the verdict and the Extensions page can never disagree.",
+      "New: dashboard update banner. When Sparkle finds a new release in the appcast, a prominent gradient 'Version X.Y.Z is here! Click to install' button now appears at the top of the dashboard. Click it and Sparkle's standard install flow takes over. Beats waiting for the user to discover the menu item.",
+    ],
+  },
+  {
     version: "1.4.7",
     date: "May 2, 2026",
-    latest: true,
     summary: "Bulletproof block-start gate. The pre-flight check now fires from every Start button, refuses to start when no extension is configured, and warns when only some browsers are ready. Adds Safari dual-window repair flow.",
     changes: [
       "Fixed (critical): pressing Start from the Blocks tab, Dashboard, or Pomodoro view bypassed the extension-readiness check. Only the menu-bar toggle ever validated extensions, so blocks routinely started with no extension able to enforce them — silently disabling the AI focus assistant. The gate now lives at the single choke point inside BlockListManager.requestEnableBlock and fires from every entry point.",

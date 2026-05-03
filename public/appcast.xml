@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.4.8</title>
+            <description><![CDATA[<p>Fixed (critical): the new pre-flight gate from 1.4.7 was reading heartbeat freshness from ExtensionMonitor instead of the same onboarding-state machine the Extensions page reads. Configured browsers got misreported as not configured whenever they weren't actively running, and the gate refused to start blocks even when both Safari and Chrome showed green on the Extensions page. The gate now reads BrowserExtensionState directly so the verdict and the Extensions page can never disagree. Adds a prominent dashboard update banner — when Sparkle finds a new release in the appcast, the dashboard shows a big gradient 'Version X.Y.Z is here! Click to install' button at the top so updates get installed promptly instead of sitting in the menu.</p>]]></description>
+            <pubDate>Sun, 03 May 2026 05:17:46 +0000</pubDate>
+            <sparkle:version>41</sparkle:version>
+            <sparkle:shortVersionString>1.4.8</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://www.focusdragon.app/releases/FocusDragon-1.4.8.dmg"
+                sparkle:edSignature="N2Lf59OXvWm9KFrnyWmvHfTAZn0rIRTW6NwEvXvULCmL4xRMFZoWJQTCTfMNV99pfw9/hSxQrox3FC+KNpflCw=="
+                length="33795787"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.4.7</title>
             <description><![CDATA[<p>Bulletproof block-start gate. Pressing Start from anywhere — blocks tab, dashboard, pomodoro, menu bar — now runs a real per-browser readiness check before the block actually starts. If no extension is configured, the block refuses to start and routes you to the Extensions page. If at least one is ready and others aren't, you get a confirmation sheet listing which browsers will be enforced and which have a 2-minute grace timer before being force-quit. Adds Safari dual-window repair flow: when Safari is killed mid-block for extension tampering (disabled extension, revoked Always-Allow, revoked private-browsing), FocusDragon now opens both the system Settings → Extensions pane and the focusdragon.app/onboard/safari/permissions walkthrough side-by-side, so you have the instructions visible while you flip the switches.</p>]]></description>
             <pubDate>Sat, 02 May 2026 13:36:55 +0000</pubDate>
