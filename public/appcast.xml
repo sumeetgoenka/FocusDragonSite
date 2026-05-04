@@ -12,6 +12,20 @@
         -->
 
         <item>
+            <title>Version 1.4.10</title>
+            <description><![CDATA[<p>Bulletproof AI focus blocks. Closes every known practical bypass: prompt-injection via screen content (XML tag wrapping in classifier prompt), 30-second polling dodge (event-driven app activation triggers immediate classification with 500ms debounce), silent AX-cache trap when permission granted while running (auto-detect grant + relaunch prompt), silent AX failure on mid-block revocation (banner + refuses to disable the block until restored), Cmd+Shift+N incognito bypass (refuses to start an AI block with incognito open, force-quits any browser whose front window goes incognito mid-block). Also: auto-detects every Electron app at runtime (no more hand-curated list), Teams added to the AX permission explainer.</p>]]></description>
+            <pubDate>Mon, 04 May 2026 08:09:14 +0000</pubDate>
+            <sparkle:version>44</sparkle:version>
+            <sparkle:shortVersionString>1.4.10</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.2</sparkle:minimumSystemVersion>
+            <enclosure
+                url="https://www.focusdragon.app/releases/FocusDragon-1.4.10.dmg"
+                sparkle:edSignature="fuEIEe/ije2OH3Pnn8XN7PDnkjPaCF2r2BJ27IkkSKWF2xsksgrWeKLFbAWl5jF0xNfMz6bgyvj8Sca3KnIBAw=="
+                length="33870002"
+                type="application/octet-stream" />
+        </item>
+
+        <item>
             <title>Version 1.4.9</title>
             <description><![CDATA[<p>Fixed (critical): AI-powered blocks now refuse to start until macOS Accessibility access has been granted. Without that permission, the classifier silently couldn't read native apps like Teams, Slack, Notes, or VS Code — every native-app drift was logged as 'unclassifiable' and no intervention ever fired. The new pre-flight gate detects the missing permission, refuses to start the block, explains why it's needed, and deep-links you straight to System Settings → Privacy & Security → Accessibility. URL-only blocks (without an AI focus task) start without the check, since DNS + browser extensions handle those without Accessibility.</p>]]></description>
             <pubDate>Sun, 03 May 2026 11:43:24 +0000</pubDate>
