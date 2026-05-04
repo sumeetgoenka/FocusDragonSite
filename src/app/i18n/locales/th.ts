@@ -215,7 +215,7 @@ export const th: Dict = {
     successBody: "ขอบคุณ — เราจะตอบกลับภายใน 48 ชั่วโมง",
     errorGeneric: "เกิดข้อผิดพลาด กรุณาลองอีกครั้ง",
     altTitle: "ชอบอีเมลมากกว่า?",
-    altBody: "ติดต่อโดยตรงที่ hello@focusdragon.app",
+    altBody: "ติดต่อโดยตรงที่ focusdragon.app/contact",
   },
   privacy: {
     metaTitle: "Privacy Policy — FocusDragon",
@@ -232,7 +232,7 @@ export const th: Dict = {
       { title: "Analytics ทางเลือก", body: "ในแอป Mac คุณสามารถเลือกเปิดใช้ anonymous PostHog telemetry ปิดโดยค่าเริ่มต้น หากเปิด เราได้รับเหตุการณ์รวม (\"a block started\") และไม่เคยได้รับเนื้อหา block list, ชื่อเว็บไซต์, ชื่อแอป, ข้อความหน้า, URL หรือข้อมูลส่วนตัวใดๆ" },
       { title: "Crash reports", body: "หาก FocusDragon crash รายงานจะถูกส่งไป Sentry โดยตัด context ส่วนตัวออกทั้งหมด คุณสามารถปิดการรายงาน crash ได้ที่ Settings → Privacy เมื่อใดก็ได้" },
       { title: "อีเมล", body: "หากคุณติดต่อเราผ่านฟอร์มเว็บไซต์หรืออีเมล เราเก็บข้อความของคุณนานพอที่จะตอบกลับเท่านั้น เราไม่เพิ่มคุณในรายชื่อการตลาดใดๆ" },
-      { title: "ติดต่อ", body: "มีคำถามเกี่ยวกับความเป็นส่วนตัว? อีเมล hello@focusdragon.app และเราจะตอบภายในไม่กี่วัน" },
+      { title: "ติดต่อ", body: "มีคำถามเกี่ยวกับความเป็นส่วนตัว? อีเมล focusdragon.app/contact และเราจะตอบภายในไม่กี่วัน" },
     ],
   },
   upgrade: {

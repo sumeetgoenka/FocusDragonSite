@@ -215,7 +215,7 @@ export const vi: Dict = {
     successBody: "Cảm ơn bạn — chúng tôi sẽ phản hồi trong vòng 48 giờ.",
     errorGeneric: "Có lỗi xảy ra. Vui lòng thử lại.",
     altTitle: "Bạn thích email hơn?",
-    altBody: "Liên hệ trực tiếp tại hello@focusdragon.app.",
+    altBody: "Liên hệ trực tiếp tại focusdragon.app/contact.",
   },
   privacy: {
     metaTitle: "Chính sách quyền riêng tư — FocusDragon",
@@ -232,7 +232,7 @@ export const vi: Dict = {
       { title: "Phân tích tự nguyện", body: "Bạn có thể tùy chọn bật thống kê PostHog ẩn danh trong ứng dụng Mac. Mặc định tắt. Nếu bật, chúng tôi nhận các sự kiện tổng hợp (\"một lần chặn đã bắt đầu\") và không bao giờ nhận nội dung danh sách chặn, tên trang, tên ứng dụng, văn bản trang, URL hay bất kỳ thông tin cá nhân nào." },
       { title: "Báo cáo sự cố", body: "Nếu FocusDragon bị treo, báo cáo được gửi tới Sentry với mọi ngữ cảnh cá nhân đã bị lược bỏ. Bạn có thể tắt báo cáo sự cố bất cứ lúc nào trong Cài đặt → Quyền riêng tư." },
       { title: "Email", body: "Nếu bạn liên hệ qua biểu mẫu trang web hoặc email, chúng tôi giữ tin nhắn đủ lâu để trả lời. Chúng tôi không thêm bạn vào danh sách tiếp thị nào." },
-      { title: "Liên hệ", body: "Có câu hỏi về quyền riêng tư? Gửi email tới hello@focusdragon.app, chúng tôi sẽ trả lời trong vài ngày." },
+      { title: "Liên hệ", body: "Có câu hỏi về quyền riêng tư? Gửi email tới focusdragon.app/contact, chúng tôi sẽ trả lời trong vài ngày." },
     ],
   },
   upgrade: {

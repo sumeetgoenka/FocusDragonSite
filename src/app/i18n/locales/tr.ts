@@ -215,7 +215,7 @@ export const tr: Dict = {
     successBody: "Teşekkürler — 48 saat içinde dönüş yapacağız.",
     errorGeneric: "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
     altTitle: "E-postayı mı tercih edersiniz?",
-    altBody: "Bize doğrudan hello@focusdragon.app adresinden ulaşın.",
+    altBody: "Bize doğrudan focusdragon.app/contact adresinden ulaşın.",
   },
   privacy: {
     metaTitle: "Gizlilik Politikası — FocusDragon",
@@ -232,7 +232,7 @@ export const tr: Dict = {
       { title: "Opsiyonel analitik", body: "İsteğe bağlı olarak Mac uygulamasında anonim PostHog telemetrisine katılabilirsiniz. Varsayılan olarak kapalı. Etkinleştirilirse toplu olaylar (\"bir engel başladı\") alırız ve asla engel listesi içeriği, site adları, uygulama adları, sayfa metni, URL'ler veya kişisel bilgi almayız." },
       { title: "Çökme raporları", body: "FocusDragon çökerse, rapor tüm kişisel bağlam çıkarılarak Sentry'ye gönderilir. Çökme raporlamasını istediğiniz zaman Ayarlar → Gizlilik'ten kapatabilirsiniz." },
       { title: "E-posta", body: "Bize web sitesi formu veya e-posta yoluyla ulaşırsanız, mesajınızı yalnızca yanıtlayacak kadar saklarız. Sizi herhangi bir pazarlama listesine eklemiyoruz." },
-      { title: "İletişim", body: "Gizlilik hakkında sorularınız mı var? hello@focusdragon.app adresine yazın, birkaç gün içinde yanıtlayalım." },
+      { title: "İletişim", body: "Gizlilik hakkında sorularınız mı var? focusdragon.app/contact adresine yazın, birkaç gün içinde yanıtlayalım." },
     ],
   },
   upgrade: {

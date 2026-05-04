@@ -82,12 +82,12 @@ export default function FaqGrid({ faqs, categories }: FaqGridProps) {
           <div className="text-lg">No FAQs match &ldquo;{query}&rdquo;.</div>
           <div className="text-sm mt-2">
             Try a different keyword or{" "}
-            <a
-              href="mailto:anay.goenka@icloud.com"
+            <Link
+              href="/contact"
               className="text-[var(--accent)] hover:underline"
             >
-              email us
-            </a>
+              contact us
+            </Link>
             .
           </div>
         </div>

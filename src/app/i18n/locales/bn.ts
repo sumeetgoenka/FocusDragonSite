@@ -215,7 +215,7 @@ export const bn: Dict = {
     successBody: "ধন্যবাদ — আমরা ৪৮ ঘণ্টার মধ্যে উত্তর দেব।",
     errorGeneric: "কিছু ভুল হয়েছে। আবার চেষ্টা করুন।",
     altTitle: "ইমেইল পছন্দ?",
-    altBody: "সরাসরি hello@focusdragon.app-এ লিখুন।",
+    altBody: "সরাসরি focusdragon.app/contact-এ লিখুন।",
   },
   privacy: {
     metaTitle: "Privacy Policy — FocusDragon",
@@ -232,7 +232,7 @@ export const bn: Dict = {
       { title: "ঐচ্ছিক analytics", body: "Mac app-এ আপনি ঐচ্ছিকভাবে অজ্ঞাতনামা PostHog telemetry চালু করতে পারেন। Default-এ বন্ধ। চালু থাকলে আমরা সমষ্টিগত ইভেন্ট পাই (\"a block started\") — কখনোই block-list-এর বিষয়বস্তু, সাইটের নাম, অ্যাপের নাম, page text, URLs বা ব্যক্তিগত তথ্য নয়।" },
       { title: "Crash reports", body: "FocusDragon ক্র্যাশ হলে রিপোর্ট Sentry-তে পাঠানো হয়, সমস্ত ব্যক্তিগত context সরিয়ে। যেকোনো সময় Settings → Privacy-তে crash reporting বন্ধ করতে পারেন।" },
       { title: "ইমেইল", body: "ওয়েবসাইট ফর্ম বা ইমেইলে যোগাযোগ করলে, উত্তর দেওয়ার মতো সময় পর্যন্ত আপনার বার্তা রাখি। কোনো marketing list-এ যোগ করি না।" },
-      { title: "যোগাযোগ", body: "Privacy নিয়ে প্রশ্ন? hello@focusdragon.app-এ ইমেইল করুন — কয়েক দিনের মধ্যে উত্তর দেব।" },
+      { title: "যোগাযোগ", body: "Privacy নিয়ে প্রশ্ন? focusdragon.app/contact-এ ইমেইল করুন — কয়েক দিনের মধ্যে উত্তর দেব।" },
     ],
   },
   upgrade: {

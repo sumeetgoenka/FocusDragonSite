@@ -215,7 +215,7 @@ export const ja: Dict = {
     successBody: "ありがとうございます — 48 時間以内にお返事します。",
     errorGeneric: "問題が発生しました。もう一度お試しください。",
     altTitle: "メールの方がよろしいですか?",
-    altBody: "hello@focusdragon.app まで直接ご連絡ください。",
+    altBody: "focusdragon.app/contact まで直接ご連絡ください。",
   },
   privacy: {
     metaTitle: "プライバシーポリシー — FocusDragon",
@@ -232,7 +232,7 @@ export const ja: Dict = {
       { title: "オプトインの分析", body: "Mac アプリ内で匿名の PostHog 統計に任意で参加できます。デフォルトはオフ。有効にした場合、私たちは集計イベント(「ブロックが開始された」)だけを受け取り、ブロックリストの内容、サイト名、アプリ名、ページテキスト、URL、個人情報は一切受け取りません。" },
       { title: "クラッシュレポート", body: "FocusDragon がクラッシュした場合、個人情報をすべて取り除いたレポートが Sentry に送信されます。「設定 → プライバシー」でいつでもクラッシュレポートをオフにできます。" },
       { title: "メール", body: "ウェブサイトのフォームやメールでご連絡いただいた場合、返信に必要な期間だけメッセージを保管します。マーケティングリストに追加することはありません。" },
-      { title: "お問い合わせ", body: "プライバシーに関するご質問は hello@focusdragon.app まで。数日以内にお返事します。" },
+      { title: "お問い合わせ", body: "プライバシーに関するご質問は focusdragon.app/contact まで。数日以内にお返事します。" },
     ],
   },
   upgrade: {

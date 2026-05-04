@@ -215,7 +215,7 @@ export const nl: Dict = {
     successBody: "Dank — we komen binnen 48 uur bij je terug.",
     errorGeneric: "Er ging iets mis. Probeer opnieuw.",
     altTitle: "Liever per mail?",
-    altBody: "Direct te bereiken op hello@focusdragon.app.",
+    altBody: "Direct te bereiken op focusdragon.app/contact.",
   },
   privacy: {
     metaTitle: "Privacybeleid — FocusDragon",
@@ -232,7 +232,7 @@ export const nl: Dict = {
       { title: "Optionele analytics", body: "Je kunt optioneel anonieme PostHog-telemetrie aanzetten in de Mac-app. Standaard uit. Bij aan ontvangen we geaggregeerde events („een blok is gestart\") en nooit de inhoud van je bloklijst, sitenamen, app-namen, paginatekst, URLs of persoonlijke gegevens." },
       { title: "Crash-rapporten", body: "Als FocusDragon crasht, gaat het rapport naar Sentry zonder persoonlijke context. Je kunt crash-rapporten in Instellingen → Privacy uitzetten wanneer je wilt." },
       { title: "E-mail", body: "Mail je ons via het webformulier of rechtstreeks, dan bewaren we je bericht net lang genoeg om te antwoorden. We zetten je niet op een marketinglijst." },
-      { title: "Contact", body: "Vragen over privacy? Mail hello@focusdragon.app, we reageren binnen een paar dagen." },
+      { title: "Contact", body: "Vragen over privacy? Mail focusdragon.app/contact, we reageren binnen een paar dagen." },
     ],
   },
   upgrade: {

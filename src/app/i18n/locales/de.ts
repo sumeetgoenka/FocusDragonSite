@@ -215,7 +215,7 @@ export const de: Dict = {
     successBody: "Danke – wir melden uns innerhalb von 48 Stunden.",
     errorGeneric: "Etwas ist schiefgelaufen. Bitte erneut versuchen.",
     altTitle: "Lieber per E-Mail?",
-    altBody: "Direkt erreichbar unter hello@focusdragon.app.",
+    altBody: "Direkt erreichbar unter focusdragon.app/contact.",
   },
   privacy: {
     metaTitle: "Datenschutzerklärung – FocusDragon",
@@ -232,7 +232,7 @@ export const de: Dict = {
       { title: "Optionale Analytics", body: "Du kannst optional anonyme PostHog-Telemetrie in der Mac-App aktivieren. Standardmäßig aus. Wenn aktiv, sehen wir aggregierte Events („eine Sperre hat begonnen\") und nie Sperrlisten-Inhalte, Seitennamen, App-Namen, Seitentext, URLs oder persönliche Informationen." },
       { title: "Crash-Reports", body: "Wenn FocusDragon abstürzt, geht der Report ohne persönlichen Kontext an Sentry. Du kannst Crash-Reporting in Einstellungen → Datenschutz jederzeit ausschalten." },
       { title: "E-Mail", body: "Wenn du uns über das Webformular oder per E-Mail schreibst, behalten wir die Nachricht nur so lange, bis wir antworten. Wir tragen dich nicht in Marketing-Listen ein." },
-      { title: "Kontakt", body: "Fragen zum Datenschutz? Schreib an hello@focusdragon.app, wir antworten in ein paar Tagen." },
+      { title: "Kontakt", body: "Fragen zum Datenschutz? Schreib an focusdragon.app/contact, wir antworten in ein paar Tagen." },
     ],
   },
   upgrade: {

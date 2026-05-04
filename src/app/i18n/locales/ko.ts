@@ -215,7 +215,7 @@ export const ko: Dict = {
     successBody: "감사합니다 — 48시간 안에 답장 드릴게요.",
     errorGeneric: "문제가 발생했어요. 다시 시도해 주세요.",
     altTitle: "이메일이 더 편하신가요?",
-    altBody: "hello@focusdragon.app으로 직접 연락 주세요.",
+    altBody: "focusdragon.app/contact으로 직접 연락 주세요.",
   },
   privacy: {
     metaTitle: "개인정보 처리방침 — FocusDragon",
@@ -232,7 +232,7 @@ export const ko: Dict = {
       { title: "선택적 분석", body: "Mac 앱 내에서 익명 PostHog 통계에 선택적으로 참여할 수 있습니다. 기본값 꺼짐. 켜진 경우, 우리는 집계 이벤트(「차단이 시작됨」)만 받으며, 차단 목록 내용·사이트 이름·앱 이름·페이지 텍스트·URL·개인정보는 일절 받지 않습니다." },
       { title: "크래시 리포트", body: "FocusDragon이 충돌하면, 모든 개인 컨텍스트가 제거된 리포트가 Sentry로 전송됩니다. 「설정 → 개인정보」에서 언제든 크래시 리포트를 끌 수 있습니다." },
       { title: "이메일", body: "웹사이트 폼이나 이메일로 연락 주신 경우, 답장에 필요한 동안만 메시지를 보관합니다. 마케팅 리스트에 추가하지 않습니다." },
-      { title: "문의", body: "개인정보 관련 질문이 있으세요? hello@focusdragon.app으로 메일 주시면 며칠 안에 답장 드릴게요." },
+      { title: "문의", body: "개인정보 관련 질문이 있으세요? focusdragon.app/contact으로 메일 주시면 며칠 안에 답장 드릴게요." },
     ],
   },
   upgrade: {

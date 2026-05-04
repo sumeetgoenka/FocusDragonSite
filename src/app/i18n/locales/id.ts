@@ -215,7 +215,7 @@ export const id: Dict = {
     successBody: "Terima kasih — kami akan membalas dalam 48 jam.",
     errorGeneric: "Terjadi kesalahan. Silakan coba lagi.",
     altTitle: "Lebih suka email?",
-    altBody: "Hubungi langsung di hello@focusdragon.app.",
+    altBody: "Hubungi langsung di focusdragon.app/contact.",
   },
   privacy: {
     metaTitle: "Privacy Policy — FocusDragon",
@@ -232,7 +232,7 @@ export const id: Dict = {
       { title: "Analytics opsional", body: "Di aplikasi Mac, Anda dapat secara opsional mengaktifkan telemetry PostHog anonim. Mati secara default. Jika diaktifkan, kami menerima event agregat (\"a block started\") dan tidak pernah isi block list, nama situs, nama aplikasi, teks halaman, URL, atau informasi pribadi apa pun." },
       { title: "Crash report", body: "Jika FocusDragon crash, laporan dikirim ke Sentry dengan semua konteks pribadi dihapus. Anda dapat menonaktifkan crash reporting di Settings → Privacy kapan saja." },
       { title: "Email", body: "Jika Anda menghubungi kami via formulir website atau email, kami menyimpan pesan Anda hanya cukup lama untuk membalas. Kami tidak menambahkan Anda ke daftar marketing apa pun." },
-      { title: "Kontak", body: "Pertanyaan tentang privasi? Email hello@focusdragon.app dan kami akan merespons dalam beberapa hari." },
+      { title: "Kontak", body: "Pertanyaan tentang privasi? Email focusdragon.app/contact dan kami akan merespons dalam beberapa hari." },
     ],
   },
   upgrade: {

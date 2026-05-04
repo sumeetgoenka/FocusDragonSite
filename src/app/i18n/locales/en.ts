@@ -215,7 +215,7 @@ export const en: Dict = {
     successBody: "Thanks — we'll get back to you within 48 hours.",
     errorGeneric: "Something went wrong. Please try again.",
     altTitle: "Prefer email?",
-    altBody: "Reach us directly at hello@focusdragon.app.",
+    altBody: "Reach us directly at focusdragon.app/contact.",
   },
   privacy: {
     metaTitle: "Privacy Policy — FocusDragon",
@@ -232,7 +232,7 @@ export const en: Dict = {
       { title: "Optional analytics", body: "You can optionally opt into anonymous PostHog telemetry in the Mac app. Off by default. If enabled, we receive aggregate events (\"a block started\") and never block-list contents, site names, app names, page text, URLs, or any personal information." },
       { title: "Crash reports", body: "If FocusDragon crashes, the report is sent to Sentry with all personal context stripped. You can disable crash reporting in Settings → Privacy at any time." },
       { title: "Email", body: "If you contact us via the website form or email, we keep your message just long enough to reply. We don't add you to any marketing list." },
-      { title: "Contact", body: "Questions about privacy? Email hello@focusdragon.app and we'll respond within a couple of days." },
+      { title: "Contact", body: "Questions about privacy? Email focusdragon.app/contact and we'll respond within a couple of days." },
     ],
   },
   upgrade: {

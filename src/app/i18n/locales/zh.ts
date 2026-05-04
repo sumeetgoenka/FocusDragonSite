@@ -215,7 +215,7 @@ export const zh: Dict = {
     successBody: "谢谢 — 我们会在 48 小时内回复。",
     errorGeneric: "出了点问题,请重试。",
     altTitle: "更喜欢邮件?",
-    altBody: "直接联系 hello@focusdragon.app。",
+    altBody: "直接联系 focusdragon.app/contact。",
   },
   privacy: {
     metaTitle: "隐私政策 — FocusDragon",
@@ -232,7 +232,7 @@ export const zh: Dict = {
       { title: "可选分析", body: "你可以在 Mac 应用中选择匿名加入 PostHog 统计。默认关闭。开启后,我们只收到聚合事件(「拦截已开启」),绝不会收到拦截列表内容、网站名、应用名、页面文本、URL 或任何个人信息。" },
       { title: "崩溃报告", body: "如果 FocusDragon 崩溃,报告会被发送到 Sentry,所有个人上下文都已剥离。你可以随时在「设置 → 隐私」中关闭崩溃报告。" },
       { title: "邮件", body: "如果你通过网站表单或邮件联系我们,我们只保留你的消息到回复完为止。我们不会把你加进任何营销列表。" },
-      { title: "联系", body: "对隐私有疑问?发邮件到 hello@focusdragon.app,我们会在几天内回复。" },
+      { title: "联系", body: "对隐私有疑问?发邮件到 focusdragon.app/contact,我们会在几天内回复。" },
     ],
   },
   upgrade: {

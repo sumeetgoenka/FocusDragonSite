@@ -215,7 +215,7 @@ export const pl: Dict = {
     successBody: "Dzięki — odezwiemy się w ciągu 48 godzin.",
     errorGeneric: "Coś poszło nie tak. Spróbuj ponownie.",
     altTitle: "Wolisz e-mail?",
-    altBody: "Napisz wprost na hello@focusdragon.app.",
+    altBody: "Napisz wprost na focusdragon.app/contact.",
   },
   privacy: {
     metaTitle: "Polityka prywatności — FocusDragon",
@@ -232,7 +232,7 @@ export const pl: Dict = {
       { title: "Opcjonalna analityka", body: "Możesz dobrowolnie włączyć anonimową telemetrię PostHog w aplikacji Mac. Domyślnie wyłączona. Po włączeniu otrzymujemy zdarzenia zagregowane (\"blokada się zaczęła\") i nigdy zawartości list, nazw stron, nazw aplikacji, tekstu strony, URL-i ani danych osobowych." },
       { title: "Raporty błędów", body: "Jeśli FocusDragon się wywali, raport leci do Sentry z wyciętym kontekstem osobowym. Raporty błędów możesz wyłączyć w Ustawienia → Prywatność w dowolnym momencie." },
       { title: "E-mail", body: "Jeśli napiszesz przez formularz lub mailowo, trzymamy twoją wiadomość tylko tyle, ile trzeba na odpowiedź. Nie dopisujemy cię do żadnej listy marketingowej." },
-      { title: "Kontakt", body: "Pytania o prywatność? Napisz na hello@focusdragon.app, odpowiemy w ciągu paru dni." },
+      { title: "Kontakt", body: "Pytania o prywatność? Napisz na focusdragon.app/contact, odpowiemy w ciągu paru dni." },
     ],
   },
   upgrade: {

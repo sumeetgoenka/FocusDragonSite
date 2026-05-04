@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const TOTAL_SECONDS = 60;
@@ -159,12 +160,12 @@ export default function UninstallGuide() {
             </div>
             <div className="text-xs text-[var(--muted)]">
               If something broke, we&apos;d rather fix it than lose you.{" "}
-              <a
-                href="mailto:anay.goenka@icloud.com"
+              <Link
+                href="/contact"
                 className="text-[var(--accent)] hover:underline"
               >
-                Email us
-              </a>
+                Contact us
+              </Link>
               .
             </div>
           </div>
